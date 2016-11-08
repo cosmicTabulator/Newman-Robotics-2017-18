@@ -29,12 +29,7 @@ public class OmniAuto extends LinearOpMode{
 
         while(opModeIsActive()){
 
-
-            gyro.getHeading();
-
-            if(touch.isPressed()){
-
-            }
+            
 
             robot.waitForTick(20);
 
