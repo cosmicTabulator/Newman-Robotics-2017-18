@@ -48,22 +48,22 @@ public class OmniTeleOp extends LinearOpMode {
 
             //If the distance from the center to the joystick is greater than one
             // shrink the relative x and y sizes so that the distance is one
-            r = Math.sqrt((y*y) + (x*x));
-            if (r > 1){
-                theta = Math.atan(y / x);
-                y = Math.sin(theta);
-                x = Math.cos(theta);
-            }
+//            r = Math.sqrt((y*y) + (x*x));
+//            if (r > 1){
+//                theta = Math.atan(y / x);
+//                y = Math.sin(theta);
+//                x = Math.cos(theta);
+//            }
 
             //If the A button is being pressed, run the arm, otherwise stop it
             if(gamepad1.a){arm = 1;}
             else{arm = 0;}
 
             //Add the x and y values to get motor powers
-            fright = x + y - rot;
-            bright = -x + y - rot;
-            fleft = x - y - rot;
-            bleft = -x - y - rot;
+            fright = -x + y - rot;
+            bright = x + y - rot;
+            fleft = - x - y - rot;
+            bleft = x - y - rot;
 
             //Display the motor powers
             telemetry.addData("Front Right", fright);
@@ -79,7 +79,7 @@ public class OmniTeleOp extends LinearOpMode {
             robot.BRight.setPower(bright);
             robot.FLeft.setPower(fleft);
             robot.BLeft.setPower(bleft);
-            robot.Arm.setPower(arm);
+            //robot.Arm.setPower(arm);
 
             //Wait until current cycle has finished
             robot.waitForTick(20);
