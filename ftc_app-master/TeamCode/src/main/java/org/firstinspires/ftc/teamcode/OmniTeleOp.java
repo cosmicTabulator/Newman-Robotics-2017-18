@@ -48,12 +48,14 @@ public class OmniTeleOp extends LinearOpMode {
 
             //If the distance from the center to the joystick is greater than one
             // shrink the relative x and y sizes so that the distance is one
-//            r = Math.sqrt((y*y) + (x*x));
-//            if (r > 1){
-//                theta = Math.atan(y / x);
-//                y = Math.sin(theta);
-//                x = Math.cos(theta);
-//            }
+            r = Math.sqrt((y*y) + (x*x));
+            if (r > 1){
+                theta = Math.atan(y / x);
+                if (x < 0 && y < 0){theta = theta-Math.PI;}
+                if (x < 0 && y > 0){theta = theta+Math.PI;}
+                y = Math.sin(theta);
+                x = Math.cos(theta);
+            }
 
             //If the A button is being pressed, run the arm, otherwise stop it
             if(gamepad1.a){arm = 1;}
