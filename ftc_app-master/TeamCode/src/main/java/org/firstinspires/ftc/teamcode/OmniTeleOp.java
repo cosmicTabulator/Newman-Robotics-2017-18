@@ -36,6 +36,7 @@ public class OmniTeleOp extends LinearOpMode {
         robot.init(hardwareMap);
 
         waitForStart();
+        double totalrotval = 0
 
         //While the OpMode is running
         while(opModeIsActive()){
@@ -48,20 +49,18 @@ public class OmniTeleOp extends LinearOpMode {
 
             //If the distance from the center to the joystick is greater than one
             // shrink the relative x and y sizes so that the distance is one
+            totalrotval = totalrotval + rot;
             r = Math.sqrt((y*y) + (x*x));
             if (r > 1){
                 theta = Math.atan(y / x);
                 if (x < 0 && y < 0){theta = theta-Math.PI;}
                 if (x < 0 && y > 0){theta = theta+Math.PI;}
-                y = Math.sin(theta);
-                x = Math.cos(theta);
+                //i added these values here to change our reference direction
+                y = Math.sin(theta - totalrotval * Math.PI/2);
+                x = Math.cos(theta - totalrotval * Math.PI/2);
             }
 
-            //If the A button is being pressed, run the arm, otherwise stop it
-            if(gamepad1.a){arm = 1;}
-            else{arm = 0;}
 
-            //Add the x and y values to get motor powers
             fright = -x + y - rot;
             bright = x + y - rot;
             fleft = - x - y - rot;
@@ -93,3 +92,4 @@ public class OmniTeleOp extends LinearOpMode {
     }
 
 }
+
