@@ -115,7 +115,7 @@ public class OmniAuto extends LinearOpMode{
         robot.BLeft.setPower(0);
     }
 
-    void moveT(double theta, double r, long t) throws InterruptedException{
+    void moveT(double theta, double speed, long time) throws InterruptedException{
 
         double fright;
         double bright;
@@ -125,8 +125,8 @@ public class OmniAuto extends LinearOpMode{
         //calculate the x and y powers based on the angle of motion
         double y = Math.sin(theta);
         double x = Math.cos(theta);
-        x = r*x;
-        y = r*y;
+        x = speed*x;
+        y = speed*y;
 
         //calculate the motor powers
         fright = -x + y;
@@ -148,7 +148,7 @@ public class OmniAuto extends LinearOpMode{
         robot.BLeft.setPower(bleft);
 
         //wait for the desired time
-        Thread.sleep(t);
+        Thread.sleep(time);
 
         //stop the motors
         robot.FRight.setPower(0);

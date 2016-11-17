@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -14,6 +15,7 @@ import java.lang.Math;
 public class OmniTeleOp extends LinearOpMode {
 
     OmniHardware robot = new OmniHardware();
+    //ModernRoboticsI2cGyro gyro = null;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -34,9 +36,10 @@ public class OmniTeleOp extends LinearOpMode {
 
         //Initialize the robot
         robot.init(hardwareMap);
+        //gyro = (ModernRoboticsI2cGyro)hardwareMap.gyroSensor.get("gyro");
 
         waitForStart();
-        double totalrotval = 0
+        double totalrotval = 0;
 
         //While the OpMode is running
         while(opModeIsActive()){
@@ -49,15 +52,15 @@ public class OmniTeleOp extends LinearOpMode {
 
             //If the distance from the center to the joystick is greater than one
             // shrink the relative x and y sizes so that the distance is one
-            totalrotval = totalrotval + rot;
+            //totalrotval = gyro.getHeading();
             r = Math.sqrt((y*y) + (x*x));
             if (r > 1){
                 theta = Math.atan(y / x);
                 if (x < 0 && y < 0){theta = theta-Math.PI;}
                 if (x < 0 && y > 0){theta = theta+Math.PI;}
                 //i added these values here to change our reference direction
-                y = Math.sin(theta - totalrotval * Math.PI/2);
-                x = Math.cos(theta - totalrotval * Math.PI/2);
+                y = Math.sin(theta + (totalrotval * Math.PI/180));
+                x = Math.cos(theta + (totalrotval * Math.PI/180));
             }
 
 
@@ -71,7 +74,7 @@ public class OmniTeleOp extends LinearOpMode {
             telemetry.addData("Back Right", bright);
             telemetry.addData("Front Left", fleft);
             telemetry.addData("Back Left", bleft);
-            telemetry.addData("Arm", arm);
+            //telemetry.addData("Arm", arm);
             telemetry.update();
 
 
