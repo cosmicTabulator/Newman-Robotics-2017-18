@@ -33,6 +33,7 @@ public class OmniTeleOp extends LinearOpMode {
         double r;
         double rot;
         double theta;
+        double r2 = Math.sqrt(2);
 
         //Initialize the robot
         robot.init(hardwareMap);
@@ -46,28 +47,32 @@ public class OmniTeleOp extends LinearOpMode {
 
             //Gets x and y values from the joystick
 
-            y = -gamepad1.left_stick_y;
-            x = gamepad1.left_stick_x;
-            rot = gamepad1.right_stick_x;
+            y = -gamepad1.left_stick_y/20;
+            x = gamepad1.left_stick_x/20;
+            //rot = gamepad1.right_stick_x;
+            rot = 0;
 
             //If the distance from the center to the joystick is greater than one
             // shrink the relative x and y sizes so that the distance is one
             //totalrotval = gyro.getHeading();
             r = Math.sqrt((y*y) + (x*x));
-            if (r > 1){
+            if (r > 1) {
                 theta = Math.atan(y / x);
-                if (x < 0 && y < 0){theta = theta-Math.PI;}
-                if (x < 0 && y > 0){theta = theta+Math.PI;}
+                if (x < 0 && y < 0) {
+                    theta = theta - Math.PI;
+                }
+                if (x < 0 && y > 0) {
+                    theta = theta + Math.PI;
+                }
                 //i added these values here to change our reference direction
-                y = Math.sin(theta + (totalrotval * Math.PI/180));
-                x = Math.cos(theta + (totalrotval * Math.PI/180));
+                y = Math.sin(theta + (totalrotval * Math.PI / 180));
+                x = Math.cos(theta + (totalrotval * Math.PI / 180));
             }
 
-
-            fright = -x + y - rot;
-            bright = x + y - rot;
-            fleft = - x - y - rot;
-            bleft = x - y - rot;
+            fright = (-x + y - rot)/r2;
+            bright = (x + y - rot)/r2;
+            fleft = (-x - y - rot)/r2;
+            bleft = (x - y - rot)/r2;
 
             //Display the motor powers
             telemetry.addData("Front Right", fright);
@@ -86,7 +91,7 @@ public class OmniTeleOp extends LinearOpMode {
             //robot.Arm.setPower(arm);
 
             //Wait until current cycle has finished
-            robot.waitForTick(20);
+            //robot.waitForTick(20);
 
             idle();
 
