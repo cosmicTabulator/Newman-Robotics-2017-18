@@ -14,7 +14,8 @@ public class OmniHardware {
     public DcMotor BRight = null;
     public DcMotor FLeft = null;
     public DcMotor BLeft = null;
-    //public DcMotor Arm = null;
+    public DcMotor Arm = null;
+    public DcMotor Sweeper = null;
 
     HardwareMap hwMap = null;
     private ElapsedTime period = new ElapsedTime();
@@ -28,20 +29,24 @@ public class OmniHardware {
         FLeft = hwMap.dcMotor.get("front left motor");
         BLeft = hwMap.dcMotor.get("back left motor");
 
-        //Arm = hwMap.dcMotor.get("arm motor");
+        Arm = hwMap.dcMotor.get("arm motor");
+        Sweeper = hwMap.dcMotor.get("sweeper motor");
 
         FRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         BRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         FLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         BLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        //Arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        Arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        Sweeper.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
 
 
         FRight.setPower(0);
         BRight.setPower(0);
         FLeft.setPower(0);
         BLeft.setPower(0);
-        //Arm.setPower(0);
+        Arm.setPower(0);
+        Sweeper.setPower(0);
 
     }
 

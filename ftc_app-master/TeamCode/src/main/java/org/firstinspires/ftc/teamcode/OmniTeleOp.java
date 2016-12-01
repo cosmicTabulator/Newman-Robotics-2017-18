@@ -27,6 +27,7 @@ public class OmniTeleOp extends LinearOpMode {
         double bleft;
 
         double arm;
+        double sweeper;
 
         double y;
         double x;
@@ -69,6 +70,23 @@ public class OmniTeleOp extends LinearOpMode {
                 x = Math.cos(theta + (totalrotval * Math.PI / 180));
             }
 
+            if(gamepad1.right_bumper){
+                arm = 0.2;
+            }
+            if(gamepad1.right_trigger > 0.1){
+                arm = 0.4;
+            }
+            else{
+                arm =0;
+            }
+
+            if(gamepad1.left_bumper){
+                sweeper = 1;
+            }
+            else{
+                sweeper = 0;
+            }
+
             fright = (-x + y - rot)/r2;
             bright = (x + y - rot)/r2;
             fleft = (-x - y - rot)/r2;
@@ -79,7 +97,7 @@ public class OmniTeleOp extends LinearOpMode {
             telemetry.addData("Back Right", bright);
             telemetry.addData("Front Left", fleft);
             telemetry.addData("Back Left", bleft);
-            //telemetry.addData("Arm", arm);
+            telemetry.addData("Arm", arm);
             telemetry.update();
 
 
@@ -88,7 +106,8 @@ public class OmniTeleOp extends LinearOpMode {
             robot.BRight.setPower(bright);
             robot.FLeft.setPower(fleft);
             robot.BLeft.setPower(bleft);
-            //robot.Arm.setPower(arm);
+            robot.Arm.setPower(arm);
+            robot.Sweeper.setPower(sweeper);
 
             //Wait until current cycle has finished
             //robot.waitForTick(20);
