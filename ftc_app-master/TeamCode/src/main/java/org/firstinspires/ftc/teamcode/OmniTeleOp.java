@@ -48,10 +48,9 @@ public class OmniTeleOp extends LinearOpMode {
 
             //Gets x and y values from the joystick
 
-            y = -gamepad1.left_stick_y/20;
-            x = gamepad1.left_stick_x/20;
-            //rot = gamepad1.right_stick_x;
-            rot = 0;
+            y = -gamepad1.left_stick_y;
+            x = gamepad1.left_stick_x;
+            rot = gamepad1.right_stick_x;
 
             //If the distance from the center to the joystick is greater than one
             // shrink the relative x and y sizes so that the distance is one
@@ -71,13 +70,13 @@ public class OmniTeleOp extends LinearOpMode {
             }
 
             if(gamepad1.right_bumper){
-                arm = 0.2;
+                arm = -0.6;
             }
-            if(gamepad1.right_trigger > 0.1){
-                arm = 0.4;
+            else if(gamepad1.right_trigger > 0.1){
+                arm = -0.8;
             }
             else{
-                arm =0;
+                arm = 0;
             }
 
             if(gamepad1.left_bumper){
@@ -98,6 +97,7 @@ public class OmniTeleOp extends LinearOpMode {
             telemetry.addData("Front Left", fleft);
             telemetry.addData("Back Left", bleft);
             telemetry.addData("Arm", arm);
+            telemetry.addData("Sweeper", sweeper);
             telemetry.update();
 
 
