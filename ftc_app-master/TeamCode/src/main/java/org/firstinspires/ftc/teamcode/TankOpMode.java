@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class TankOpMode extends LinearOpMode {
 
-    TestHardware robot = new TankHardware();
+    TankHardware robot = new TankHardware();
 
 
     @Override
