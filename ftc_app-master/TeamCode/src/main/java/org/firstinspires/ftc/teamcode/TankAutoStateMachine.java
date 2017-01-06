@@ -2,16 +2,23 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 /**
  * Created by graha on 1/5/2017.
  */
 
-@Autonomous(name = "TankAutoDriveForward", group = "Tank")
+@Autonomous(name = "TankAutoStateMachine", group = "Tank")
 
-public class TankAutoDriveForward extends LinearOpMode {
+public class TankAutoStateMachine extends LinearOpMode {
 
     TankHardware robot = new TankHardware();
+
+    enum State {
+        INIT, START, FINISH
+    }
+
+    State state;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -22,7 +29,20 @@ public class TankAutoDriveForward extends LinearOpMode {
 
         while(opModeIsActive()) {
 
-            //do stuff
+            switch(state) {
+                case INIT:
+                    robot.right.setPower(0);
+                    robot.left.setPower(0);
+                    //robot.right.setMode(DcMotor.RunMode.RESET_ENCODERS);
+                    state = State.START;
+                    break;
+                case START:
+                    //do something
+                    if(true){state = State.FINISH;}
+                    break;
+                case FINISH:
+                    break;
+            }
 
         }
 
