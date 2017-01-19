@@ -9,7 +9,6 @@ import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cColorSensor;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
-
 /**
  * Created by graha on 1/5/2017.
  */
@@ -31,7 +30,15 @@ public class TankAutoLineAuto extends LinearOpMode {
         INIT, START, FINISH, DRIVEtoBALL, PARK, ALIGN, DRIVEtoWALL, TURNright, TURNleft, DRIVEtoLINE, DRIVEtoBEACON
     }
 
+    enum Side {
+        NULL,RED, BLUE
+    }
+
     State state = State.INIT;
+    State nextState = State.INIT;
+
+    Side right = Side.NULL;
+    Side left = Side.NULL;
 
     double rightDist;
     double leftDist;
@@ -47,6 +54,9 @@ public class TankAutoLineAuto extends LinearOpMode {
     int step = 0;
 
     int base;
+
+    long start;
+    long current;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -70,6 +80,8 @@ public class TankAutoLineAuto extends LinearOpMode {
 
         while(opModeIsActive()) {
 
+
+            //Figure out if we want to do for Events
             switch(state) {
                 case INIT:
                     robot.right.setPower(0);
@@ -85,52 +97,68 @@ public class TankAutoLineAuto extends LinearOpMode {
                     break;
                 case START:
                     //do something
-                    gotoStep();
+                    state = State.DRIVEtoBALL;
                     break;
                 case DRIVEtoBALL:
                     robot.right.setPower(0.5);
                     robot.left.setPower(0.5);
-                    if(touch.isPressed()){gotoStep();}
+                    if(touch.isPressed()){state = State.ALIGN;}
                     break;
                 case PARK:
+                    startClock();
                     robot.right.setPower(0);
                     robot.left.setPower(0);
-                    gotoStep();
+                    if(checkClock(1000)) {state = nextState;}
                     break;
                 case ALIGN:
                     rightDist = sonarR.getDistance(DistanceUnit.CM);
                     leftDist = sonarL.getDistance(DistanceUnit.CM);
-                    if(leftDist + 1 > rightDist && leftDist - 1 < rightDist) {gotoStep(); startHeading = gyro.getHeading();}
+                    if(leftDist + 1 > rightDist && leftDist - 1 < rightDist) {
+                        state = State.TURNleft;
+                        nextState = State.DRIVEtoWALL;
+                        startHeading = gyro.getHeading();
+                    }
                     break;
                 case TURNleft:
                     robot.right.setPower(1);
                     robot.left.setPower(-1);
                     heading = gyro.getIntegratedZValue();
-                    if(startHeading - heading > -90){gotoStep();}
+                    if(startHeading - heading > -90){state = nextState;}
                     break;
                 case TURNright:
                     robot.right.setPower(-1);
                     robot.left.setPower(1);
                     heading = gyro.getIntegratedZValue();
-                    if(startHeading - heading < 90){gotoStep();}
+                    if(startHeading - heading < 90){state = nextState;}
                     break;
                 case DRIVEtoWALL:
                     robot.right.setPower(1);
                     robot.left.setPower(1);
                     leftDist = sonarL.getDistance(DistanceUnit.CM);
-                    if(leftDist < 15){gotoStep();}
+                    if(leftDist < 15){state = State.TURNright; nextState = State.DRIVEtoLINE;}
                     break;
                 case DRIVEtoLINE:
                     robot.right.setPower(0.5);
                     robot.left.setPower(0.5);
-                    if(color3.alpha() > 20){gotoStep();}
+                    color3.enableLed(true);
+                    if(color3.alpha() > 1){
+                        state = State.TURNleft;
+                        nextState = State.DRIVEtoBEACON;
+                        color3.enableLed(false);
+                    }
                     break;
                 case DRIVEtoBEACON:
                     robot.right.setPower(0.5);
                     robot.left.setPower(0.5);
-                    red1 = color1.red();
-                    red2 = color2.red();
-                    if(red1 > base) {
+                    blue1 = color1.blue();
+                    blue2 = color2.blue();
+                    if(blue1 > 3) {
+                        right = Side.BLUE;
+                        left = Side.RED;
+                    }
+                    if(blue2 > 3){
+                        right = Side.RED;
+                        left = Side.BLUE;
                     }
                     break;
                 case FINISH:
@@ -184,6 +212,15 @@ public class TankAutoLineAuto extends LinearOpMode {
         step++;
         return;
 
+    }
+
+    void startClock(){
+        start = System.currentTimeMillis();
+    }
+
+    boolean checkClock(long target){
+        current = System.currentTimeMillis();
+        return (current - start > target);
     }
 
 //    void moveD(long distance,float power){

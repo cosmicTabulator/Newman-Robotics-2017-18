@@ -30,7 +30,7 @@ public class ColorTest extends LinearOpMode {
         while(opModeIsActive()){
 
             if(gamepad1.right_bumper){color.enableLed(true);}
-            else{color.enableLed(false);} 
+            else{color.enableLed(false);}
 
 
             telemetry.addData("argb", color.argb());
