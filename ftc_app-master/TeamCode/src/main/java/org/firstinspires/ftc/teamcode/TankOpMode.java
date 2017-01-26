@@ -27,39 +27,71 @@ public class TankOpMode extends LinearOpMode {
         double s;
         double a;
 
+        double holdPos = 0;
+        double armPos = 0;
+        double initialPos = 0;
+
+        boolean holdCam = false;
+        boolean fire = false;
+
         while(opModeIsActive()){
 
 
             r = -gamepad1.right_stick_y;
             l = -gamepad1.left_stick_y;
 
-            if(gamepad1.left_bumper){
-              s = 1;
+            if(gamepad1.dpad_up){
+                s = 1;
+            }
+            else if(gamepad1.dpad_down){
+                s = -1;
             }
             else{
-              s = 0;
+                s = 0;
             }
 
+//            if(gamepad1.a){
+//                holdCam = true;
+//                holdPos = robot.arm.getCurrentPosition();
+//            }
+//            if(holdCam){
+//                armPos = robot.arm.getCurrentPosition();
+//                if (Math.abs(holdPos - armPos) > 70) {
+//                    if(armPos > holdPos){
+//                        robot.arm.setPower(-0.2);
+//                    }
+//                    if(armPos < holdPos){
+//                        robot.arm.setPower(0.2);
+//                    }
+//                }
+//                else{
+//                    robot.arm.setPower(0);
+//                }
+//                return;
+//            }
             if(gamepad1.right_bumper){
-                a = -0.6;
+                fire = true;
+                initialPos = robot.arm.getCurrentPosition();
             }
-            else if(gamepad1.right_trigger > 0.1){
-                a = -0.8;
-            }
-            else{
-                a = 0;
+            if(fire){
+                armPos = robot.arm.getCurrentPosition();
+                if(armPos < initialPos + 1440){
+                    robot.arm.setPower(0.75);
+                }
+                else{
+                    fire = false;
+                }
             }
 
             telemetry.addData("Right", r);
             telemetry.addData("Left", l);
-            telemetry.addData("Sweeper", s);
-            telemetry.addData("Arm", a);
+            telemetry.addData("Belt", s);
+            telemetry.addData("Arm", fire);
             telemetry.update();
 
             robot.right.setPower(r);
             robot.left.setPower(l);
-            robot.sweeper.setPower(s);
-            robot.arm.setPower(a);
+            robot.belt.setPower(s);
 
             robot.waitForTick(10);
             idle();

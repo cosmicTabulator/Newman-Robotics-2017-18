@@ -15,7 +15,7 @@ public class TankHardware {
     public DcMotor right = null;
     public DcMotor left = null;
     public DcMotor arm = null;
-    public DcMotor sweeper = null;
+    public DcMotor belt = null;
 
     public TankHardware(){
     }
@@ -28,17 +28,18 @@ public class TankHardware {
         left = hwMap.dcMotor.get("left motor");
 
         arm = hwMap.dcMotor.get("arm motor");
-        sweeper = hwMap.dcMotor.get("sweeper motor");
+
+        belt = hwMap.dcMotor.get("belt motor");
 
         right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        arm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        sweeper.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        belt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         right.setPower(0);
         left.setPower(0);
         arm.setPower(0);
-        sweeper.setPower(0);
+        belt.setPower(0);
 
     }
 
