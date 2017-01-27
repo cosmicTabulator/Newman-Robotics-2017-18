@@ -22,9 +22,9 @@ public class TankAutoLineAuto extends LinearOpMode {
     ModernRoboticsI2cRangeSensor sonarR;
     ModernRoboticsI2cRangeSensor sonarL;
     ModernRoboticsI2cGyro gyro;
-    ModernRoboticsI2cColorSensor color1;
-    ModernRoboticsI2cColorSensor color2;
-    ModernRoboticsI2cColorSensor color3;
+    ModernRoboticsI2cColorSensor colorRight;
+    ModernRoboticsI2cColorSensor colorLeft;
+    ModernRoboticsI2cColorSensor colorDown;
 
     enum State {
         INIT, START, FINISH, DRIVEtoBALL, PARK, ALIGN, DRIVEtoWALL, TURNright, TURNleft, DRIVEtoLINE, DRIVEtoBEACON
@@ -70,9 +70,9 @@ public class TankAutoLineAuto extends LinearOpMode {
 
         gyro = hardwareMap.get(ModernRoboticsI2cGyro.class, "gyro");
 
-        color1 = hardwareMap.get(ModernRoboticsI2cColorSensor.class, "color1");
-        color2 = hardwareMap.get(ModernRoboticsI2cColorSensor.class, "color2");
-        color3 = hardwareMap.get(ModernRoboticsI2cColorSensor.class, "color3");
+        colorRight = hardwareMap.get(ModernRoboticsI2cColorSensor.class, "color right");
+        colorLeft = hardwareMap.get(ModernRoboticsI2cColorSensor.class, "color left");
+        colorDown = hardwareMap.get(ModernRoboticsI2cColorSensor.class, "color down");
 
         gyro.calibrate();
 
@@ -91,8 +91,8 @@ public class TankAutoLineAuto extends LinearOpMode {
                     rStart = robot.right.getCurrentPosition();
                     lStart = robot.left.getCurrentPosition();
                     state = State.START;
-                    red1 = color1.red();
-                    red2 = color2.red();
+                    red1 = colorRight.red();
+                    red2 = colorLeft.red();
                     base = (red1 + red2)/2;
                     break;
                 case START:
@@ -140,18 +140,18 @@ public class TankAutoLineAuto extends LinearOpMode {
                 case DRIVEtoLINE:
                     robot.right.setPower(0.5);
                     robot.left.setPower(0.5);
-                    color3.enableLed(true);
-                    if(color3.alpha() > 1){
+                    colorDown.enableLed(true);
+                    if(colorDown.alpha() > 1){
                         state = State.TURNleft;
                         nextState = State.DRIVEtoBEACON;
-                        color3.enableLed(false);
+                        colorDown.enableLed(false);
                     }
                     break;
                 case DRIVEtoBEACON:
                     robot.right.setPower(0.5);
                     robot.left.setPower(0.5);
-                    blue1 = color1.blue();
-                    blue2 = color2.blue();
+                    blue1 = colorRight.blue();
+                    blue2 = colorLeft.blue();
                     if(blue1 > 3) {
                         right = Side.BLUE;
                         left = Side.RED;
