@@ -8,12 +8,12 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 /**
  * Created by Graham Cooke on 9/28/2016.
  */
+
 @TeleOp(name = "TankOp", group = "Tank")
 
 public class TankOpMode extends LinearOpMode {
 
     TankHardware robot = new TankHardware();
-
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -27,7 +27,7 @@ public class TankOpMode extends LinearOpMode {
         double b;
         double a;
 
-        double s = 0.5;
+        double s = 0.3;
 
         double holdPos = 0;
         double armPos = 0;
@@ -37,7 +37,6 @@ public class TankOpMode extends LinearOpMode {
         boolean fire = false;
 
         while(opModeIsActive()){
-
 
             r = -gamepad1.right_stick_y;
             l = -gamepad1.left_stick_y;
@@ -50,17 +49,6 @@ public class TankOpMode extends LinearOpMode {
             }
             else{
                 b = 0;
-            }
-
-            if(gamepad1.dpad_right){
-                if(s < 1) {
-                    s = s + 0.1;
-                }
-            }
-            if(gamepad1.dpad_left){
-                if(s > 0.1){
-                    s = s - 0.1;
-                }
             }
 
 //            if(gamepad1.a){
@@ -82,6 +70,7 @@ public class TankOpMode extends LinearOpMode {
 //                }
 //                return;
 //            }
+
             if(gamepad1.right_bumper && !fire){
                 fire = true;
                 initialPos = robot.arm.getCurrentPosition();
@@ -96,20 +85,21 @@ public class TankOpMode extends LinearOpMode {
                 }
             }
 
-            if(gamepad1.right_trigger > 0.1){
-                robot.arm.setPower((double) gamepad1.right_trigger);
-                fire = false;
-            }
+//          if(gamepad1.right_trigger > 0.1){
+            robot.arm.setPower((double) gamepad1.right_trigger);
+//              fire = false;
+//          }
 
             telemetry.addData("Right", r);
             telemetry.addData("Left", l);
             telemetry.addData("Belt", s);
             telemetry.addData("Arm", fire);
+            telemetry.addData("Arm Pos", armPos);
             telemetry.update();
 
             robot.right.setPower(r);
             robot.left.setPower(l);
-            robot.belt.setPower(s);
+            robot.belt.setPower(b);
 
             robot.waitForTick(10);
             idle();
