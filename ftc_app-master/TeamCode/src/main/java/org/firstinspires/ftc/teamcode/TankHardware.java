@@ -37,9 +37,10 @@ public class TankHardware {
         arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         belt.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        left.setDirection(DcMotorSimple.Direction.REVERSE);
-        right.setDirection(DcMotorSimple.Direction.FORWARD);
+        left.setDirection(DcMotorSimple.Direction.FORWARD);
+        right.setDirection(DcMotorSimple.Direction.REVERSE);
         belt.setDirection(DcMotorSimple.Direction.REVERSE);
+        arm.setDirection(DcMotorSimple.Direction.REVERSE);
 
         right.setPower(0);
         left.setPower(0);

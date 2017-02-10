@@ -71,12 +71,13 @@ public class TankOpMode extends LinearOpMode {
 //                return;
 //            }
 
+            armPos = robot.arm.getCurrentPosition();
+
             if(gamepad1.right_bumper && !fire){
                 fire = true;
                 initialPos = robot.arm.getCurrentPosition();
             }
             if(fire){
-                armPos = robot.arm.getCurrentPosition();
                 if(armPos < initialPos + 1440){
                     robot.arm.setPower(0.75);
                 }
