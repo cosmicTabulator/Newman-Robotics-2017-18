@@ -38,6 +38,7 @@ public class ColorTest extends LinearOpMode {
             telemetry.addData("Red", color.red());
             telemetry.addData("Green", color.green());
             telemetry.addData("Blue", color.blue());
+            telemetry.addData("String?", color.toString());
             telemetry.update();
 
             robot.waitForTick(10);

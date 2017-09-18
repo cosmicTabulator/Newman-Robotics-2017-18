@@ -26,6 +26,7 @@ public class TankOpMode extends LinearOpMode {
         double l = 0;
         double b;
         double a;
+        double f = 0.75;
 
         double s = 0.3;
 
@@ -38,10 +39,10 @@ public class TankOpMode extends LinearOpMode {
 
         while(opModeIsActive()){
 
-            r = -gamepad1.right_stick_y;
-            l = -gamepad1.left_stick_y;
+            r = -gamepad1.right_stick_y * f;
+            l = -gamepad1.left_stick_y * f;
 
-            if(gamepad1.dpad_up){
+            if(gamepad1.left_bumper){
                 b = s;
             }
             else if(gamepad1.dpad_down){

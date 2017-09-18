@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsAnalogOpticalDistanceSensor;
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cIrSeekerSensorV3;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -25,6 +27,7 @@ public class TankAutoLineAuto extends LinearOpMode {
     ModernRoboticsI2cColorSensor colorRight;
     ModernRoboticsI2cColorSensor colorLeft;
     ModernRoboticsI2cColorSensor colorDown;
+    ModernRoboticsI2cIrSeekerSensorV3 ir;
 
     enum State {
         INIT, START, FINISH, DRIVEtoBALL, PARK, ALIGN, DRIVEtoWALL, TURNright, TURNleft, DRIVEtoLINE, DRIVEtoBEACON
@@ -74,6 +77,8 @@ public class TankAutoLineAuto extends LinearOpMode {
         colorLeft = hardwareMap.get(ModernRoboticsI2cColorSensor.class, "color left");
         colorDown = hardwareMap.get(ModernRoboticsI2cColorSensor.class, "color down");
 
+        ir = hardwareMap.get(ModernRoboticsI2cIrSeekerSensorV3.class, "ir");
+
         gyro.calibrate();
 
         waitForStart();
@@ -113,6 +118,7 @@ public class TankAutoLineAuto extends LinearOpMode {
                 case ALIGN:
                     rightDist = sonarR.getDistance(DistanceUnit.CM);
                     leftDist = sonarL.getDistance(DistanceUnit.CM);
+
                     if(leftDist + 1 > rightDist && leftDist - 1 < rightDist) {
                         state = State.TURNleft;
                         nextState = State.DRIVEtoWALL;
