@@ -45,8 +45,8 @@ public class TankOpModeDemo extends LinearOpMode {
             }
 
             if(tank) {
-                lPower = -gamepad1.left_stick_y;
-                rPower = -gamepad1.right_stick_y;
+                lPower = gamepad1.left_stick_y;
+                rPower = gamepad1.right_stick_y;
             }
 
             robot.left.setPower(lPower);
