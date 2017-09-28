@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 /**
  * Created by Graham Cooke on 9/28/2016.
  */
-@TeleOp(name = "TestOp", group = "Tests")
+@TeleOp(name = "TestOpMode", group = "Test")
 
 public class TestOpMode extends LinearOpMode {
 
