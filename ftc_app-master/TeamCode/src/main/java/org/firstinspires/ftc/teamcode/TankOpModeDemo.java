@@ -19,6 +19,8 @@ public class TankOpModeDemo extends LinearOpMode {
         float lPower = 0;
         float rPower = 0;
 
+        float c = 0.8f;
+
         float drive;
         float turn;
 
@@ -40,13 +42,13 @@ public class TankOpModeDemo extends LinearOpMode {
             }
 
             if(!tank) {
-                rPower = drive + turn;
-                lPower = drive - turn;
+                rPower = c*(drive + turn);
+                lPower = c*(drive - turn);
             }
 
             if(tank) {
-                lPower = gamepad1.left_stick_y;
-                rPower = gamepad1.right_stick_y;
+                lPower = c*gamepad1.left_stick_y;
+                rPower = c*gamepad1.right_stick_y;
             }
 
             robot.left.setPower(lPower);
