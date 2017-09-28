@@ -38,9 +38,9 @@ public class TankOpModeDemo extends LinearOpMode {
 
             // if left joystick is untouched for 1000 ms, then exit tank mode
             //else, use tank mode again
-            if((gamepad1.left_stick_y == 0) && (gamepad.leftstick_x == 0)) {
+            if(gamepad1.left_stick_y * gamepad1.left_stick_x == 0) {
                 tank_count += 1;
-            }else if((gamepad1.left_stick_y != 0) && (gamepad.leftstick_x != 0)){
+            }else if(gamepad1.left_stick_y * gamepad1.left_stick_x != 0){
                 tank_count = 0;
             }
 
