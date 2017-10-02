@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  */
 @TeleOp(name = "TankOpModeDemo", group = "Tank")
 
-public class TankOpModeDemo extends LinearOpMode {
+public class TankOpModeDemo2 extends LinearOpMode {
 
     TankHardwareDemo robot = new TankHardwareDemo();
 
