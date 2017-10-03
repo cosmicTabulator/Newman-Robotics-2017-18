@@ -24,6 +24,7 @@ public class OmniAuto extends LinearOpMode{
         robot.init(hardwareMap);
         touch = (ModernRoboticsDigitalTouchSensor)hardwareMap.touchSensor.get("Touch sensor");
         gyro = (ModernRoboticsI2cGyro)hardwareMap.gyroSensor.get("gyro");
+        sonar = ()
 
         waitForStart();
 
