@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.Hardware;
@@ -17,6 +18,7 @@ public class OmniAuto extends LinearOpMode{
     OmniHardware robot = new OmniHardware();
     ModernRoboticsDigitalTouchSensor touch = null;
     ModernRoboticsI2cGyro gyro = null;
+    ModernRoboticsI2cRangeSensor sonar = null;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -24,7 +26,7 @@ public class OmniAuto extends LinearOpMode{
         robot.init(hardwareMap);
         touch = (ModernRoboticsDigitalTouchSensor)hardwareMap.touchSensor.get("Touch sensor");
         gyro = (ModernRoboticsI2cGyro)hardwareMap.gyroSensor.get("gyro");
-        sonar = ()
+        sonar = (ModernRoboticsI2cRangeSensor)hardwareMap.ultrasonicSensor.get("sonar");
 
         waitForStart();
 
