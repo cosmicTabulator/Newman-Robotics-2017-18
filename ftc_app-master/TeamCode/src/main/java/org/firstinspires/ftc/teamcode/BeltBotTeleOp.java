@@ -7,11 +7,11 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 /**
  * Created by Graham Cooke on 9/28/2016.
  */
-@TeleOp(name = "TankOpModeDemo2 ", group = "Tank")
+@TeleOp(name = "BeltBotTeleOp", group = "Tank")
 
-public class TankOpModeDemo2 extends LinearOpMode {
+public class BeltBotTeleOp extends LinearOpMode {
 
-    TankHardwareDemo robot = new TankHardwareDemo();
+    BeltBotHardware robot = new BeltBotHardware();
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -24,8 +24,12 @@ public class TankOpModeDemo2 extends LinearOpMode {
         float drive;
         float turn;
 
+        float belt;
+
+        int cooldown = 0;
+        int position = 0;
+
         boolean tank = true;
-        int tank_count = 0;
 
         robot.init(hardwareMap);
 
@@ -36,17 +40,11 @@ public class TankOpModeDemo2 extends LinearOpMode {
             drive = gamepad1.right_stick_y;
             turn = gamepad1.right_stick_x;
 
-            // if left joystick is untouched for 1000 ms, then exit tank mode
-            //else, use tank mode again
-            if(gamepad1.left_stick_y * gamepad1.left_stick_x == 0) {
-                tank_count += 1;
-            }else if(gamepad1.left_stick_y * gamepad1.left_stick_x != 0){
-                tank_count = 0;
-            }
+            belt = gamepad1.right_trigger - gamepad1.left_trigger;
 
-            if (tank_count < 30){
+            if(gamepad1.dpad_up) {
                 tank = true;
-            }else if (tank_count >= 100){
+            } else if (gamepad1.dpad_down){
                 tank = false;
             }
 
@@ -62,6 +60,26 @@ public class TankOpModeDemo2 extends LinearOpMode {
 
             robot.left.setPower(lPower);
             robot.right.setPower(rPower);
+
+            if(gamepad1.x) {
+                robot.belt.setPower(-belt);
+            } else {
+                robot.belt.setPower(belt);
+            }
+
+            if(gamepad1.x){
+                position = 0;
+            }
+
+            if(gamepad1.y){
+                position = 1;
+            }
+
+            robot.latch.setPosition(position);
+
+            telemetry.addData("Servo Position", position);
+            telemetry.addData("Cooldown", cooldown);
+            telemetry.update();
 
             robot.waitForTick(10);
             idle();
