@@ -36,7 +36,7 @@ public class BeltBotTeleOp extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()){
-
+            
             drive = gamepad1.right_stick_y;
             turn = gamepad1.right_stick_x;
 
