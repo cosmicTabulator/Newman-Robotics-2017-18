@@ -55,6 +55,7 @@ public class SlideBotTeleop extends LinearOpMode {
             if(gamepad1.dpad_up){
                 position = 1;
             }
+            
 
             if(gamepad1.dpad_down){
                 position = 0.5;
