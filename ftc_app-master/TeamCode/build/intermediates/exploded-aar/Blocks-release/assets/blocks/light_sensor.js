@@ -6,6 +6,7 @@
 // The following are generated dynamically in HardwareUtil.fetchJavaScriptForHardware():
 // createLightSensorDropdown
 // The following are defined in vars.js:
+// createNonEditableField
 // functionColor
 // getPropertyColor
 

@@ -6,6 +6,7 @@
 // The following are generated dynamically in HardwareUtil.fetchJavaScriptForHardware():
 // createCompassSensorDropdown
 // The following are defined in vars.js:
+// createNonEditableField
 // getPropertyColor
 // functionColor
 
@@ -90,7 +91,8 @@ Blockly.Blocks['compassSensor_setMode'] = {
     this.appendDummyInput()
         .appendField('call')
         .appendField(createCompassSensorDropdown(), 'IDENTIFIER')
-        .appendField('.setMode');
+        .appendField('.')
+        .appendField(createNonEditableField('setMode'));
     this.appendValueInput('COMPASS_MODE')
         .appendField('compassMode')
         .setAlign(Blockly.ALIGN_RIGHT);

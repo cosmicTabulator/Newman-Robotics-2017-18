@@ -124,6 +124,7 @@
     <string name="configFromTemplateInfoTitle">Configure from Template</string>
     <string name="configNameEmpty">Configuration name is empty.</string>
     <string name="configNameExists">\'%s\' already exists.</string>
+    <string name="configNameIllegalCharacters">\'%s\' contains illegal characters.</string>
     <string name="configNamePromptBanter">Please enter a name for the robot configuration.</string>
     <string name="configNamePromptTitle">Save Configuration</string>
     <string name="configNameReadOnly">\'%s\' is read-only.</string>

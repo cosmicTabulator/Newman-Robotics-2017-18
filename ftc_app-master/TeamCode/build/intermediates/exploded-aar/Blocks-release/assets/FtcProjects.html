@@ -5,7 +5,59 @@
 -->
 <head>
   <title>FTC - My Op Modes</title>
+  <script src="blockly/blockly_compressed.js"></script>
+  <script src="blockly/javascript_compressed.js"></script>
+  <script src="blockly/blocks_compressed.js"></script>
+  <script src="blockly/msg/js/en.js"></script>
+
+  <script src="blocks/acceleration.js"></script>
+  <script src="blocks/acceleration_sensor.js"></script>
+  <script src="blocks/analog_input.js"></script>
+  <script src="blocks/analog_output.js"></script>
+  <script src="blocks/color.js"></script>
+  <script src="blocks/color_sensor.js"></script>
+  <script src="blocks/compass_sensor.js"></script>
+  <script src="blocks/cr_servo.js"></script>
+  <script src="blocks/dbg_log.js"></script>
+  <script src="blocks/dc_motor.js"></script>
+  <script src="blocks/digital_channel.js"></script>
+  <script src="blocks/elapsed_time.js"></script>
+  <script src="blocks/elapsed_time2.js"></script>
+  <script src="blocks/gamepad.js"></script>
+  <script src="blocks/gyro_sensor.js"></script>
+  <script src="blocks/hardware_util.js"></script>
+  <script src="blocks/ir_seeker_sensor.js"></script>
+  <script src="blocks/led.js"></script>
+  <script src="blocks/light_sensor.js"></script>
+  <script src="blocks/linear_op_mode.js"></script>
+  <script src="blocks/magnetic_flux.js"></script>
+  <script src="blocks/matrix_f.js"></script>
+  <script src="blocks/misc.js"></script>
+  <script src="blocks/mr_i2c_compass_sensor.js"></script>
+  <script src="blocks/mr_i2c_range_sensor.js"></script>
+  <script src="blocks/navigation.js"></script>
+  <script src="blocks/open_gl_matrix.js"></script>
+  <script src="blocks/optical_distance_sensor.js"></script>
+  <script src="blocks/orientation.js"></script>
+  <script src="blocks/position.js"></script>
   <script src="blocks/project_util.js"></script>
+  <script src="blocks/quaternion.js"></script>
+  <script src="blocks/servo.js"></script>
+  <script src="blocks/servo_controller.js"></script>
+  <script src="blocks/system.js"></script>
+  <script src="blocks/telemetry.js"></script>
+  <script src="blocks/toolbox_util.js"></script>
+  <script src="blocks/touch_sensor.js"></script>
+  <script src="blocks/ultrasonic_sensor.js"></script>
+  <script src="blocks/vars.js"></script>
+  <script src="blocks/vector_f.js"></script>
+  <script src="blocks/velocity.js"></script>
+  <script src="blocks/voltage_sensor.js"></script>
+  <script src="blocks/vuforia_localizer.js"></script>
+  <script src="blocks/vuforia_localizer_parameters.js"></script>
+  <script src="blocks/vuforia_trackable.js"></script>
+  <script src="blocks/vuforia_trackable_default_listener.js"></script>
+  <script src="blocks/vuforia_trackables.js"></script>
   <style>
 html, body {
   height: 100%;
@@ -68,6 +120,7 @@ a.help {
 }
   </style>
 </head>
+
 <body onload="initialize()">
 <table class="top" width="100%">
   <tr>
@@ -81,14 +134,23 @@ a.help {
       <table width="100%"><tr>
         <td>
           <button id="newProjectButton" onclick="newProjectButtonClicked()">Create New Op Mode</button>
-          <button id="renameProjectButton" disabled="true" onclick="renameProjectButtonClicked()">Rename Selected Op Mode</button>
-          <button id="copyProjectButton" disabled="true" onclick="copyProjectButtonClicked()">Copy Selected Op Mode</button>
-          <button id="deleteProjectsButton" disabled="true" onclick="deleteProjectsButtonClicked()">Delete Selected Op Modes</button>
-        </td>
+          <button id="uploadProjectButton" onclick="uploadProjectButtonClicked()">Upload Op Mode</button>
         <td align="right">
           <a class="help" href="FtcHelp.html" target="_blank">Help</a>
         </td>
-      </tr></table>
+        </tr>
+        <tr>
+          <td>
+          <button id="renameProjectButton" disabled="true" onclick="renameProjectButtonClicked()">Rename Selected Op Mode</button>
+          <button id="copyProjectButton" disabled="true" onclick="copyProjectButtonClicked()">Copy Selected Op Mode</button>
+          <button id="deleteProjectsButton" disabled="true" onclick="deleteProjectsButtonClicked()">Delete Selected Op Modes</button>
+          <button id="downloadProjectsButton" disabled="true" onclick="downloadProjectsButtonClicked()">Download Selected Op Modes</button>
+          <a id="download_link"></a>
+          </td>
+          <td>
+          </td>
+        </tr>
+      </table>
     </td>
   </tr>
   <tr>
@@ -102,7 +164,7 @@ a.help {
   </tr>
   <table class="projects_table" id="projectsTable" width="100%">
     <tr class="header_tr">
-      <td><!-- column for checkboxes --></td>
+      <td><input type="checkbox" id="checkbox_all" onclick="projectCheckAllChanged()"></td>
       <td width="20%"><div class="header_td" onclick="toggleSortByName()">Op Mode Name<span id="sortByNameIndicator">&nbsp;</span></div></td>
       <td width="80%"><div class="header_td" onclick="toggleSortByDateModified()">Date Modified<span id="sortByDateModifiedIndicator">&nbsp;</span></div></td>
     </tr>
@@ -112,13 +174,27 @@ a.help {
 <dialog id="newProjectNameDialog">
   <center>
   <h3 style="margin-top: 0px" id="newProjectNameDialogTitle"></h3><br>
-  Op Mode name:
+  Op Mode Name:
   <input type="text" id="newProjectName"><br>
   <div class="error_message" id="newProjectNameError" style="width: 60ch"></div><br>
   <table width="100%">
     <tr>
       <td align="center"><button onclick="cancelNewProjectNameDialog()">Cancel</button></td>
       <td align="center"><button onclick="okNewProjectNameDialog()">OK</button></td>
+    </tr>
+  </table>
+  </center>
+</dialog>
+
+<dialog id="uploadProjectDialog">
+  <center>
+  <h3 style="margin-top: 0px" id="uploadProjectDialogTitle"></h3><br>
+  <input type="file" id="uploadProjectFileInput" accept=".blk"><br>
+  <div class="error_message" id="uploadProjectError" style="width: 60ch"></div><br>
+  <table width="100%">
+    <tr>
+      <td align="center"><button onclick="cancelUploadProjectDialog()">Cancel</button></td>
+      <td align="center"><button id="uploadProjectOk" onclick="okUploadProjectDialog()">OK</button></td>
     </tr>
   </table>
   </center>
@@ -140,15 +216,18 @@ a.help {
 </dialog>
 
 <script>
+  // The following are generated dynamically in HardwareUtil.fetchJavaScriptForHardware():
+  // function isValidProjectName
+  // function addReservedWordsForHardware
   var projects = [];
   var checked = [];
   var sortByName = false;
   var sortByDateModified = true;
   var sortAscending = false;
-  var MODE_NEW_PROJECT = 1;
-  var MODE_RENAME_PROJECT = 2;
-  var MODE_COPY_PROJECT = 3;
-  var currentMode = 0;
+  var NEW_PROJECT_NAME_DIALOG_MODE_NEW_PROJECT = 1;
+  var NEW_PROJECT_NAME_DIALOG_MODE_RENAME_PROJECT = 2;
+  var NEW_PROJECT_NAME_DIALOG_MODE_COPY_PROJECT = 3;
+  var newProjectNameDialogMode = 0;
 
   function initialize() {
     // When this page is shown in an Android WebView, the dialogs are initially visible, so we need
@@ -156,6 +235,21 @@ a.help {
     document.getElementById('newProjectNameDialog').open = false;
     document.getElementById('deleteProjectsDialog').open = false;
 
+    fetchJavaScriptForHardware(function(jsHardware, errorMessage) {
+      if (jsHardware) {
+        var newScript = document.createElement('script');
+        newScript.setAttribute('type', 'text/javascript');
+        newScript.innerHTML = jsHardware;
+        document.getElementsByTagName('head').item(0).appendChild(newScript);
+      } else  {
+        alert(errorMessage);
+      }
+    });
+
+    initializeProjects();
+  }
+
+  function initializeProjects() {
     projects = [];
     fetchProjects(function(jsonProjects, errorMessage) {
       if (jsonProjects) {
@@ -219,7 +313,7 @@ a.help {
 
       var tdName = tr.insertCell(-1);
       tdName.innerHTML = '<div class="project_name" onclick="openProject(' + i + ')">' +
-          projects[i].name + '</div>';
+          projects[i].escapedName + '</div>';
 
       var tdDateModified = tr.insertCell(-1);
       tdDateModified.innerHTML = formatTimestamp(projects[i].dateModifiedMillis);
@@ -278,7 +372,7 @@ a.help {
     // Show modal dialog asking for project name.
     document.getElementById('newProjectName').value = '';
     document.getElementById('newProjectNameError').innerHTML = '';
-    currentMode = MODE_NEW_PROJECT;
+    newProjectNameDialogMode = NEW_PROJECT_NAME_DIALOG_MODE_NEW_PROJECT;
     document.getElementById('newProjectNameDialogTitle').innerHTML = 'Create New Op Mode';
     document.getElementById('newProjectNameDialog').showModal();
   }
@@ -292,7 +386,7 @@ a.help {
     var newProjectName = document.getElementById('newProjectName').value;
     if (!isValidProjectName(newProjectName)) {
       document.getElementById('newProjectNameError').innerHTML =
-          'The project name must only contains alphanumeric characters.';
+          'The project name must only contains alphanumeric<br>characters and !$%&\'()+,-.;=@[]^_{}~.';
       return;
     }
     var nameClash = false;
@@ -308,14 +402,14 @@ a.help {
       return;
     }
 
-    switch (currentMode) {
-      case MODE_NEW_PROJECT:
+    switch (newProjectNameDialogMode) {
+      case NEW_PROJECT_NAME_DIALOG_MODE_NEW_PROJECT:
         newProjectOk(newProjectName);
         break;
-      case MODE_RENAME_PROJECT:
+      case NEW_PROJECT_NAME_DIALOG_MODE_RENAME_PROJECT:
         renameProjectOk(projects[checked[0]].name, newProjectName);
         break;
-      case MODE_COPY_PROJECT:
+      case NEW_PROJECT_NAME_DIALOG_MODE_COPY_PROJECT:
         copyProjectOk(projects[checked[0]].name, newProjectName);
         break;
     }
@@ -323,25 +417,109 @@ a.help {
 
   function newProjectOk(newProjectName) {
     // Create new project, with a "runOpMode" procedure block containing a few blocks as a template.
-    var blkContent = createBlocks();
-    var jsContent = createJavascript();
-    saveProject(newProjectName, blkContent, jsContent, function(success, errorMessage) {
+    var blocksContent = createBlocks();
+    var jsFileContent = createJavaScript();
+    saveProject(newProjectName, blocksContent, jsFileContent, null /* flavor */, null /* group */, function(success, errorMessage) {
       if (success) {
         // Close the dialog
         document.getElementById('newProjectNameDialog').close();
-        // Go to FtcBlocks.html?project=<newProjectName>.
-        window.location.href = 'FtcBlocks.html?project=' + encodeURIComponent(newProjectName);
+        openProjectBlocks(newProjectName);
       } else {
         document.getElementById('newProjectNameError').innerHTML = errorMessage;
       }
     });
   }
 
+  function uploadProjectButtonClicked() {
+    // Show modal dialog asking for file.
+    document.getElementById('uploadProjectFileInput').value = ''
+    document.getElementById('uploadProjectError').innerHTML = '';
+    document.getElementById('uploadProjectDialogTitle').innerHTML = 'Upload Op Modes';
+    document.getElementById('uploadProjectOk').disabled = true;
+    document.getElementById('uploadProjectFileInput').onchange = function() {
+      var files = document.getElementById('uploadProjectFileInput').files;
+      document.getElementById('uploadProjectOk').disabled = (files.length == 0);
+    };
+    document.getElementById('uploadProjectDialog').showModal();
+  }
+
+  function cancelUploadProjectDialog() {
+    document.getElementById('uploadProjectDialog').close();
+  }
+
+  function okUploadProjectDialog() {
+    var file = document.getElementById('uploadProjectFileInput').files[0];
+    var uploadProjectName = makeUploadProjectName(file.name);
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      // Get the blocks from the uploaded file.
+      var blkFileContent = event.target.result;
+      // The blocks content is up to and including the first </xml>.
+      var i = blkFileContent.indexOf('</xml>');
+      var blocksContent = blkFileContent.substring(0, i + 6);
+      var dom = '';
+      try {
+        dom = Blockly.Xml.textToDom(blocksContent);
+      } catch (e) {
+        document.getElementById('uploadProjectError').innerHTML =
+            "Error: Invalid blocks. " + e;
+        return;
+      }
+      // Create a headless workspace to generate the JavaScript.
+      var jsFileContent = '';
+      try {
+        var workspace = new Blockly.Workspace();
+        Blockly.Xml.domToWorkspace(dom, workspace);
+        addReservedWordsForHardware();
+        jsFileContent = Blockly.JavaScript.workspaceToCode(workspace);
+      } catch (e) {
+        document.getElementById('uploadProjectError').innerHTML =
+            "Error: Could not generate code for blocks. " + e;
+        return;
+      }
+      if (!jsFileContent) {
+        document.getElementById('uploadProjectError').innerHTML =
+            "Error: No code generated for blocks.";
+        return;
+      }
+      saveProject(uploadProjectName, blkFileContent, jsFileContent, null /* flavor */, null /* group */, function(success, errorMessage) {
+        if (success) {
+          // Close the dialog
+          document.getElementById('uploadProjectDialog').close();
+          openProjectBlocks(uploadProjectName);
+        } else {
+          document.getElementById('uploadProjectError').innerHTML = errorMessage;
+        }
+      });
+    };
+    reader.readAsText(file);
+  }
+
+  function makeUploadProjectName(uploadFileName) {
+    var preferredName = uploadFileName.split('.')[0];
+    var name = preferredName; // No suffix.
+    var suffix = 0;
+    while (true) {
+      var nameClash = false;
+      for (var i = 0; i < projects.length; i++) {
+        if (name == projects[i].name) {
+          nameClash = true;
+          break;
+        }
+      }
+      if (!nameClash) {
+        return name;
+      }
+      suffix++;
+      name = preferredName + suffix;
+    }
+  }
+
   function renameProjectButtonClicked() {
     // Show modal dialog asking for project name.
     document.getElementById('newProjectName').value = '';
     document.getElementById('newProjectNameError').innerHTML = '';
-    currentMode = MODE_RENAME_PROJECT;
+    newProjectNameDialogMode = NEW_PROJECT_NAME_DIALOG_MODE_RENAME_PROJECT;
     document.getElementById('newProjectNameDialogTitle').innerHTML = 'Rename Selected Op Mode';
     document.getElementById('newProjectNameDialog').showModal();
   }
@@ -351,7 +529,7 @@ a.help {
       if (success) {
         // Close the dialog
         document.getElementById('newProjectNameDialog').close();
-        initialize();
+        initializeProjects();
       } else {
         document.getElementById('newProjectNameError').innerHTML = errorMessage;
       }
@@ -362,7 +540,7 @@ a.help {
     // Show modal dialog asking for project name.
     document.getElementById('newProjectName').value = '';
     document.getElementById('newProjectNameError').innerHTML = '';
-    currentMode = MODE_COPY_PROJECT;
+    newProjectNameDialogMode = NEW_PROJECT_NAME_DIALOG_MODE_COPY_PROJECT;
     document.getElementById('newProjectNameDialogTitle').innerHTML = 'Copy Selected Op Mode';
     document.getElementById('newProjectNameDialog').showModal();
   }
@@ -372,25 +550,53 @@ a.help {
       if (success) {
         // Close the dialog
         document.getElementById('newProjectNameDialog').close();
-        initialize();
+        initializeProjects();
       } else {
         document.getElementById('newProjectNameError').innerHTML = errorMessage;
       }
     });
   }
 
+  function downloadProjectsButtonClicked() {
+    for (var i = 0; i < projects.length; i++) {
+      var checkbox = document.getElementById('checkbox_' + i);
+      if (checkbox.checked) {
+        downloadProject(projects[i].name);
+      }
+    }
+  }
+
+  function downloadProject(projectName) {
+    fetchBlkFileContent(projectName, function(blkFileContent, errorMessage) {
+      if (blkFileContent) {
+        var a = document.getElementById('download_link');
+        a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(blkFileContent);
+        a.download = projectName + '.blk';
+        a.click();
+      } else {
+        alert(errorMessage);
+      }
+    });
+  }
+
+  var starDelimitedDeleteProjectNames = '';
+
   function deleteProjectsButtonClicked() {
+    starDelimitedDeleteProjectNames = '';
     var table = document.getElementById('deleteProjectsTable');
     // Remove all rows.
     for (var i = table.rows.length - 1; i >= 0; i--) {
       table.deleteRow(i);
     }
     // Gather the checked projects.
+    var delimiter = '';
     for (var i = 0; i < projects.length; i++) {
       var checkbox = document.getElementById('checkbox_' + i);
       if (checkbox.checked) {
+        starDelimitedDeleteProjectNames += delimiter + projects[i].name;
+        delimiter = '*';
         // Insert project name into the table.
-        table.insertRow(-1).insertCell(-1).innerHTML = projects[i].name;
+        table.insertRow(-1).insertCell(-1).innerHTML = projects[i].escapedName;
       }
     }
     if (table.rows.length > 0) {
@@ -405,20 +611,37 @@ a.help {
 
   function yesDeleteProjectsDialog() {
     document.getElementById('deleteProjectsDialog').close();
-    var table = document.getElementById('deleteProjectsTable');
-    var csvProjectNames = '';
-    var delimiter = '';
-    for (var i = 0; i < table.rows.length; i++) {
-      csvProjectNames += delimiter + table.rows[i].cells[0].innerHTML;
-      delimiter = ',';
-    }
-    deleteProjects(csvProjectNames, function(success, errorMessage) {
+    deleteProjects(starDelimitedDeleteProjectNames, function(success, errorMessage) {
+      starDelimitedDeleteProjectNames = '';
       if (success) {
-        initialize();
+        initializeProjects();
       } else {
         alert(errorMessage);
       }
     });
+  }
+
+  function projectCheckAllChanged(i) {
+    var checkboxAll = document.getElementById('checkbox_all');
+    if (checked.length == 0) {
+      // Check all.
+      checked = [];
+      for (var i = 0; i < projects.length; i++) {
+        var checkbox = document.getElementById('checkbox_' + i);
+        checkbox.checked = true;
+        checked.push(i);
+      }
+      checkboxAll.checked = true;
+    } else {
+      // Check none.
+      checked = [];
+      for (var i = 0; i < projects.length; i++) {
+        var checkbox = document.getElementById('checkbox_' + i);
+        checkbox.checked = false;
+      }
+      checkboxAll.checked = false;
+    }
+    updateButtons();
   }
 
   function projectCheckChanged(i) {
@@ -439,6 +662,8 @@ a.help {
     renameProjectButton.disabled = (checked.length != 1);
     var copyProjectButton = document.getElementById('copyProjectButton');
     copyProjectButton.disabled = (checked.length != 1);
+    var downloadProjectsButton = document.getElementById('downloadProjectsButton');
+    downloadProjectsButton.disabled = (checked.length == 0);
     var deleteProjectsButton = document.getElementById('deleteProjectsButton');
     deleteProjectsButton.disabled = (checked.length == 0);
   }

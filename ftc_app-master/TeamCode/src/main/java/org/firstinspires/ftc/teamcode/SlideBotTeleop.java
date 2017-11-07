@@ -18,7 +18,6 @@ public class SlideBotTeleop extends LinearOpMode {
 
         float lPower = 0;
         float rPower = 0;
-        float sensitivity = 1.0;
 
         float c = 0.8f;
 
@@ -40,11 +39,11 @@ public class SlideBotTeleop extends LinearOpMode {
 
             slide = gamepad1.right_trigger;
 
-            lPower = c*gamepad1.left_stick_y;
-            rPower = c*gamepad1.right_stick_y;
+            lPower = c*-gamepad1.left_stick_y;
+            rPower = c*-gamepad1.right_stick_y;
 
-            robot.left.setPower(lPower * sensitivity);
-            robot.right.setPower(rPower * sensitivity);
+            robot.left.setPower(lPower);
+            robot.right.setPower(rPower);
 
             if(gamepad1.right_bumper) {
                 robot.slide.setPower(-slide);
@@ -59,13 +58,6 @@ public class SlideBotTeleop extends LinearOpMode {
 
             if(gamepad1.dpad_down){
                 position = 0.5;
-            }
-
-            if (gamepad1.a){
-                sensitivity -= (sensitivity / 2) % 1.0;
-            }
-            if(gamepad.b){
-                sensitivity = (sensitivity * 2) % 1.0;
             }
 
             robot.latchUp.setPosition(position);

@@ -22,7 +22,15 @@
   background-image: url(../images/ftcColorSensor.png);
 }
 
+.Color-icon {
+  background-image: url(../images/ftcColorSensor.png);
+}
+
 .CompassSensor-icon {
+  background-image: url(../images/ftcCompassSensor.png);
+}
+
+.MrI2cCompassSensor-icon {
   background-image: url(../images/ftcCompassSensor.png);
 }
 
@@ -31,6 +39,14 @@
 }
 
 .DcMotor-icon {
+  background-image: url(../images/ftcDcMotor.png);
+}
+
+.Dual-icon {
+  background-image: url(../images/ftcDcMotor.png);
+}
+
+.Individual-icon {
   background-image: url(../images/ftcDcMotor.png);
 }
 
@@ -95,6 +111,10 @@
 }
 
 .OpticalDistanceSensor-icon {
+  background-image: url(../images/ftcOpticalDistanceSensor.png);
+}
+
+.MrI2cRangeSensor-icon {
   background-image: url(../images/ftcOpticalDistanceSensor.png);
 }
 

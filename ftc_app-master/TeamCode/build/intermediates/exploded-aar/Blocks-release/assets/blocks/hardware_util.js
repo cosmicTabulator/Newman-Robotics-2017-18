@@ -59,110 +59,147 @@ function fetchJavaScriptForHardwareViaHttp(callback) {
 
 function fetchJavaScriptForHardwareViaFile(callback) {
   var jsHardware =
-      "var linearOpModeIdentifier = 'linearOpMode';\n\n" +
-      "var telemetryIdentifier = 'telemetry';\n\n" +
+      "function isValidProjectName(projectName) {\n" +
+      "  if (projectName) {\n" +
+      "    return /^[a-zA-Z0-9]+$/.test(projectName);\n" +
+      "  }\n" +
+      "  return false;\n" +
+      "}\n" +
+      "var linearOpModeIdentifier = 'linearOpMode';\n" +
+      "var telemetryIdentifier = 'telemetry';\n" +
       "function createGamepadDropdown() {\n" +
       "  var CHOICES = [\n" +
       "      ['gamepad1', 'gamepad1'],\n" +
       "      ['gamepad2', 'gamepad2'],\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
-      "var colorIdentifier = 'colorAccess';\n\n" +
-      "var elapsedTimeIdentifier = 'elapsedTimeAccess';\n\n" +
-      "var elapsedTimeDefaultVarName = 'timer';\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
+      "var colorIdentifier = 'colorAccess';\n" +
+      "var dbgLogIdentifier = 'dbgLogAccess';\n" +
+      "var elapsedTimeIdentifier = 'elapsedTimeAccess';\n" +
+      "var miscIdentifier = 'miscAccess';\n" +
+      "var openGLMatrixIdentifier = 'openGLMatrixAccess';\n" +
+      "var matrixFIdentifier = 'matrixFAccess';\n" +
+      "var vectorFIdentifier = 'vectorFAccess';\n" +
+      "var accelerationIdentifier = 'accelerationAccess';\n" +
+      "var magneticFluxIdentifier = 'magneticFluxAccess';\n" +
+      "var orientationIdentifier = 'orientationAccess';\n" +
+      "var positionIdentifier = 'positionAccess';\n" +
+      "var quaternionIdentifier = 'quaternionAccess';\n" +
+      "var velocityIdentifier = 'velocityAccess';\n" +
+      "var vuforiaLocalizerIdentifier = 'vuforiaLocalizerAccess';\n" +
+      "var vuforiaLocalizerParametersIdentifier = 'vuforiaLocalizerParametersAccess';\n" +
+      "var vuforiaTrackableIdentifier = 'vuforiaTrackableAccess';\n" +
+      "var vuforiaTrackableDefaultListenerIdentifier = 'vuforiaTrackableDefaultListenerAccess';\n" +
+      "var vuforiaTrackablesIdentifier = 'vuforiaTrackablesAccess';\n" +
+      "var systemIdentifier = 'systemAccess';\n" +
       "function createAccelerationSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createAnalogInputDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createAnalogOutputDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createColorSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createCompassSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createCRServoDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createDcMotorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "      ['left_drive', 'left_drive'],\n" +
       "      ['right_drive', 'right_drive'],\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
+      "function createDigitalChannelDropdown() {\n" +
+      "  var CHOICES = [\n" +
+      "  ];\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createGyroSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createIrSeekerSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createLedDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createLightSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
+      "function createMrI2cCompassSensorDropdown() {\n" +
+      "  var CHOICES = [\n" +
+      "  ];\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
+      "function createMrI2cRangeSensorDropdown() {\n" +
+      "  var CHOICES = [\n" +
+      "  ];\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createOpticalDistanceSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "      ['sensor_EOPD', 'sensor_EOPD'],\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createServoDropdown() {\n" +
       "  var CHOICES = [\n" +
       "      ['arm', 'arm'],\n" +
       "      ['claw', 'claw'],\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createServoControllerDropdown() {\n" +
       "  var CHOICES = [\n" +
       "      ['servo_controller', 'servo_controller'],\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createTouchSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "      ['touch_sensor', 'touch_sensor'],\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createUltrasonicSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function createVoltageSensorDropdown() {\n" +
       "  var CHOICES = [\n" +
       "  ];\n" +
-      "  return new Blockly.FieldDropdown(CHOICES);\n" +
-      "}\n\n" +
+      "  return createFieldDropdown(CHOICES);\n" +
+      "}\n" +
       "function addReservedWordsForHardware() {\n" +
       "  Blockly.JavaScript.addReservedWords('left_drive');\n" +
       "  Blockly.JavaScript.addReservedWords('right_drive');\n" +
@@ -173,7 +210,9 @@ function fetchJavaScriptForHardwareViaFile(callback) {
       "  Blockly.JavaScript.addReservedWords('sensor_EOPD');\n" +
       "  Blockly.JavaScript.addReservedWords('blocksOpMode');\n" +
       "  Blockly.JavaScript.addReservedWords('colorAccess');\n" +
+      "  Blockly.JavaScript.addReservedWords('dbgLogAccess');\n" +
       "  Blockly.JavaScript.addReservedWords('elapsedTimeAccess');\n" +
+      "  Blockly.JavaScript.addReservedWords('miscAccess');\n" +
       "  Blockly.JavaScript.addReservedWords('gamepad1');\n" +
       "  Blockly.JavaScript.addReservedWords('gamepad2');\n" +
       "  Blockly.JavaScript.addReservedWords('linearOpMode');\n" +

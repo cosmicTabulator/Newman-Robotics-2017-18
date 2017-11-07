@@ -5,13 +5,12 @@
 
 // The following are generated dynamically in HardwareUtil.fetchJavaScriptForHardware():
 // elapsedTimeIdentifier
-// elapsedTimeDefaultVarName
 // The following are defined in vars.js:
+// createNonEditableField
 // getPropertyColor
 // functionColor
 
-// Functions
-
+var elapsedTimeDefaultVarName = 'timer';
 
 Blockly.Blocks['elapsedTime_create'] = {
   init: function() {
@@ -27,7 +26,7 @@ Blockly.Blocks['elapsedTime_create'] = {
 Blockly.JavaScript['elapsedTime_create'] = function(block) {
   var code = elapsedTimeIdentifier + '.create()';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-}
+};
 
 // Properties
 
@@ -73,7 +72,7 @@ Blockly.JavaScript['elapsedTime_getProperty'] = function(block) {
   var property = block.getFieldValue('PROP');
   var code = elapsedTimeIdentifier + '.get' + property + '(' + varName + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-}
+};
 
 // Functions
 
@@ -96,4 +95,3 @@ Blockly.JavaScript['elapsedTime_reset'] = function(block) {
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   return elapsedTimeIdentifier + '.reset(' + varName + ');\n';
 };
-

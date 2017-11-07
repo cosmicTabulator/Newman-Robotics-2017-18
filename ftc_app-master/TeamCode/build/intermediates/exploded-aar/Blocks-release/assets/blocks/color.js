@@ -6,6 +6,7 @@
 // The following are generated dynamically in HardwareUtil.fetchJavaScriptForHardware():
 // colorIdentifier
 // The following are defined in vars.js:
+// createNonEditableField
 // getPropertyColor
 // functionColor
 
@@ -58,7 +59,7 @@ Blockly.JavaScript['color_getProperty'] = function(block) {
       block, 'COLOR', Blockly.JavaScript.ORDER_NONE);
   var code = colorIdentifier + '.get' + property + '(' + color + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-}
+};
 
 // Functions
 
@@ -93,7 +94,7 @@ Blockly.JavaScript['color_rgbToColor'] = function(block) {
       block, 'BLUE', Blockly.JavaScript.ORDER_NONE);
   var code = colorIdentifier + '.rgbToColor(' + red + ', ' + green + ', ' + blue + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-}
+};
 
 Blockly.Blocks['color_argbToColor'] = {
   init: function() {
@@ -131,7 +132,7 @@ Blockly.JavaScript['color_argbToColor'] = function(block) {
       block, 'BLUE', Blockly.JavaScript.ORDER_NONE);
   var code = colorIdentifier + '.argbToColor(' + alpha + ', ' + red + ', ' + green + ', ' + blue + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-}
+};
 
 Blockly.Blocks['color_hsvToColor'] = {
   init: function() {
@@ -164,7 +165,7 @@ Blockly.JavaScript['color_hsvToColor'] = function(block) {
       block, 'VALUE', Blockly.JavaScript.ORDER_NONE);
   var code = colorIdentifier + '.hsvToColor(' + hue + ', ' + saturation + ', ' + value + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-}
+};
 
 Blockly.Blocks['color_ahsvToColor'] = {
   init: function() {
@@ -200,9 +201,9 @@ Blockly.JavaScript['color_ahsvToColor'] = function(block) {
       block, 'SATURATION', Blockly.JavaScript.ORDER_NONE);
   var value = Blockly.JavaScript.valueToCode(
       block, 'VALUE', Blockly.JavaScript.ORDER_NONE);
-  var code = colorIdentifier + '.ahsvToColor(' + alpha + ',' + hue + ', ' + saturation + ', ' + value + ')';
+  var code = colorIdentifier + '.ahsvToColor(' + alpha + ', ' + hue + ', ' + saturation + ', ' + value + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-}
+};
 
 Blockly.Blocks['color_textToColor'] = {
   init: function() {
@@ -225,4 +226,4 @@ Blockly.JavaScript['color_textToColor'] = function(block) {
       block, 'TEXT', Blockly.JavaScript.ORDER_NONE);
   var code = colorIdentifier + '.textToColor(' + text + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
-}
+};

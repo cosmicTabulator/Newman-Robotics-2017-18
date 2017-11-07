@@ -2,14 +2,14 @@
 <Robot name="K9LegacyBot" type="FirstInspires-FTC-template">
 	<LegacyModuleController name="legacy module" serialNumber="N/A">
 		<MotorController name="wheels" port="0">
-			<Motor name="left motor" port="1"/>
-			<Motor name="right motor" port="2"/>
+			<Motor name="left_drive" port="1"/>
+			<Motor name="right_drive" port="2"/>
 		</MotorController>
 		<ServoController name="servos" port="1">
 			<Servo name="arm" port="1"/>
 			<Servo name="claw" port="6"/>
 		</ServoController>
-		<IrSeeker name="seeker" port="2"/>
-		<LightSensor name="light sensor" port="3"/>
+		<IrSeeker name="sensor_ir" port="2"/>
+		<LightSensor name="sensor_light" port="3"/>
 	</LegacyModuleController>
 </Robot>
