@@ -57,7 +57,7 @@ public class SlideBotTeleop extends LinearOpMode {
 
 
             if(gamepad1.dpad_down){
-                position = 0.5;
+                position = 0.55;
             }
 
             robot.latchUp.setPosition(position);

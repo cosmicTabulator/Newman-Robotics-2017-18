@@ -30,9 +30,9 @@ public class LinearSlideBotHardware {
 
         right = hwMap.dcMotor.get("Right");
         left = hwMap.dcMotor.get("Left");
-        belt = hwMap.dcMotor.get("Belt");
+        LinSlide = hwMap.dcMotor.get("Belt");
 
-        latch = hwMap.servo.get("Latch");
+        right_grabber = hwMap.servo.get("Latch");
 
         right.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -42,7 +42,7 @@ public class LinearSlideBotHardware {
 
         right.setPower(0);
         left.setPower(0);
-        belt.setPower(0);
+        LinSlide.setPower(0);
 
         right_grabber.setPosition(0);
         left_grabber.setPosition(0);
