@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3bcb05ce-f721-434b-aaf0-019df8ddc64f" name="Default" comment="" />
+    <list default="true" id="3bcb05ce-f721-434b-aaf0-019df8ddc64f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ftc_app-master/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/XYgridTest.java" afterPath="$PROJECT_DIR$/ftc_app-master/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/XYgridTest.java" />
+    </list>
     <ignored path="Newman-Robotics-2017-2018.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -42,8 +44,8 @@
       <file leaf-file-name="XYgridTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ftc_app-master/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/XYgridTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="2295">
+              <caret line="160" column="80" lean-forward="false" selection-start-line="160" selection-start-column="80" selection-end-line="160" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -1069,8 +1071,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ftc_app-master/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/XYgridTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="2295">
+          <caret line="160" column="80" lean-forward="false" selection-start-line="160" selection-start-column="80" selection-end-line="160" selection-end-column="80" />
           <folding />
         </state>
       </provider>
