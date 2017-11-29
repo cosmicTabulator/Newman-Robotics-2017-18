@@ -15,9 +15,10 @@ import java.lang.Math;
  * Created by brendanmatulis on 11/15/17.
  */
 
-//This program is for the autonomas phase
+//This program is for the autonomous phase
 // It contains a orientation program and a drive forward program
 // It uses dead reckoning, based on encoders data
+
 
 @Autonomous(name = "xyGrid", group = "Tank")
 public class XYgridTest extends LinearOpMode {
