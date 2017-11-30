@@ -19,7 +19,7 @@ public class SlideBotTeleop extends LinearOpMode {
         float lPower = 0;
         float rPower = 0;
 
-        float c = 0.8f;
+        float c = -1f;
 
         float drive;
         float turn;
@@ -27,9 +27,8 @@ public class SlideBotTeleop extends LinearOpMode {
         float slide;
 
         int cooldown = 0;
-        double position = 0;
-
-        boolean tank = true;
+        double position = 0.5;
+        double armPos = 0.5;
 
         robot.init(hardwareMap);
 
@@ -39,8 +38,8 @@ public class SlideBotTeleop extends LinearOpMode {
 
             slide = gamepad1.right_trigger;
 
-            lPower = c*-gamepad1.left_stick_y;
-            rPower = c*-gamepad1.right_stick_y;
+            lPower = c*gamepad1.left_stick_y;
+            rPower = c*gamepad1.right_stick_y;
 
             robot.left.setPower(lPower);
             robot.right.setPower(rPower);
@@ -52,16 +51,24 @@ public class SlideBotTeleop extends LinearOpMode {
             }
 
             if(gamepad1.dpad_up){
-                position = 1;
+                position = 0.65;
             }
 
+            if(gamepad1.dpad_left){
+                armPos = 0.6;
+            }
+
+            if(gamepad1.dpad_right){
+                armPos = 0.1;
+            }
 
             if(gamepad1.dpad_down){
-                position = 0.55;
+                position = 0;
             }
 
             robot.latchUp.setPosition(position);
             robot.latchDown.setPosition(1-position);
+            robot.arm.setPosition(armPos);
 
             telemetry.addData("Servo Position", position);
             telemetry.addData("Cooldown", cooldown);
