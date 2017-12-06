@@ -8,14 +8,24 @@
  */
 function fetchProjects(callback) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
+    // html/js is within the WebView component within the Android app.
     fetchProjectsViaBlocksIO(callback);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
+    // html/js is in a browser, loaded as an http:// URL.
     fetchProjectsViaHttp(callback);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    fetchProjectsViaFile(callback);
+  }
+}
+
+/**
+ * Fetches the list of samples (as json) and calls the callback.
+ */
+function fetchSamples(callback) {
+  if (typeof blocksIO !== 'undefined') {
+    // html/js is within the WebView component within the Android app.
+    fetchSamplesViaBlocksIO(callback);
+  } else if (window.location.protocol === 'http:') {
+    // html/js is in a browser, loaded as an http:// URL.
+    fetchSamplesViaHttp(callback);
   }
 }
 
@@ -24,75 +34,12 @@ function fetchProjects(callback) {
  */
 function openProjectBlocks(projectName) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
+    // html/js is within the WebView component within the Android app.
     openProjectBlocksViaBlocksIO(projectName);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
+    // html/js is in a browser, loaded as an http:// URL.
     openProjectBlocksViaHttp(projectName);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    openProjectBlocksViaFile(projectName);
   }
-}
-
-/**
- * Creates the blocks for a new project.
- */
-function createBlocks() {
-  var blocksContent =
-      '<xml xmlns="http://www.w3.org/1999/xhtml">\n' +
-      '  <block type="procedures_defnoreturn" deletable="false" editable="false" x="50" y="50">\n' +
-      '    <field name="NAME">runOpMode</field>\n' +
-      '    <comment pinned="true" h="80" w="160">This function is executed when this Op Mode is selected from the Driver Station.</comment>\n' +
-      '    <statement name="STACK">\n' +
-      '      <block type="comment">\n' +
-      '        <field name="COMMENT">Put initialization blocks here.</field>\n' +
-      '        <next>\n' +
-      '          <block type="linearOpMode_waitForStart">\n' +
-      '            <next>\n' +
-      '              <block type="comment">\n' +
-      '                <field name="COMMENT">Put run blocks here.</field>\n' +
-      '                <next>\n' +
-      '                  <block type="controls_whileUntil">\n' +
-      '                    <field name="MODE">WHILE</field>\n' +
-      '                    <value name="BOOL">\n' +
-      '                      <block type="linearOpMode_opModeIsActive">\n' +
-      '                      </block>\n' +
-      '                    </value>\n' +
-      '                    <statement name="DO">\n' +
-      '                      <block type="comment">\n' +
-      '                        <field name="COMMENT">Put loop blocks here.</field>\n' +
-      '                        <next>\n' +
-      '                          <block type="telemetry_update">\n' +
-      '                          </block>\n' +
-      '                        </next>\n' +
-      '                      </block>\n' +
-      '                    </statement>\n' +
-      '                  </block>\n' +
-      '                </next>\n' +
-      '              </block>\n' +
-      '            </next>\n' +
-      '          </block>\n' +
-      '        </next>\n' +
-      '      </block>\n' +
-      '    </statement>\n' +
-      '  </block>\n' +
-      '</xml>\n';
-  return blocksContent;
-}
-
-/**
- * Creates the javascript for a new project.
- */
-function createJavaScript() {
-  var jsFileContent =
-      'function runOpMode() {\n' +
-      '  linearOpMode.waitForStart();\n' +
-      '  while (linearOpMode.opModeIsActive()) {\n' +
-      '    telemetry.update();\n' +
-      '  }\n' +
-      '}\n';
-  return jsFileContent;
 }
 
 /**
@@ -100,87 +47,76 @@ function createJavaScript() {
  */
 function fetchBlkFileContent(projectName, callback) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
+    // html/js is within the WebView component within the Android app.
     fetchBlkFileContentViaBlocksIO(projectName, callback);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
+    // html/js is in a browser, loaded as an http:// URL.
     fetchBlkFileContentViaHttp(projectName, callback);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    fetchBlkFileContentViaFile(projectName, callback);
   }
 }
 
-/**
- * Fetches the javascript of an existing project and calls the callback
- */
-function fetchJsFileContent(projectName, callback) {
+function newProject(projectName, sampleName, callback) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
-    fetchJsFileContentViaBlocksIO(projectName, callback);
+    // html/js is within the WebView component within the Android app.
+    newProjectViaBlocksIO(projectName, sampleName, callback);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
-    fetchJsFileContentViaHttp(projectName, callback);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    fetchJsFileContentViaFile(projectName, callback);
+    // html/js is in a browser, loaded as an http:// URL.
+    newProjectViaHttp(projectName, sampleName, callback);
   }
 }
 
-function saveProject(projectName, blkContent, jsFileContent, flavor, group, callback) {
+function saveProject(projectName, blkContent, jsFileContent, flavor, group, enable, callback) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
-    saveProjectViaBlocksIO(projectName, blkContent, jsFileContent, flavor, group, callback);
+    // html/js is within the WebView component within the Android app.
+    saveProjectViaBlocksIO(projectName, blkContent, jsFileContent, flavor, group, enable, callback);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
-    saveProjectViaHttp(projectName, blkContent, jsFileContent, flavor, group, callback);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    saveProjectViaFile(projectName, blkContent, jsFileContent, flavor, group, callback);
+    // html/js is in a browser, loaded as an http:// URL.
+    saveProjectViaHttp(projectName, blkContent, jsFileContent, flavor, group, enable, callback);
   }
 }
 
 function renameProject(oldProjectName, newProjectName, callback) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
+    // html/js is within the WebView component within the Android app.
     renameProjectViaBlocksIO(oldProjectName, newProjectName, callback);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
+    // html/js is in a browser, loaded as an http:// URL.
     renameProjectViaHttp(oldProjectName, newProjectName, callback);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    renameProjectViaFile(oldProjectName, newProjectName, callback);
   }
 }
 
 function copyProject(oldProjectName, newProjectName, callback) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
+    // html/js is within the WebView component within the Android app.
     copyProjectViaBlocksIO(oldProjectName, newProjectName, callback);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
+    // html/js is in a browser, loaded as an http:// URL.
     copyProjectViaHttp(oldProjectName, newProjectName, callback);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    copyProjectViaFile(oldProjectName, newProjectName, callback);
+  }
+}
+
+function enableProject(oldProjectName, enable, callback) {
+  if (typeof blocksIO !== 'undefined') {
+    // html/js is within the WebView component within the Android app.
+    enableProjectViaBlocksIO(oldProjectName, enable, callback);
+  } else if (window.location.protocol === 'http:') {
+    // html/js is in a browser, loaded as an http:// URL.
+    enableProjectViaHttp(oldProjectName, enable, callback);
   }
 }
 
 function deleteProjects(starDelimitedProjectNames, callback) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
+    // html/js is within the WebView component within the Android app.
     deleteProjectsViaBlocksIO(starDelimitedProjectNames, callback);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
+    // html/js is in a browser, loaded as an http:// URL.
     deleteProjectsViaHttp(starDelimitedProjectNames, callback);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    deleteProjectsViaFile(starDelimitedProjectNames, callback);
   }
 }
 
 //..........................................................................
-// Code used when FtcBlocks.html is within the WebView component within the
+// Code used when html/js is within the WebView component within the
 // Android app.
 
 function fetchProjectsViaBlocksIO(callback) {
@@ -189,6 +125,15 @@ function fetchProjectsViaBlocksIO(callback) {
     callback(jsonProjects, '');
   } else {
     callback(null, 'Fetch projects failed.');
+  }
+}
+
+function fetchSamplesViaBlocksIO(callback) {
+  var jsonSamples = blocksIO.fetchSamples();
+  if (jsonSamples) {
+    callback(jsonSamples, '');
+  } else {
+    callback(null, 'Fetch samples failed.');
   }
 }
 
@@ -205,17 +150,18 @@ function fetchBlkFileContentViaBlocksIO(projectName, callback) {
   }
 }
 
-function fetchJsFileContentViaBlocksIO(projectName, callback) {
-  var jsFileContent = blocksIO.fetchJsFileContent(projectName);
-  if (jsFileContent) {
-    callback(jsFileContent, '');
+function newProjectViaBlocksIO(projectName, sampleName, callback) {
+  var blkFileContent = blocksIO.newProject(projectName, sampleName, enable);
+  if (blkFileContent) {
+    callback(blkFileContent, '');
   } else {
-    callback(null, 'Fetch JavaScript failed.');
+    // TODO(lizlooney): Provide more information about the error.
+    callback(null, 'New project failed.');
   }
 }
 
-function saveProjectViaBlocksIO(projectName, blkContent, jsFileContent, flavor, group, callback) {
-  var success = blocksIO.saveProject(projectName, blkContent, jsFileContent, flavor, group);
+function saveProjectViaBlocksIO(projectName, blkContent, jsFileContent, flavor, group, enable, callback) {
+  var success = blocksIO.saveProject(projectName, blkContent, jsFileContent, flavor, group, enable);
   if (success) {
     callback(true, '');
   } else {
@@ -244,6 +190,16 @@ function copyProjectViaBlocksIO(oldProjectName, newProjectName, callback) {
   }
 }
 
+function enableProjectViaBlocksIO(oldProjectName, enable, callback) {
+  var success = blocksIO.enableProject(oldProjectName, enable);
+  if (success) {
+    callback(true, '');
+  } else {
+    // TODO(lizlooney): Provide more information about the error.
+    callback(false, 'Enable project failed.');
+  }
+}
+
 function deleteProjectsViaBlocksIO(starDelimitedProjectNames, callback) {
   var success = blocksIO.deleteProjects(starDelimitedProjectNames);
   if (success) {
@@ -255,25 +211,30 @@ function deleteProjectsViaBlocksIO(starDelimitedProjectNames, callback) {
 }
 
 //..........................................................................
-// Code used when FtcBlocks.html is in a browser, loaded as a http:// URL.
+// Code used when html/js is in a browser, loaded as an http:// URL.
 
-var URI_LIST = '/list';
-var URI_LOAD = '/load';
-var URI_LOADJS = '/loadjs';
-var URI_SAVE = '/save';
-var URI_RENAME = '/rename';
-var URI_COPY = '/copy';
-var URI_DELETE = '/delete';
-var PARAM_PROJECT = 'project';
-var PARAM_NEWPROJECT = 'newproject';
-var PARAM_BLK = 'blk';
-var PARAM_JS = 'js';
-var PARAM_FLAVOR = 'flavor';
-var PARAM_GROUP = 'group';
+// The following are generated dynamically in ProgrammingModeServer.fetchJavaScriptForServer():
+// URI_LIST_PROJECTS
+// URI_LIST_SAMPLES
+// URI_FETCH_BLK
+// URI_NEW_PROJECT
+// URI_SAVE_PROJECT
+// URI_RENAME_PROJECT
+// URI_COPY_PROJECT
+// URI_ENABLE_PROJECT
+// URI_DELETE_PROJECTS
+// PARAM_NAME
+// PARAM_NEW_NAME
+// PARAM_BLK
+// PARAM_JS
+// PARAM_FLAVOR
+// PARAM_GROUP
+// PARAM_ENABLE
+// PARAM_CONTENT
 
 function fetchProjectsViaHttp(callback) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', URI_LIST, true);
+  xhr.open('GET', URI_LIST_PROJECTS, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -289,6 +250,24 @@ function fetchProjectsViaHttp(callback) {
   xhr.send();
 }
 
+function fetchSamplesViaHttp(callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', URI_LIST_SAMPLES, true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        var jsonSamples = xhr.responseText;
+        callback(jsonSamples, '');
+      } else {
+        // TODO(lizlooney): Use specific error messages for various xhr.status values.
+        callback(null, 'Fetch samples failed. Error code ' + xhr.status + '. ' + xhr.statusText);
+      }
+    }
+  };
+  xhr.send();
+}
+
 function openProjectBlocksViaHttp(projectName) {
   // Go to FtcBlocks.html?project=<projectName>.
   window.location.href = 'FtcBlocks.html?project=' + encodeURIComponent(projectName);
@@ -296,8 +275,8 @@ function openProjectBlocksViaHttp(projectName) {
 
 function fetchBlkFileContentViaHttp(projectName, callback) {
   var xhr = new XMLHttpRequest();
-  var params = PARAM_PROJECT + '=' + encodeURIComponent(projectName);
-  xhr.open('POST', URI_LOAD, true);
+  var params = PARAM_NAME + '=' + encodeURIComponent(projectName);
+  xhr.open('POST', URI_FETCH_BLK, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -313,28 +292,29 @@ function fetchBlkFileContentViaHttp(projectName, callback) {
   xhr.send(params);
 }
 
-function fetchJsFileContentViaHttp(projectName, callback) {
+function newProjectViaHttp(projectName, sampleName, callback) {
   var xhr = new XMLHttpRequest();
-  var params = PARAM_PROJECT + '=' + encodeURIComponent(projectName);
-  xhr.open('POST', URI_LOADJS, true);
+  var params = PARAM_NAME + '=' + encodeURIComponent(projectName) +
+      '&' + PARAM_SAMPLE_NAME + '=' + encodeURIComponent(sampleName);
+  xhr.open('POST', URI_NEW_PROJECT, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        var jsFileContent = xhr.responseText;
-        callback(jsFileContent, '');
+        var blkFileContent = xhr.responseText;
+        callback(blkFileContent, '');
       } else {
         // TODO(lizlooney): Use specific error messages for various xhr.status values.
-        callback(null, 'Fetch JavaScript failed. Error code ' + xhr.status + '. ' + xhr.statusText);
+        callback(null, 'New project failed. Error code ' + xhr.status + '. ' + xhr.statusText);
       }
     }
   };
   xhr.send(params);
 }
 
-function saveProjectViaHttp(projectName, blkContent, jsFileContent, flavor, group, callback) {
+function saveProjectViaHttp(projectName, blkContent, jsFileContent, flavor, group, enable, callback) {
   var xhr = new XMLHttpRequest();
-  var params = PARAM_PROJECT + '=' + encodeURIComponent(projectName) +
+  var params = PARAM_NAME + '=' + encodeURIComponent(projectName) +
       '&' + PARAM_BLK + '=' + encodeURIComponent(blkContent) +
       '&' + PARAM_JS + '=' + encodeURIComponent(jsFileContent);
   if (flavor != null) {
@@ -343,12 +323,13 @@ function saveProjectViaHttp(projectName, blkContent, jsFileContent, flavor, grou
   if (group != null) {
     params += '&' + PARAM_GROUP + '=' + encodeURIComponent(group);
   }
-  xhr.open('POST', URI_SAVE, true);
+  params += '&' + PARAM_ENABLE + '=' + (enable ? "true" : "false");
+  xhr.open('POST', URI_SAVE_PROJECT, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        callback(true, '');
+          callback(true, '');
       } else {
         // TODO(lizlooney): Use specific error messages for various xhr.status values.
         callback(false, 'Save project failed. Error code ' + xhr.status + '. ' + xhr.statusText);
@@ -360,9 +341,9 @@ function saveProjectViaHttp(projectName, blkContent, jsFileContent, flavor, grou
 
 function renameProjectViaHttp(oldProjectName, newProjectName, callback) {
   var xhr = new XMLHttpRequest();
-  var params = PARAM_PROJECT + '=' + encodeURIComponent(oldProjectName) +
-      '&' + PARAM_NEWPROJECT + '=' + encodeURIComponent(newProjectName);
-  xhr.open('POST', URI_RENAME, true);
+  var params = PARAM_NAME + '=' + encodeURIComponent(oldProjectName) +
+      '&' + PARAM_NEW_NAME + '=' + encodeURIComponent(newProjectName);
+  xhr.open('POST', URI_RENAME_PROJECT, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -379,9 +360,9 @@ function renameProjectViaHttp(oldProjectName, newProjectName, callback) {
 
 function copyProjectViaHttp(oldProjectName, newProjectName, callback) {
   var xhr = new XMLHttpRequest();
-  var params = PARAM_PROJECT + '=' + encodeURIComponent(oldProjectName) +
-      '&' + PARAM_NEWPROJECT + '=' + encodeURIComponent(newProjectName);
-  xhr.open('POST', URI_COPY, true);
+  var params = PARAM_NAME + '=' + encodeURIComponent(oldProjectName) +
+      '&' + PARAM_NEW_NAME + '=' + encodeURIComponent(newProjectName);
+  xhr.open('POST', URI_COPY_PROJECT, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -396,10 +377,29 @@ function copyProjectViaHttp(oldProjectName, newProjectName, callback) {
   xhr.send(params);
 }
 
+function enableProjectViaHttp(oldProjectName, enable, callback) {
+  var xhr = new XMLHttpRequest();
+  var params = PARAM_NAME + '=' + encodeURIComponent(oldProjectName) +
+      '&' + PARAM_ENABLE + '=' + (enable ? "true" : "false");
+  xhr.open('POST', URI_ENABLE_PROJECT, true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        callback(true, '');
+      } else {
+        // TODO(lizlooney): Use specific error messages for various xhr.status values.
+        callback(false, 'Enable project failed. Error code ' + xhr.status + '. ' + xhr.statusText);
+      }
+    }
+  };
+  xhr.send(params);
+}
+
 function deleteProjectsViaHttp(starDelimitedProjectNames, callback) {
   var xhr = new XMLHttpRequest();
-  var params = PARAM_PROJECT + '=' + encodeURIComponent(starDelimitedProjectNames);
-  xhr.open('POST', URI_DELETE, true);
+  var params = PARAM_NAME + '=' + encodeURIComponent(starDelimitedProjectNames);
+  xhr.open('POST', URI_DELETE_PROJECTS, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -412,59 +412,4 @@ function deleteProjectsViaHttp(starDelimitedProjectNames, callback) {
     }
   };
   xhr.send(params);
-}
-
-//..........................................................................
-// Code used when FtcBlocks.html is in a browser, loaded as a file:// URL.
-
-function fetchProjectsViaFile(callback) {
-  var jsonProjects = '[' +
-      '{ "name": "Autonomous", "escapedName": "Autonomous", "dateModifiedMillis": 1464391007000},' +
-      '{ "name": "LineFollow", "escapedName": "LineFollow", "dateModifiedMillis":1464591007000},' +
-      '{ "name": "TeleBot", "escapedName": "TeleBot", "dateModifiedMillis":1464191007000},' +
-      '{ "name": "Test&reg;", "escapedName": "Test&amp;reg;", "dateModifiedMillis":1464191007000}' +
-      ']';
-  callback(jsonProjects, '');
-}
-
-function openProjectBlocksViaFile(projectName) {
-  // Go to FtcBlocks.html?project=<projectName>.
-  window.location.href = 'FtcBlocks.html?project=' + encodeURIComponent(projectName);
-}
-
-function fetchBlkFileContentViaFile(projectName, callback) {
-  var fakeBlkFileContent = createBlocks();
-  fakeBlkFileContent += '<xml><OpModeMeta flavor="autonomous" group="abc"></OpModeMeta></xml>';
-  callback(fakeBlkFileContent, '');
-}
-
-function fetchJsFileContentViaFile(projectName, callback) {
-  var fakeJsContent = createJavaScript();
-  callback(fakeJsContent, '');
-}
-
-function saveProjectViaFile(projectName, blkContent, jsFileContent, flavor, group, callback) {
-  console.log('saveProjectViaFile');
-  console.log('projectName is ' + projectName);
-  console.log('blkContent is ' + blkContent);
-  console.log('jsFileContent is ' + jsFileContent);
-  console.log('flavor is ' + flavor);
-  console.log('group is ' + group);
-  callback(true, '');
-  //callback(false, 'Save project failed.');
-}
-
-function renameProjectViaFile(projectName, blkFileContent, jsFileContent, callback) {
-  callback(true, '');
-  //callback(false, 'Rename project failed.');
-}
-
-function copyProjectViaFile(projectName, blkFileContent, jsFileContent, callback) {
-  callback(true, '');
-  //callback(false, 'Copy project failed.');
-}
-
-function deleteProjectsViaFile(starDelimitedProjectNames, callback) {
-  callback(true, '');
-  //callback(false, 'Delete projects failed.');
 }

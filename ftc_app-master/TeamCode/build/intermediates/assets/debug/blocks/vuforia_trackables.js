@@ -17,14 +17,13 @@ Blockly.Blocks['vuforiaTrackables_getProperty'] = {
         ['Name', 'Name'],
         ['Localizer', 'Localizer'],
     ];
-    this.setOutput(true, null);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField(createNonEditableField('VuforiaTrackables'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
-    this.appendValueInput('VUFORIA_TRACKABLES')
+    this.appendValueInput('VUFORIA_TRACKABLES').setCheck('VuforiaTrackables')
         .appendField('vuforiaTrackables')
-        .setCheck('VuforiaTrackables')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(getPropertyColor);
     // Assign 'this' to a variable for use in the tooltip closure below.
@@ -54,6 +53,108 @@ Blockly.JavaScript['vuforiaTrackables_getProperty'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.Blocks['vuforiaTrackables_getProperty_Number'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['Size', 'Size'],
+    ];
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('VuforiaTrackables'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('VUFORIA_TRACKABLES').setCheck('VuforiaTrackables')
+        .appendField('vuforiaTrackables')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['Size', 'Returns the size of the given VuforiaTrackables.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['vuforiaTrackables_getProperty_Number'] =
+    Blockly.JavaScript['vuforiaTrackables_getProperty'];
+
+Blockly.Blocks['vuforiaTrackables_getProperty_String'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['Name', 'Name'],
+    ];
+    this.setOutput(true, 'String');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('VuforiaTrackables'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('VUFORIA_TRACKABLES').setCheck('VuforiaTrackables')
+        .appendField('vuforiaTrackables')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['Name', 'Returns the user-specified name for the given VuforiaTrackables.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['vuforiaTrackables_getProperty_String'] =
+    Blockly.JavaScript['vuforiaTrackables_getProperty'];
+
+Blockly.Blocks['vuforiaTrackables_getProperty_VuforiaLocalizer'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['Localizer', 'Localizer'],
+    ];
+    this.setOutput(true, 'VuforiaLocalizer');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('VuforiaTrackables'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('VUFORIA_TRACKABLES').setCheck('VuforiaTrackables')
+        .appendField('vuforiaTrackables')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['Localizer', 'Returns the VuforiaLocalizer which manages the given VuforiaTrackables.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['vuforiaTrackables_getProperty_VuforiaLocalizer'] =
+    Blockly.JavaScript['vuforiaTrackables_getProperty'];
+
 // Functions
 
 Blockly.Blocks['vuforiaTrackables_get'] = {
@@ -64,13 +165,11 @@ Blockly.Blocks['vuforiaTrackables_get'] = {
         .appendField(createNonEditableField('VuforiaTrackables'))
         .appendField('.')
         .appendField(createNonEditableField('get'));
-    this.appendValueInput('VUFORIA_TRACKABLES')
+    this.appendValueInput('VUFORIA_TRACKABLES').setCheck('VuforiaTrackables')
         .appendField('vuforiaTrackables')
-        .setCheck('VuforiaTrackables')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('INDEX')
+    this.appendValueInput('INDEX').setCheck('Number')
         .appendField('index')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a particular VuforiaTrackable of the given VuforiaTrackables.');
@@ -79,9 +178,9 @@ Blockly.Blocks['vuforiaTrackables_get'] = {
 
 Blockly.JavaScript['vuforiaTrackables_get'] = function(block) {
   var vuforiaTrackables = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_TRACKABLES', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_TRACKABLES', Blockly.JavaScript.ORDER_COMMA);
   var index = Blockly.JavaScript.valueToCode(
-      block, 'INDEX', Blockly.JavaScript.ORDER_NONE);
+      block, 'INDEX', Blockly.JavaScript.ORDER_COMMA);
   var code = vuforiaTrackablesIdentifier + '.get(' + vuforiaTrackables + ', ' + index + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -93,13 +192,11 @@ Blockly.Blocks['vuforiaTrackables_setName'] = {
         .appendField(createNonEditableField('VuforiaTrackables'))
         .appendField('.')
         .appendField(createNonEditableField('setName'));
-    this.appendValueInput('VUFORIA_TRACKABLES')
+    this.appendValueInput('VUFORIA_TRACKABLES').setCheck('VuforiaTrackables')
         .appendField('vuforiaTrackables')
-        .setCheck('VuforiaTrackables')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('NAME')
+    this.appendValueInput('NAME').setCheck('String')
         .appendField('name')
-        .setCheck('String')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -111,9 +208,9 @@ Blockly.Blocks['vuforiaTrackables_setName'] = {
 
 Blockly.JavaScript['vuforiaTrackables_setName'] = function(block) {
   var vuforiaTrackables = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_TRACKABLES', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_TRACKABLES', Blockly.JavaScript.ORDER_COMMA);
   var name = Blockly.JavaScript.valueToCode(
-      block, 'NAME', Blockly.JavaScript.ORDER_NONE);
+      block, 'NAME', Blockly.JavaScript.ORDER_COMMA);
   return vuforiaTrackablesIdentifier + '.setName(' + vuforiaTrackables + ', ' + name + ');\n';
 };
 
@@ -124,9 +221,8 @@ Blockly.Blocks['vuforiaTrackables_activate'] = {
         .appendField(createNonEditableField('VuforiaTrackables'))
         .appendField('.')
         .appendField(createNonEditableField('activate'));
-    this.appendValueInput('VUFORIA_TRACKABLES')
+    this.appendValueInput('VUFORIA_TRACKABLES').setCheck('VuforiaTrackables')
         .appendField('vuforiaTrackables')
-        .setCheck('VuforiaTrackables')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -149,9 +245,8 @@ Blockly.Blocks['vuforiaTrackables_deactivate'] = {
         .appendField(createNonEditableField('VuforiaTrackables'))
         .appendField('.')
         .appendField(createNonEditableField('deactivate'));
-    this.appendValueInput('VUFORIA_TRACKABLES')
+    this.appendValueInput('VUFORIA_TRACKABLES').setCheck('VuforiaTrackables')
         .appendField('vuforiaTrackables')
-        .setCheck('VuforiaTrackables')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);

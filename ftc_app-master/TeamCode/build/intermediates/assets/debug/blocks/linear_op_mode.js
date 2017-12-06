@@ -56,7 +56,7 @@ Blockly.Blocks['linearOpMode_sleep'] = {
         .appendField(createNonEditableField(currentProjectName))
         .appendField('.')
         .appendField(createNonEditableField('sleep'));
-    this.appendValueInput('MILLISECONDS')
+    this.appendValueInput('MILLISECONDS') // no type, for compatibility
         .appendField('milliseconds')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
@@ -71,6 +71,26 @@ Blockly.JavaScript['linearOpMode_sleep'] = function(block) {
       block, 'MILLISECONDS', Blockly.JavaScript.ORDER_NONE);
   return linearOpModeIdentifier + '.sleep(' + millis + ');\n';
 };
+
+Blockly.Blocks['linearOpMode_sleep_Number'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField('call')
+        .appendField(createNonEditableField(currentProjectName))
+        .appendField('.')
+        .appendField(createNonEditableField('sleep'));
+    this.appendValueInput('MILLISECONDS').setCheck('Number')
+        .appendField('milliseconds')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(functionColor);
+    this.setTooltip('Sleep for the given amount of milliseconds.');
+  }
+};
+
+Blockly.JavaScript['linearOpMode_sleep_Number'] =
+    Blockly.JavaScript['linearOpMode_sleep'];
 
 Blockly.Blocks['linearOpMode_opModeIsActive'] = {
   init: function() {
@@ -128,7 +148,7 @@ Blockly.JavaScript['linearOpMode_isStopRequested'] = function(block) {
 
 Blockly.Blocks['linearOpMode_getRuntime'] = {
   init: function() {
-    this.setOutput(true);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField('call')
         .appendField(createNonEditableField(currentProjectName))
@@ -143,3 +163,19 @@ Blockly.JavaScript['linearOpMode_getRuntime'] = function(block) {
   var code = linearOpModeIdentifier + '.getRuntime()';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
+
+Blockly.Blocks['linearOpMode_getRuntime_Number'] = {
+  init: function() {
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField('call')
+        .appendField(createNonEditableField(currentProjectName))
+        .appendField('.')
+        .appendField(createNonEditableField('getRuntime'));
+    this.setTooltip('Get the number of seconds this op mode has been running.');
+    this.setColour(functionColor);
+  }
+};
+
+Blockly.JavaScript['linearOpMode_getRuntime_Number'] =
+    Blockly.JavaScript['linearOpMode_getRuntime'];

@@ -31,9 +31,8 @@ Blockly.Blocks['openGLMatrix_create_withMatrixF'] = {
     this.appendDummyInput()
         .appendField('new')
         .appendField(createNonEditableField('OpenGLMatrix'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck(['MatrixF', 'OpenGLMatrix'])
         .appendField('matrix')
-        .setCheck(['MatrixF', 'OpenGLMatrix'])
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object whose values are initialized from the given matrix.');
@@ -55,25 +54,20 @@ Blockly.Blocks['openGLMatrix_rotation'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('rotation'));
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE')
+    this.appendValueInput('ANGLE').setCheck('Number')
         .appendField('angle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DX')
+    this.appendValueInput('DX').setCheck('Number')
         .appendField('dx')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DY')
+    this.appendValueInput('DY').setCheck('Number')
         .appendField('dy')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DZ')
+    this.appendValueInput('DZ').setCheck('Number')
         .appendField('dz')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object for rotation by the indicated angle around ' +
@@ -83,15 +77,15 @@ Blockly.Blocks['openGLMatrix_rotation'] = {
 
 Blockly.JavaScript['openGLMatrix_rotation'] = function(block) {
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var angle = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var dx = Blockly.JavaScript.valueToCode(
-      block, 'DX', Blockly.JavaScript.ORDER_NONE);
+      block, 'DX', Blockly.JavaScript.ORDER_COMMA);
   var dy = Blockly.JavaScript.valueToCode(
-      block, 'DY', Blockly.JavaScript.ORDER_NONE);
+      block, 'DY', Blockly.JavaScript.ORDER_COMMA);
   var dz = Blockly.JavaScript.valueToCode(
-      block, 'DZ', Blockly.JavaScript.ORDER_NONE);
+      block, 'DZ', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.rotation(' + angleUnit + ', ' + angle + ', ' +
       dx + ', ' + dy + ', ' + dz + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
@@ -105,29 +99,23 @@ Blockly.Blocks['openGLMatrix_rotation_withAxesArgs'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('rotation'));
-    this.appendValueInput('AXES_REFERENCE')
+    this.appendValueInput('AXES_REFERENCE').setCheck('AxesReference')
         .appendField('axesReference')
-        .setCheck('AxesReference')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_ORDER')
+    this.appendValueInput('AXES_ORDER').setCheck('AxesOrder')
         .appendField('axesOrder')
-        .setCheck('AxesOrder')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('FIRST_ANGLE')
+    this.appendValueInput('FIRST_ANGLE').setCheck('Number')
         .appendField('firstAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SECOND_ANGLE')
+    this.appendValueInput('SECOND_ANGLE').setCheck('Number')
         .appendField('secondAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('THIRD_ANGLE')
+    this.appendValueInput('THIRD_ANGLE').setCheck('Number')
         .appendField('thirdAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object for a rotation specified by three ' +
@@ -137,17 +125,17 @@ Blockly.Blocks['openGLMatrix_rotation_withAxesArgs'] = {
 
 Blockly.JavaScript['openGLMatrix_rotation_withAxesArgs'] = function(block) {
   var axesReference = Blockly.JavaScript.valueToCode(
-      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_COMMA);
   var axesOrder = Blockly.JavaScript.valueToCode(
-      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var firstAngle = Blockly.JavaScript.valueToCode(
-      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var secondAngle = Blockly.JavaScript.valueToCode(
-      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var thirdAngle = Blockly.JavaScript.valueToCode(
-      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.rotation_withAxesArgs(' + axesReference + ', ' +
       axesOrder + ', ' + angleUnit + ', ' + firstAngle + ', ' + secondAngle + ', ' +
       thirdAngle + ')';
@@ -162,17 +150,14 @@ Blockly.Blocks['openGLMatrix_translation'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('translation'));
-    this.appendValueInput('DX')
+    this.appendValueInput('DX').setCheck('Number')
         .appendField('dx')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DY')
+    this.appendValueInput('DY').setCheck('Number')
         .appendField('dy')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DZ')
+    this.appendValueInput('DZ').setCheck('Number')
         .appendField('dz')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object for translation.');
@@ -181,11 +166,11 @@ Blockly.Blocks['openGLMatrix_translation'] = {
 
 Blockly.JavaScript['openGLMatrix_translation'] = function(block) {
   var dx = Blockly.JavaScript.valueToCode(
-      block, 'DX', Blockly.JavaScript.ORDER_NONE);
+      block, 'DX', Blockly.JavaScript.ORDER_COMMA);
   var dy = Blockly.JavaScript.valueToCode(
-      block, 'DY', Blockly.JavaScript.ORDER_NONE);
+      block, 'DY', Blockly.JavaScript.ORDER_COMMA);
   var dz = Blockly.JavaScript.valueToCode(
-      block, 'DZ', Blockly.JavaScript.ORDER_NONE);
+      block, 'DZ', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.translation(' + dx + ', ' + dy + ', ' + dz + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -216,21 +201,17 @@ Blockly.Blocks['openGLMatrix_scale_with3'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('scale'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE_X')
+    this.appendValueInput('SCALE_X').setCheck('Number')
         .appendField('scaleX')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE_Y')
+    this.appendValueInput('SCALE_Y').setCheck('Number')
         .appendField('scaleY')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE_Z')
+    this.appendValueInput('SCALE_Z').setCheck('Number')
         .appendField('scaleZ')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -241,13 +222,13 @@ Blockly.Blocks['openGLMatrix_scale_with3'] = {
 
 Blockly.JavaScript['openGLMatrix_scale_with3'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var scaleX = Blockly.JavaScript.valueToCode(
-      block, 'SCALE_X', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE_X', Blockly.JavaScript.ORDER_COMMA);
   var scaleY = Blockly.JavaScript.valueToCode(
-      block, 'SCALE_Y', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE_Y', Blockly.JavaScript.ORDER_COMMA);
   var scaleZ = Blockly.JavaScript.valueToCode(
-      block, 'SCALE_Z', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE_Z', Blockly.JavaScript.ORDER_COMMA);
   return openGLMatrixIdentifier + '.scale_with3(' + matrix + ', ' +
       scaleX + ', ' + scaleY + ', ' + scaleZ + ');\n';
 };
@@ -259,13 +240,11 @@ Blockly.Blocks['openGLMatrix_scale_with1'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('scale'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE')
+    this.appendValueInput('SCALE').setCheck('Number')
         .appendField('scale')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -276,9 +255,9 @@ Blockly.Blocks['openGLMatrix_scale_with1'] = {
 
 Blockly.JavaScript['openGLMatrix_scale_with1'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var scale = Blockly.JavaScript.valueToCode(
-      block, 'SCALE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE', Blockly.JavaScript.ORDER_COMMA);
   return openGLMatrixIdentifier + '.scale_with1(' + matrix + ', ' + scale + ');\n';
 };
 
@@ -289,21 +268,17 @@ Blockly.Blocks['openGLMatrix_translate'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('translate'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DX')
+    this.appendValueInput('DX').setCheck('Number')
         .appendField('dx')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DY')
+    this.appendValueInput('DY').setCheck('Number')
         .appendField('dy')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DZ')
+    this.appendValueInput('DZ').setCheck('Number')
         .appendField('dz')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -314,13 +289,13 @@ Blockly.Blocks['openGLMatrix_translate'] = {
 
 Blockly.JavaScript['openGLMatrix_translate'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var dx = Blockly.JavaScript.valueToCode(
-      block, 'DX', Blockly.JavaScript.ORDER_NONE);
+      block, 'DX', Blockly.JavaScript.ORDER_COMMA);
   var dy = Blockly.JavaScript.valueToCode(
-      block, 'DY', Blockly.JavaScript.ORDER_NONE);
+      block, 'DY', Blockly.JavaScript.ORDER_COMMA);
   var dz = Blockly.JavaScript.valueToCode(
-      block, 'DZ', Blockly.JavaScript.ORDER_NONE);
+      block, 'DZ', Blockly.JavaScript.ORDER_COMMA);
   return openGLMatrixIdentifier + '.translate(' + matrix + ', ' +
       dx + ', ' + dy + ', ' + dz + ');\n';
 };
@@ -332,29 +307,23 @@ Blockly.Blocks['openGLMatrix_rotate'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('rotate'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE')
+    this.appendValueInput('ANGLE').setCheck('Number')
         .appendField('angle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DX')
+    this.appendValueInput('DX').setCheck('Number')
         .appendField('dx')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DY')
+    this.appendValueInput('DY').setCheck('Number')
         .appendField('dy')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DZ')
+    this.appendValueInput('DZ').setCheck('Number')
         .appendField('dz')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -365,17 +334,17 @@ Blockly.Blocks['openGLMatrix_rotate'] = {
 
 Blockly.JavaScript['openGLMatrix_rotate'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var angle = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var dx = Blockly.JavaScript.valueToCode(
-      block, 'DX', Blockly.JavaScript.ORDER_NONE);
+      block, 'DX', Blockly.JavaScript.ORDER_COMMA);
   var dy = Blockly.JavaScript.valueToCode(
-      block, 'DY', Blockly.JavaScript.ORDER_NONE);
+      block, 'DY', Blockly.JavaScript.ORDER_COMMA);
   var dz = Blockly.JavaScript.valueToCode(
-      block, 'DZ', Blockly.JavaScript.ORDER_NONE);
+      block, 'DZ', Blockly.JavaScript.ORDER_COMMA);
   return openGLMatrixIdentifier + '.rotate(' + matrix + ', ' + angleUnit + ', ' + angle + ', ' +
       dx + ', ' + dy + ', ' + dz + ');\n';
 };
@@ -387,33 +356,26 @@ Blockly.Blocks['openGLMatrix_rotate_withAxesArgs'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('rotate'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_REFERENCE')
+    this.appendValueInput('AXES_REFERENCE').setCheck('AxesReference')
         .appendField('axesReference')
-        .setCheck('AxesReference')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_ORDER')
+    this.appendValueInput('AXES_ORDER').setCheck('AxesOrder')
         .appendField('axesOrder')
-        .setCheck('AxesOrder')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('FIRST_ANGLE')
+    this.appendValueInput('FIRST_ANGLE').setCheck('Number')
         .appendField('firstAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SECOND_ANGLE')
+    this.appendValueInput('SECOND_ANGLE').setCheck('Number')
         .appendField('secondAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('THIRD_ANGLE')
+    this.appendValueInput('THIRD_ANGLE').setCheck('Number')
         .appendField('thirdAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -424,19 +386,19 @@ Blockly.Blocks['openGLMatrix_rotate_withAxesArgs'] = {
 
 Blockly.JavaScript['openGLMatrix_rotate_withAxesArgs'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var axesReference = Blockly.JavaScript.valueToCode(
-      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_COMMA);
   var axesOrder = Blockly.JavaScript.valueToCode(
-      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var firstAngle = Blockly.JavaScript.valueToCode(
-      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var secondAngle = Blockly.JavaScript.valueToCode(
-      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var thirdAngle = Blockly.JavaScript.valueToCode(
-      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   return openGLMatrixIdentifier + '.rotate_withAxesArgs(' + matrix + ', ' + axesReference + ', ' +
       axesOrder + ', ' + angleUnit + ', ' + firstAngle + ', ' + secondAngle + ', ' +
       thirdAngle + ');\n';
@@ -450,21 +412,17 @@ Blockly.Blocks['openGLMatrix_scaled_with3'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('scaled'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE_X')
+    this.appendValueInput('SCALE_X').setCheck('Number')
         .appendField('scaleX')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE_Y')
+    this.appendValueInput('SCALE_Y').setCheck('Number')
         .appendField('scaleY')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE_Z')
+    this.appendValueInput('SCALE_Z').setCheck('Number')
         .appendField('scaleZ')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object by scaling the given matrix.');
@@ -473,13 +431,13 @@ Blockly.Blocks['openGLMatrix_scaled_with3'] = {
 
 Blockly.JavaScript['openGLMatrix_scaled_with3'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var scaleX = Blockly.JavaScript.valueToCode(
-      block, 'SCALE_X', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE_X', Blockly.JavaScript.ORDER_COMMA);
   var scaleY = Blockly.JavaScript.valueToCode(
-      block, 'SCALE_Y', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE_Y', Blockly.JavaScript.ORDER_COMMA);
   var scaleZ = Blockly.JavaScript.valueToCode(
-      block, 'SCALE_Z', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE_Z', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.scaled_with3(' + matrix + ', ' +
       scaleX + ', ' + scaleY + ', ' + scaleZ + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
@@ -493,13 +451,11 @@ Blockly.Blocks['openGLMatrix_scaled_with1'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('scaled'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE')
+    this.appendValueInput('SCALE').setCheck('Number')
         .appendField('scale')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object by scaling the given matrix.');
@@ -508,9 +464,9 @@ Blockly.Blocks['openGLMatrix_scaled_with1'] = {
 
 Blockly.JavaScript['openGLMatrix_scaled_with1'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var scale = Blockly.JavaScript.valueToCode(
-      block, 'SCALE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.scaled_with1(' + matrix + ', ' + scale + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -523,21 +479,17 @@ Blockly.Blocks['openGLMatrix_translated'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('translated'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DX')
+    this.appendValueInput('DX').setCheck('Number')
         .appendField('dx')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DY')
+    this.appendValueInput('DY').setCheck('Number')
         .appendField('dy')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DZ')
+    this.appendValueInput('DZ').setCheck('Number')
         .appendField('dz')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object by translating the given matrix.');
@@ -546,13 +498,13 @@ Blockly.Blocks['openGLMatrix_translated'] = {
 
 Blockly.JavaScript['openGLMatrix_translated'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var dx = Blockly.JavaScript.valueToCode(
-      block, 'DX', Blockly.JavaScript.ORDER_NONE);
+      block, 'DX', Blockly.JavaScript.ORDER_COMMA);
   var dy = Blockly.JavaScript.valueToCode(
-      block, 'DY', Blockly.JavaScript.ORDER_NONE);
+      block, 'DY', Blockly.JavaScript.ORDER_COMMA);
   var dz = Blockly.JavaScript.valueToCode(
-      block, 'DZ', Blockly.JavaScript.ORDER_NONE);
+      block, 'DZ', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.translated(' + matrix + ', ' +
       dx + ', ' + dy + ', ' + dz + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
@@ -566,29 +518,23 @@ Blockly.Blocks['openGLMatrix_rotated'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('rotated'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE')
+    this.appendValueInput('ANGLE').setCheck('Number')
         .appendField('angle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DX')
+    this.appendValueInput('DX').setCheck('Number')
         .appendField('dx')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DY')
+    this.appendValueInput('DY').setCheck('Number')
         .appendField('dy')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DZ')
+    this.appendValueInput('DZ').setCheck('Number')
         .appendField('dz')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object by rotating the given matrix.');
@@ -597,17 +543,17 @@ Blockly.Blocks['openGLMatrix_rotated'] = {
 
 Blockly.JavaScript['openGLMatrix_rotated'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var angle = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var dx = Blockly.JavaScript.valueToCode(
-      block, 'DX', Blockly.JavaScript.ORDER_NONE);
+      block, 'DX', Blockly.JavaScript.ORDER_COMMA);
   var dy = Blockly.JavaScript.valueToCode(
-      block, 'DY', Blockly.JavaScript.ORDER_NONE);
+      block, 'DY', Blockly.JavaScript.ORDER_COMMA);
   var dz = Blockly.JavaScript.valueToCode(
-      block, 'DZ', Blockly.JavaScript.ORDER_NONE);
+      block, 'DZ', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.rotated(' + matrix + ', ' + angleUnit + ', ' +
       angle + ', ' + dx + ', ' + dy + ', ' + dz + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
@@ -621,33 +567,26 @@ Blockly.Blocks['openGLMatrix_rotated_withAxesArgs'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('rotated'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck('OpenGLMatrix')
         .appendField('matrix')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_REFERENCE')
+    this.appendValueInput('AXES_REFERENCE').setCheck('AxesReference')
         .appendField('axesReference')
-        .setCheck('AxesReference')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_ORDER')
+    this.appendValueInput('AXES_ORDER').setCheck('AxesOrder')
         .appendField('axesOrder')
-        .setCheck('AxesOrder')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('FIRST_ANGLE')
+    this.appendValueInput('FIRST_ANGLE').setCheck('Number')
         .appendField('firstAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SECOND_ANGLE')
+    this.appendValueInput('SECOND_ANGLE').setCheck('Number')
         .appendField('secondAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('THIRD_ANGLE')
+    this.appendValueInput('THIRD_ANGLE').setCheck('Number')
         .appendField('thirdAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object by rotating the given matrix.');
@@ -656,19 +595,19 @@ Blockly.Blocks['openGLMatrix_rotated_withAxesArgs'] = {
 
 Blockly.JavaScript['openGLMatrix_rotated_withAxesArgs'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var axesReference = Blockly.JavaScript.valueToCode(
-      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_COMMA);
   var axesOrder = Blockly.JavaScript.valueToCode(
-      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var firstAngle = Blockly.JavaScript.valueToCode(
-      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var secondAngle = Blockly.JavaScript.valueToCode(
-      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var thirdAngle = Blockly.JavaScript.valueToCode(
-      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.rotated_withAxesArgs(' + matrix + ', ' +
       axesReference + ', ' + axesOrder + ', ' + angleUnit + ', ' +
       firstAngle + ', ' + secondAngle + ', ' + thirdAngle + ')';
@@ -683,13 +622,11 @@ Blockly.Blocks['openGLMatrix_multiplied'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('multiplied'));
-    this.appendValueInput('MATRIX1')
+    this.appendValueInput('MATRIX1').setCheck('OpenGLMatrix')
         .appendField('matrix1')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('MATRIX2')
+    this.appendValueInput('MATRIX2').setCheck('OpenGLMatrix')
         .appendField('matrix2')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new OpenGLMatrix object by multiplying matrix1 by matrix2.');
@@ -698,9 +635,9 @@ Blockly.Blocks['openGLMatrix_multiplied'] = {
 
 Blockly.JavaScript['openGLMatrix_multiplied'] = function(block) {
   var matrix1 = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX1', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX1', Blockly.JavaScript.ORDER_COMMA);
   var matrix2 = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX2', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX2', Blockly.JavaScript.ORDER_COMMA);
   var code = openGLMatrixIdentifier + '.multiplied(' + matrix1 + ', ' + matrix2 + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -712,13 +649,11 @@ Blockly.Blocks['openGLMatrix_multiply'] = {
         .appendField(createNonEditableField('OpenGLMatrix'))
         .appendField('.')
         .appendField(createNonEditableField('multiply'));
-    this.appendValueInput('MATRIX1')
+    this.appendValueInput('MATRIX1').setCheck('OpenGLMatrix')
         .appendField('matrix1')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('MATRIX2')
+    this.appendValueInput('MATRIX2').setCheck('OpenGLMatrix')
         .appendField('matrix2')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -729,8 +664,8 @@ Blockly.Blocks['openGLMatrix_multiply'] = {
 
 Blockly.JavaScript['openGLMatrix_multiply'] = function(block) {
   var matrix1 = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX1', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX1', Blockly.JavaScript.ORDER_COMMA);
   var matrix2 = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX2', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX2', Blockly.JavaScript.ORDER_COMMA);
   return openGLMatrixIdentifier + '.multiply(' + matrix1 + ', ' + matrix2 + ');\n';
 };

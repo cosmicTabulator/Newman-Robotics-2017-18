@@ -18,11 +18,11 @@
   background-image: url(../images/ftcAnalogOutput.png);
 }
 
-.ColorSensor-icon {
-  background-image: url(../images/ftcColorSensor.png);
+.CRServo-icon {
+  background-image: url(../images/ftcCRServo.png);
 }
 
-.Color-icon {
+.ColorSensor-icon {
   background-image: url(../images/ftcColorSensor.png);
 }
 
@@ -30,23 +30,7 @@
   background-image: url(../images/ftcCompassSensor.png);
 }
 
-.MrI2cCompassSensor-icon {
-  background-image: url(../images/ftcCompassSensor.png);
-}
-
-.CRServo-icon {
-  background-image: url(../images/ftcCRServo.png);
-}
-
 .DcMotor-icon {
-  background-image: url(../images/ftcDcMotor.png);
-}
-
-.Dual-icon {
-  background-image: url(../images/ftcDcMotor.png);
-}
-
-.Individual-icon {
   background-image: url(../images/ftcDcMotor.png);
 }
 
@@ -114,10 +98,6 @@
   background-image: url(../images/ftcOpticalDistanceSensor.png);
 }
 
-.MrI2cRangeSensor-icon {
-  background-image: url(../images/ftcOpticalDistanceSensor.png);
-}
-
 .PwmOutput-icon {
   background-image: url(../images/ftcPwmOutput.png);
 }
@@ -149,4 +129,3 @@
 .VoltageSensor-icon {
   background-image: url(../images/ftcVoltageSensor.png);
 }
-

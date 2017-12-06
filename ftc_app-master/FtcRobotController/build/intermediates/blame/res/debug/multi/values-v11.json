@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
+        "outputFile": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
         "map": [
             {
                 "to": {
@@ -12,66 +12,14 @@
                     "endOffset": 187
                 },
                 "from": {
-                    "file": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\src\\main\\res\\values-v11\\styles.xml",
+                    "file": "C:\\Users\\graha\\.android\\build-cache\\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\\output\\res\\values-v11\\values-v11.xml",
                     "position": {
-                        "startLine": 39,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 1865,
-                        "endLine": 41,
+                        "startOffset": 55,
+                        "endLine": 4,
                         "endColumn": 12,
-                        "endOffset": 1999
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endLine": 4,
-                    "endColumn": 12,
-                    "endOffset": 187
-                },
-                "from": {
-                    "file": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\src\\main\\res\\values-v11\\styles.xml",
-                    "position": {
-                        "startLine": 39,
-                        "startColumn": 4,
-                        "startOffset": 1826,
-                        "endLine": 41,
-                        "endColumn": 12,
-                        "endOffset": 1958
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endLine": 4,
-                    "endColumn": 12,
-                    "endOffset": 187
-                },
-                "from": {
-                    "file": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\src\\main\\res\\values-v11\\styles.xml",
-                    "position": {
-                        "startLine": 39,
-                        "startColumn": 4,
-                        "startOffset": 1865,
-                        "endLine": 41,
-                        "endColumn": 12,
-                        "endOffset": 1999
+                        "endOffset": 187
                     }
                 }
             }

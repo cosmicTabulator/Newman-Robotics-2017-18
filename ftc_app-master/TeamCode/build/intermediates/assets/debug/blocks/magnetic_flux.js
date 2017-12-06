@@ -18,14 +18,13 @@ Blockly.Blocks['magneticFlux_getProperty'] = {
         ['Z', 'Z'],
         ['AcquisitionTime', 'AcquisitionTime'],
     ];
-    this.setOutput(true, null);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField(createNonEditableField('MagneticFlux'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
-    this.appendValueInput('MAGNETIC_FLUX')
+    this.appendValueInput('MAGNETIC_FLUX').setCheck('MagneticFlux')
         .appendField('magneticFlux')
-        .setCheck('MagneticFlux')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(getPropertyColor);
     // Assign 'this' to a variable for use in the tooltip closure below.
@@ -56,6 +55,47 @@ Blockly.JavaScript['magneticFlux_getProperty'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.Blocks['magneticFlux_getProperty_Number'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['X', 'X'],
+        ['Y', 'Y'],
+        ['Z', 'Z'],
+        ['AcquisitionTime', 'AcquisitionTime'],
+    ];
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('MagneticFlux'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('MAGNETIC_FLUX').setCheck('MagneticFlux')
+        .appendField('magneticFlux')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['X', 'The X of the given MagneticFlux object.'],
+        ['Y', 'The Y of the given MagneticFlux object.'],
+        ['Z', 'The Z of the given MagneticFlux object.'],
+        ['AcquisitionTime', 'The AcquisitionTime of the given MagneticFlux object.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['magneticFlux_getProperty_Number'] =
+    Blockly.JavaScript['magneticFlux_getProperty'];
+
+
 // Functions
 
 Blockly.Blocks['magneticFlux_create'] = {
@@ -80,21 +120,17 @@ Blockly.Blocks['magneticFlux_create_withArgs'] = {
     this.appendDummyInput()
         .appendField('new')
         .appendField(createNonEditableField('MagneticFlux'));
-    this.appendValueInput('X')
+    this.appendValueInput('X').setCheck('Number')
         .appendField('x')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('Y')
+    this.appendValueInput('Y').setCheck('Number')
         .appendField('y')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('Z')
+    this.appendValueInput('Z').setCheck('Number')
         .appendField('z')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ACQUISITION_TIME')
+    this.appendValueInput('ACQUISITION_TIME').setCheck('Number')
         .appendField('acquisitionTime')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new MagneticFlux object.');
@@ -103,13 +139,13 @@ Blockly.Blocks['magneticFlux_create_withArgs'] = {
 
 Blockly.JavaScript['magneticFlux_create_withArgs'] = function(block) {
   var x = Blockly.JavaScript.valueToCode(
-      block, 'X', Blockly.JavaScript.ORDER_NONE);
+      block, 'X', Blockly.JavaScript.ORDER_COMMA);
   var y = Blockly.JavaScript.valueToCode(
-      block, 'Y', Blockly.JavaScript.ORDER_NONE);
+      block, 'Y', Blockly.JavaScript.ORDER_COMMA);
   var z = Blockly.JavaScript.valueToCode(
-      block, 'Z', Blockly.JavaScript.ORDER_NONE);
+      block, 'Z', Blockly.JavaScript.ORDER_COMMA);
   var acquisitionTime = Blockly.JavaScript.valueToCode(
-      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_NONE);
+      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_COMMA);
   var code = magneticFluxIdentifier + '.create_withArgs(' + x + ', ' + y + ', ' + z + ', ' +
       acquisitionTime + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
@@ -123,9 +159,8 @@ Blockly.Blocks['magneticFlux_toText'] = {
         .appendField(createNonEditableField('MagneticFlux'))
         .appendField('.')
         .appendField(createNonEditableField('toText'));
-    this.appendValueInput('MAGNETIC_FLUX')
+    this.appendValueInput('MAGNETIC_FLUX').setCheck('MagneticFlux')
         .appendField('magneticFlux')
-        .setCheck('MagneticFlux')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a text representation of the given magneticFlux.');

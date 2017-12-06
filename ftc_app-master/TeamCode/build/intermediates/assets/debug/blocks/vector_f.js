@@ -16,14 +16,13 @@ Blockly.Blocks['vectorF_getProperty'] = {
         ['Length', 'Length'],
         ['Magnitude', 'Magnitude'],
     ];
-    this.setOutput(true, null);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(getPropertyColor);
     // Assign 'this' to a variable for use in the tooltip closure below.
@@ -52,6 +51,42 @@ Blockly.JavaScript['vectorF_getProperty'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.Blocks['vectorF_getProperty_Number'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['Length', 'Length'],
+        ['Magnitude', 'Magnitude'],
+    ];
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('VectorF'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('VECTOR').setCheck('VectorF')
+        .appendField('vector')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['Length', 'Returns the length of the given vector.'],
+        ['Magnitude', 'Returns the magnitude of the given vector.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['vectorF_getProperty_Number'] =
+    Blockly.JavaScript['vectorF_getProperty'];
+
 // Functions
 
 Blockly.Blocks['vectorF_create'] = {
@@ -60,9 +95,8 @@ Blockly.Blocks['vectorF_create'] = {
     this.appendDummyInput()
         .appendField('new')
         .appendField(createNonEditableField('VectorF'));
-    this.appendValueInput('LENGTH')
+    this.appendValueInput('LENGTH').setCheck('Number')
         .appendField('length')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new Vector of the indicated length. The vector will contain zeros.');
@@ -84,13 +118,11 @@ Blockly.Blocks['vectorF_get'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('get'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('INDEX')
+    this.appendValueInput('INDEX').setCheck('Number')
         .appendField('index')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a particular element of the given vector.');
@@ -99,9 +131,9 @@ Blockly.Blocks['vectorF_get'] = {
 
 Blockly.JavaScript['vectorF_get'] = function(block) {
   var vector = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR', Blockly.JavaScript.ORDER_COMMA);
   var index = Blockly.JavaScript.valueToCode(
-      block, 'INDEX', Blockly.JavaScript.ORDER_NONE);
+      block, 'INDEX', Blockly.JavaScript.ORDER_COMMA);
   var code = vectorFIdentifier + '.get(' + vector + ', ' + index + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -113,17 +145,14 @@ Blockly.Blocks['vectorF_put'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('put'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('INDEX')
+    this.appendValueInput('INDEX').setCheck('Number')
         .appendField('index')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('VALUE')
+    this.appendValueInput('VALUE').setCheck('Number')
         .appendField('value')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -134,11 +163,11 @@ Blockly.Blocks['vectorF_put'] = {
 
 Blockly.JavaScript['vectorF_put'] = function(block) {
   var vector = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR', Blockly.JavaScript.ORDER_COMMA);
   var index = Blockly.JavaScript.valueToCode(
-      block, 'INDEX', Blockly.JavaScript.ORDER_NONE);
+      block, 'INDEX', Blockly.JavaScript.ORDER_COMMA);
   var value = Blockly.JavaScript.valueToCode(
-      block, 'VALUE', Blockly.JavaScript.ORDER_NONE);
+      block, 'VALUE', Blockly.JavaScript.ORDER_COMMA);
   return vectorFIdentifier + '.put(' + vector + ', ' + index + ', ' + value + ');\n';
 };
 
@@ -150,9 +179,8 @@ Blockly.Blocks['vectorF_toText'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('toText'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a text representation of the given vector.');
@@ -174,9 +202,8 @@ Blockly.Blocks['vectorF_normalized3D'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('normalized3D'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Consider the given vector as a 3D coordinate or 3D homogeneous ' +
@@ -201,13 +228,11 @@ Blockly.Blocks['vectorF_dotProduct'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('dotProduct'));
-    this.appendValueInput('VECTOR1')
+    this.appendValueInput('VECTOR1').setCheck('VectorF')
         .appendField('vector1')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('VECTOR2')
+    this.appendValueInput('VECTOR2').setCheck('VectorF')
         .appendField('vector2')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the dot product of vector1 and vector2.');
@@ -216,9 +241,9 @@ Blockly.Blocks['vectorF_dotProduct'] = {
 
 Blockly.JavaScript['vectorF_dotProduct'] = function(block) {
   var vector1 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR1', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR1', Blockly.JavaScript.ORDER_COMMA);
   var vector2 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR2', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR2', Blockly.JavaScript.ORDER_COMMA);
   var code = vectorFIdentifier + '.dotProduct(' + vector1 + ', ' + vector2 + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -231,13 +256,11 @@ Blockly.Blocks['vectorF_multiplied'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('multiplied'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck(['MatrixF', 'OpenGLMatrix'])
         .appendField('matrix')
-        .setCheck(['MatrixF', 'OpenGLMatrix'])
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the result of multiplying the given vector, taken ' +
@@ -247,9 +270,9 @@ Blockly.Blocks['vectorF_multiplied'] = {
 
 Blockly.JavaScript['vectorF_multiplied'] = function(block) {
   var vector = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR', Blockly.JavaScript.ORDER_COMMA);
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var code = vectorFIdentifier + '.multiplied(' + vector + ', ' + matrix + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -262,13 +285,11 @@ Blockly.Blocks['vectorF_added_withMatrix'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('added'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck(['MatrixF', 'OpenGLMatrix'])
         .appendField('matrix')
-        .setCheck(['MatrixF', 'OpenGLMatrix'])
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the result of adding the given vector, taken as a ' +
@@ -278,9 +299,9 @@ Blockly.Blocks['vectorF_added_withMatrix'] = {
 
 Blockly.JavaScript['vectorF_added_withMatrix'] = function(block) {
   var vector = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR', Blockly.JavaScript.ORDER_COMMA);
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var code = vectorFIdentifier + '.added_withMatrix(' + vector + ', ' + matrix + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -293,13 +314,11 @@ Blockly.Blocks['vectorF_added_withVector'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('added'));
-    this.appendValueInput('VECTOR1')
+    this.appendValueInput('VECTOR1').setCheck('VectorF')
         .appendField('vector1')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('VECTOR2')
+    this.appendValueInput('VECTOR2').setCheck('VectorF')
         .appendField('vector2')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the result of adding vector1 to vector2.');
@@ -308,9 +327,9 @@ Blockly.Blocks['vectorF_added_withVector'] = {
 
 Blockly.JavaScript['vectorF_added_withVector'] = function(block) {
   var vector1 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR1', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR1', Blockly.JavaScript.ORDER_COMMA);
   var vector2 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR2', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR2', Blockly.JavaScript.ORDER_COMMA);
   var code = vectorFIdentifier + '.added_withVector(' + vector1 + ', ' + vector2 + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -322,13 +341,11 @@ Blockly.Blocks['vectorF_add_withVector'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('add'));
-    this.appendValueInput('VECTOR1')
+    this.appendValueInput('VECTOR1').setCheck('VectorF')
         .appendField('vector1')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('VECTOR2')
+    this.appendValueInput('VECTOR2').setCheck('VectorF')
         .appendField('vector2')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -339,9 +356,9 @@ Blockly.Blocks['vectorF_add_withVector'] = {
 
 Blockly.JavaScript['vectorF_add_withVector'] = function(block) {
   var vector1 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR1', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR1', Blockly.JavaScript.ORDER_COMMA);
   var vector2 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR2', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR2', Blockly.JavaScript.ORDER_COMMA);
   return vectorFIdentifier + '.add_withVector(' + vector1 + ', ' + vector2 + ');\n';
 };
 
@@ -353,13 +370,11 @@ Blockly.Blocks['vectorF_subtracted_withMatrix'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('subtracted'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck(['MatrixF', 'OpenGLMatrix'])
         .appendField('matrix')
-        .setCheck(['MatrixF', 'OpenGLMatrix'])
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the result of subtracting the given matrix from ' +
@@ -369,9 +384,9 @@ Blockly.Blocks['vectorF_subtracted_withMatrix'] = {
 
 Blockly.JavaScript['vectorF_subtracted_withMatrix'] = function(block) {
   var vector = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR', Blockly.JavaScript.ORDER_COMMA);
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var code = vectorFIdentifier + '.subtracted_withMatrix(' + vector + ', ' + matrix + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -384,13 +399,11 @@ Blockly.Blocks['vectorF_subtracted_withVector'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('subtracted'));
-    this.appendValueInput('VECTOR1')
+    this.appendValueInput('VECTOR1').setCheck('VectorF')
         .appendField('vector1')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('VECTOR2')
+    this.appendValueInput('VECTOR2').setCheck('VectorF')
         .appendField('vector2')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the result of subtracting vector2 from vector1.');
@@ -399,9 +412,9 @@ Blockly.Blocks['vectorF_subtracted_withVector'] = {
 
 Blockly.JavaScript['vectorF_subtracted_withVector'] = function(block) {
   var vector1 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR1', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR1', Blockly.JavaScript.ORDER_COMMA);
   var vector2 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR2', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR2', Blockly.JavaScript.ORDER_COMMA);
   var code = vectorFIdentifier + '.subtracted_withVector(' + vector1 + ', ' + vector2 + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -413,13 +426,11 @@ Blockly.Blocks['vectorF_subtract_withVector'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('subtract'));
-    this.appendValueInput('VECTOR1')
+    this.appendValueInput('VECTOR1').setCheck('VectorF')
         .appendField('vector1')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('VECTOR2')
+    this.appendValueInput('VECTOR2').setCheck('VectorF')
         .appendField('vector2')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -430,9 +441,9 @@ Blockly.Blocks['vectorF_subtract_withVector'] = {
 
 Blockly.JavaScript['vectorF_subtract_withVector'] = function(block) {
   var vector1 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR1', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR1', Blockly.JavaScript.ORDER_COMMA);
   var vector2 = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR2', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR2', Blockly.JavaScript.ORDER_COMMA);
   return vectorFIdentifier + '.subtract_withVector(' + vector1 + ', ' + vector2 + ');\n';
 };
 
@@ -445,13 +456,11 @@ Blockly.Blocks['vectorF_multiplied_withScale'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('multiplied'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE')
+    this.appendValueInput('SCALE').setCheck('Number')
         .appendField('scale')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a new vector containing the elements of this ' +
@@ -461,9 +470,9 @@ Blockly.Blocks['vectorF_multiplied_withScale'] = {
 
 Blockly.JavaScript['vectorF_multiplied_withScale'] = function(block) {
   var vector = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR', Blockly.JavaScript.ORDER_COMMA);
   var scale = Blockly.JavaScript.valueToCode(
-      block, 'SCALE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE', Blockly.JavaScript.ORDER_COMMA);
   var code = vectorFIdentifier + '.multiplied_withScale(' + vector + ', ' + scale + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -475,13 +484,11 @@ Blockly.Blocks['vectorF_multiply_withScale'] = {
         .appendField(createNonEditableField('VectorF'))
         .appendField('.')
         .appendField(createNonEditableField('multiply'));
-    this.appendValueInput('VECTOR')
+    this.appendValueInput('VECTOR').setCheck('VectorF')
         .appendField('vector')
-        .setCheck('VectorF')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SCALE')
+    this.appendValueInput('SCALE').setCheck('Number')
         .appendField('scale')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -492,8 +499,8 @@ Blockly.Blocks['vectorF_multiply_withScale'] = {
 
 Blockly.JavaScript['vectorF_multiply_withScale'] = function(block) {
   var vector = Blockly.JavaScript.valueToCode(
-      block, 'VECTOR', Blockly.JavaScript.ORDER_NONE);
+      block, 'VECTOR', Blockly.JavaScript.ORDER_COMMA);
   var scale = Blockly.JavaScript.valueToCode(
-      block, 'SCALE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SCALE', Blockly.JavaScript.ORDER_COMMA);
   return vectorFIdentifier + '.multiply_withScale(' + vector + ', ' + scale + ');\n';
 };

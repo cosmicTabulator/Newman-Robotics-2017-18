@@ -15,9 +15,8 @@ Blockly.Blocks['vuforiaLocalizer_create'] = {
     this.appendDummyInput()
         .appendField('new')
         .appendField(createNonEditableField('VuforiaLocalizer'));
-    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS')
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
         .appendField('vuforiaLocalizerParameters')
-        .setCheck('VuforiaLocalizer.Parameters')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip(
@@ -40,13 +39,11 @@ Blockly.Blocks['vuforiaLocalizer_loadTrackablesFromAsset'] = {
         .appendField(createNonEditableField('VuforiaLocalizer'))
         .appendField('.')
         .appendField(createNonEditableField('loadTrackablesFromAsset'));
-    this.appendValueInput('VUFORIA_LOCALIZER')
+    this.appendValueInput('VUFORIA_LOCALIZER').setCheck('VuforiaLocalizer')
         .appendField('vuforiaLocalizer')
-        .setCheck('VuforiaLocalizer')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ASSET_NAME')
+    this.appendValueInput('ASSET_NAME').setCheck('String')
         .appendField('assetName')
-        .setCheck('String')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Loads a Vuforia dataset from the indicated application asset, which must be ' +
@@ -60,9 +57,9 @@ Blockly.Blocks['vuforiaLocalizer_loadTrackablesFromAsset'] = {
 
 Blockly.JavaScript['vuforiaLocalizer_loadTrackablesFromAsset'] = function(block) {
   var vuforiaLocalizer = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LOCALIZER', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LOCALIZER', Blockly.JavaScript.ORDER_COMMA);
   var assetName = Blockly.JavaScript.valueToCode(
-      block, 'ASSET_NAME', Blockly.JavaScript.ORDER_NONE);
+      block, 'ASSET_NAME', Blockly.JavaScript.ORDER_COMMA);
   var code = vuforiaLocalizerIdentifier + '.loadTrackablesFromAsset(' + vuforiaLocalizer + ', ' + assetName + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -75,13 +72,11 @@ Blockly.Blocks['vuforiaLocalizer_loadTrackablesFromFile'] = {
         .appendField(createNonEditableField('VuforiaLocalizer'))
         .appendField('.')
         .appendField(createNonEditableField('loadTrackablesFromFile'));
-    this.appendValueInput('VUFORIA_LOCALIZER')
+    this.appendValueInput('VUFORIA_LOCALIZER').setCheck('VuforiaLocalizer')
         .appendField('vuforiaLocalizer')
-        .setCheck('VuforiaLocalizer')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ABSOLUTE_FILE_NAME')
+    this.appendValueInput('ABSOLUTE_FILE_NAME').setCheck('String')
         .appendField('absoluteFileName')
-        .setCheck('String')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Loads a Vuforia dataset from the indicated file, which must be a .XML file ' +
@@ -93,9 +88,9 @@ Blockly.Blocks['vuforiaLocalizer_loadTrackablesFromFile'] = {
 
 Blockly.JavaScript['vuforiaLocalizer_loadTrackablesFromFile'] = function(block) {
   var vuforiaLocalizer = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LOCALIZER', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LOCALIZER', Blockly.JavaScript.ORDER_COMMA);
   var absoluteFileName = Blockly.JavaScript.valueToCode(
-      block, 'ABSOLUTE_FILE_NAME', Blockly.JavaScript.ORDER_NONE);
+      block, 'ABSOLUTE_FILE_NAME', Blockly.JavaScript.ORDER_COMMA);
   var code = vuforiaLocalizerIdentifier + '.loadTrackablesFromFile(' + vuforiaLocalizer + ', ' + absoluteFileName + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };

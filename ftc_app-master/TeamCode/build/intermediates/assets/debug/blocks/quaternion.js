@@ -20,14 +20,13 @@ Blockly.Blocks['quaternion_getProperty'] = {
         ['AcquisitionTime', 'AcquisitionTime'],
         ['Magnitude', 'Magnitude'],
     ];
-    this.setOutput(true, null);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField(createNonEditableField('Quaternion'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
-    this.appendValueInput('QUATERNION')
+    this.appendValueInput('QUATERNION').setCheck('Quaternion')
         .appendField('quaternion')
-        .setCheck('Quaternion')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(getPropertyColor);
     // Assign 'this' to a variable for use in the tooltip closure below.
@@ -60,7 +59,51 @@ Blockly.JavaScript['quaternion_getProperty'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 }
 
-// Functions
+Blockly.Blocks['quaternion_getProperty_Number'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['W', 'W'],
+        ['X', 'X'],
+        ['Y', 'Y'],
+        ['Z', 'Z'],
+        ['AcquisitionTime', 'AcquisitionTime'],
+        ['Magnitude', 'Magnitude'],
+    ];
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('Quaternion'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('QUATERNION').setCheck('Quaternion')
+        .appendField('quaternion')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['W', 'The W of the given Quaternion object.'],
+        ['X', 'The X of the given Quaternion object.'],
+        ['Y', 'The Y of the given Quaternion object.'],
+        ['Z', 'The Z of the given Quaternion object.'],
+        ['AcquisitionTime', 'The AcquisitionTime of the given Quaternion object.'],
+        ['Magnitude', 'Returns the magnitude of the given Quaternion object.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['quaternion_getProperty_Number'] =
+    Blockly.JavaScript['quaternion_getProperty'];
+
+  // Functions
 
 Blockly.Blocks['quaternion_create'] = {
   init: function() {
@@ -84,25 +127,20 @@ Blockly.Blocks['quaternion_create_withArgs'] = {
     this.appendDummyInput()
         .appendField('new')
         .appendField(createNonEditableField('Quaternion'));
-    this.appendValueInput('W')
+    this.appendValueInput('W').setCheck('Number')
         .appendField('w')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('X')
+    this.appendValueInput('X').setCheck('Number')
         .appendField('x')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('Y')
+    this.appendValueInput('Y').setCheck('Number')
         .appendField('y')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('Z')
+    this.appendValueInput('Z').setCheck('Number')
         .appendField('z')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ACQUISITION_TIME')
+    this.appendValueInput('ACQUISITION_TIME').setCheck('Number')
         .appendField('acquisitionTime')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new Quaternion object.');
@@ -111,15 +149,15 @@ Blockly.Blocks['quaternion_create_withArgs'] = {
 
 Blockly.JavaScript['quaternion_create_withArgs'] = function(block) {
   var w = Blockly.JavaScript.valueToCode(
-      block, 'W', Blockly.JavaScript.ORDER_NONE);
+      block, 'W', Blockly.JavaScript.ORDER_COMMA);
   var x = Blockly.JavaScript.valueToCode(
-      block, 'X', Blockly.JavaScript.ORDER_NONE);
+      block, 'X', Blockly.JavaScript.ORDER_COMMA);
   var y = Blockly.JavaScript.valueToCode(
-      block, 'Y', Blockly.JavaScript.ORDER_NONE);
+      block, 'Y', Blockly.JavaScript.ORDER_COMMA);
   var z = Blockly.JavaScript.valueToCode(
-      block, 'Z', Blockly.JavaScript.ORDER_NONE);
+      block, 'Z', Blockly.JavaScript.ORDER_COMMA);
   var acquisitionTime = Blockly.JavaScript.valueToCode(
-      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_NONE);
+      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_COMMA);
   var code = quaternionIdentifier + '.create_withArgs(' + w + ', ' + x + ', ' + y + ', ' + z +
       ', ' + acquisitionTime + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
@@ -133,9 +171,8 @@ Blockly.Blocks['quaternion_normalized'] = {
         .appendField(createNonEditableField('Quaternion'))
         .appendField('.')
         .appendField(createNonEditableField('normalized'));
-    this.appendValueInput('QUATERNION')
+    this.appendValueInput('QUATERNION').setCheck('Quaternion')
         .appendField('quaternion')
-        .setCheck('Quaternion')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a new Quaternion that is normalized from the given Quaternion object.');
@@ -157,9 +194,8 @@ Blockly.Blocks['quaternion_congugate'] = {
         .appendField(createNonEditableField('Quaternion'))
         .appendField('.')
         .appendField(createNonEditableField('congugate'));
-    this.appendValueInput('QUATERNION')
+    this.appendValueInput('QUATERNION').setCheck('Quaternion')
         .appendField('quaternion')
-        .setCheck('Quaternion')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a new Quaternion that is congugate from the given Quaternion object.');
