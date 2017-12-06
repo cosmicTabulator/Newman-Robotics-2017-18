@@ -16,17 +16,14 @@ Blockly.Blocks['vuforiaTrackableDefaultListener_setPhoneInformation'] = {
         .appendField(createNonEditableField('VuforiaTrackableDefaultListener'))
         .appendField('.')
         .appendField(createNonEditableField('setPhoneInformation'));
-    this.appendValueInput('VUFORIA_TRACKABLE_DEFAULT_LISTENER')
+    this.appendValueInput('VUFORIA_TRACKABLE_DEFAULT_LISTENER').setCheck('VuforiaTrackableDefaultListener')
         .appendField('vuforiaTrackableDefaultListener')
-        .setCheck('VuforiaTrackableDefaultListener')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('PHONE_LOCATION_ON_ROBOT')
+    this.appendValueInput('PHONE_LOCATION_ON_ROBOT').setCheck('OpenGLMatrix')
         .appendField('phoneLocationOnRobot')
-        .setCheck('OpenGLMatrix')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('CAMERA_DIRECTION')
+    this.appendValueInput('CAMERA_DIRECTION').setCheck('CameraDirection')
         .appendField('cameraDirection')
-        .setCheck('CameraDirection')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -39,11 +36,11 @@ Blockly.Blocks['vuforiaTrackableDefaultListener_setPhoneInformation'] = {
 
 Blockly.JavaScript['vuforiaTrackableDefaultListener_setPhoneInformation'] = function(block) {
   var vuforiaTrackableDefaultListener = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_TRACKABLE_DEFAULT_LISTENER', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_TRACKABLE_DEFAULT_LISTENER', Blockly.JavaScript.ORDER_COMMA);
   var phoneLocationOnRobot = Blockly.JavaScript.valueToCode(
-      block, 'PHONE_LOCATION_ON_ROBOT', Blockly.JavaScript.ORDER_NONE);
+      block, 'PHONE_LOCATION_ON_ROBOT', Blockly.JavaScript.ORDER_COMMA);
   var cameraDirection = Blockly.JavaScript.valueToCode(
-      block, 'CAMERA_DIRECTION', Blockly.JavaScript.ORDER_NONE);
+      block, 'CAMERA_DIRECTION', Blockly.JavaScript.ORDER_COMMA);
   return vuforiaTrackableDefaultListenerIdentifier + '.setPhoneInformation(' +
       vuforiaTrackableDefaultListener + ', ' + phoneLocationOnRobot + ', ' +
       cameraDirection + ');\n';
@@ -57,9 +54,8 @@ Blockly.Blocks['vuforiaTrackableDefaultListener_isVisible'] = {
         .appendField(createNonEditableField('VuforiaTrackableDefaultListener'))
         .appendField('.')
         .appendField(createNonEditableField('isVisible'));
-    this.appendValueInput('VUFORIA_TRACKABLE_DEFAULT_LISTENER')
+    this.appendValueInput('VUFORIA_TRACKABLE_DEFAULT_LISTENER').setCheck('VuforiaTrackableDefaultListener')
         .appendField('vuforiaTrackableDefaultListener')
-        .setCheck('VuforiaTrackableDefaultListener')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns true if the associated trackable is visible, false otherwise.');
@@ -82,9 +78,8 @@ Blockly.Blocks['vuforiaTrackableDefaultListener_getUpdatedRobotLocation'] = {
         .appendField(createNonEditableField('VuforiaTrackableDefaultListener'))
         .appendField('.')
         .appendField(createNonEditableField('getUpdatedRobotLocation'));
-    this.appendValueInput('VUFORIA_TRACKABLE_DEFAULT_LISTENER')
+    this.appendValueInput('VUFORIA_TRACKABLE_DEFAULT_LISTENER').setCheck('VuforiaTrackableDefaultListener')
         .appendField('vuforiaTrackableDefaultListener')
-        .setCheck('VuforiaTrackableDefaultListener')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the location of the robot as an OpenGLMatrix, but only if a new ' +
@@ -100,3 +95,53 @@ Blockly.JavaScript['vuforiaTrackableDefaultListener_getUpdatedRobotLocation'] = 
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.Blocks['vuforiaTrackableDefaultListener_getPose'] = {
+  init: function() {
+    this.setOutput(true, 'OpenGLMatrix');
+    this.appendDummyInput()
+        .appendField('call')
+        .appendField(createNonEditableField('VuforiaTrackableDefaultListener'))
+        .appendField('.')
+        .appendField(createNonEditableField('getPose'));
+    this.appendValueInput('VUFORIA_TRACKABLE_DEFAULT_LISTENER').setCheck('VuforiaTrackableDefaultListener')
+        .appendField('vuforiaTrackableDefaultListener')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(functionColor);
+    this.setTooltip('Returns the pose, as an OpenGLMatrix, of the associated trackable, if it is ' +
+        'currently visible. If it is not currently visible, null is returned. The pose is the ' +
+        'location of the trackable in the phone\'s coordinate system.');
+  }
+};
+
+Blockly.JavaScript['vuforiaTrackableDefaultListener_getPose'] = function(block) {
+  var vuforiaTrackableDefaultListener = Blockly.JavaScript.valueToCode(
+      block, 'VUFORIA_TRACKABLE_DEFAULT_LISTENER', Blockly.JavaScript.ORDER_NONE);
+  var code = vuforiaTrackableDefaultListenerIdentifier + '.getPose(' +
+      vuforiaTrackableDefaultListener + ')';
+  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+
+Blockly.Blocks['vuforiaTrackableDefaultListener_getRelicRecoveryVuMark'] = {
+  init: function() {
+    this.setOutput(true, 'RelicRecoveryVuMark');
+    this.appendDummyInput()
+        .appendField('call')
+        .appendField(createNonEditableField('VuforiaTrackableDefaultListener'))
+        .appendField('.')
+        .appendField(createNonEditableField('getRelicRecoveryVuMark'));
+    this.appendValueInput('VUFORIA_TRACKABLE_DEFAULT_LISTENER').setCheck('VuforiaTrackableDefaultListener')
+        .appendField('vuforiaTrackableDefaultListener')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(functionColor);
+    this.setTooltip('Returns the RelicRecoveryVuMark of the associated trackable.');
+  }
+};
+
+Blockly.JavaScript['vuforiaTrackableDefaultListener_getRelicRecoveryVuMark'] = function(block) {
+  var vuforiaTrackableDefaultListener = Blockly.JavaScript.valueToCode(
+      block, 'VUFORIA_TRACKABLE_DEFAULT_LISTENER', Blockly.JavaScript.ORDER_NONE);
+  var code = vuforiaTrackableDefaultListenerIdentifier + '.getRelicRecoveryVuMark(' +
+      vuforiaTrackableDefaultListener + ')';
+  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};

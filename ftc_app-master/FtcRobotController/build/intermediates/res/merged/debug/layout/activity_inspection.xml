@@ -13,7 +13,7 @@
         android:id="@+id/top_bar"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
-        android:background="@color/black">
+        android:background="?attr/backgroundMedium">
 
         <ImageView
             android:id="@+id/robotIcon"
@@ -23,20 +23,21 @@
             android:adjustViewBounds="true"
             android:layout_margin="1dp"/>
 
-        <TextView
+        <TextView 
             android:id="@+id/textDeviceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="?attr/textWhite"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:padding="8dp"
             android:textStyle="bold"
             android:gravity="center_vertical"
             android:foregroundGravity="center_vertical"
-            android:textSize="12pt"
-            android:text="FTC Inspect"
+            android:textSize="24sp"
+            android:text="@string/titleInspectionReportRC"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/robotIcon"/>
+            android:layout_toEndOf="@+id/robotIcon"
+            android:layout_toStartOf="@+id/menu_buttons"/>
         <ImageButton
             android:id="@+id/menu_buttons"
             android:contentDescription="menu_buttons"
@@ -44,10 +45,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_menu"
-            android:background="@color/black"
+            android:background="@android:color/transparent"
             android:padding="15dp"
             android:adjustViewBounds="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
@@ -88,13 +88,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/stringManufacturer"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/txtManufacturer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -110,13 +110,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/stringModel"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/txtModel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -132,13 +132,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="OS Version:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/osVersion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -155,14 +155,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Battery Level:"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:visibility="visible" />
 
             <TextView
                 android:id="@+id/batteryLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:visibility="visible"
                 android:layout_weight="0" />
         </LinearLayout>
@@ -180,13 +180,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Airplane Mode:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/airplaneMode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -202,13 +202,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Bluetooth:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/bluetoothEnabled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -224,13 +224,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="WiFi Enabled:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/wifiEnabled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -246,13 +246,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="WiFi Connected:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/wifiConnected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -268,13 +268,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="WiFi Direct Name:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/widiName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -291,13 +291,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="WiDi Connection Status:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/widiConnected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
@@ -313,13 +313,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Apps Installed:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/appsStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </LinearLayout>
 
@@ -327,7 +327,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="2dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -338,17 +338,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Robot Controller:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
             <TextView
                 android:id="@+id/txtIsRCInstalled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <FrameLayout
                 android:id="@+id/isRCInstalled"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></FrameLayout>
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
@@ -356,7 +356,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="2dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -367,12 +367,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Driver Station:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
             <TextView
                 android:id="@+id/txtIsDSInstalled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <FrameLayout
                 android:id="@+id/isDSInstalled"
@@ -384,7 +384,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="2dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -395,13 +395,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="ZTE Channel Changer:"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/txtIsCCInstalled"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <FrameLayout
                 android:id="@+id/isCCInstalled"

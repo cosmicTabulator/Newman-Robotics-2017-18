@@ -25,7 +25,7 @@ Blockly.JavaScript['comment'] = function(block) {
 
 Blockly.Blocks['misc_null'] = {
   init: function() {
-    this.setOutput(true, null);
+    this.setOutput(true); // no type for null
     this.appendDummyInput()
         .appendField(createNonEditableField('null'));
     this.setColour(functionColor);
@@ -44,7 +44,7 @@ Blockly.Blocks['misc_isNull'] = {
     this.appendDummyInput()
         .appendField('call')
         .appendField(createNonEditableField('isNull'));
-    this.appendValueInput('VALUE')
+    this.appendValueInput('VALUE') // all types allowed
         .appendField('value')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
@@ -65,7 +65,7 @@ Blockly.Blocks['misc_isNotNull'] = {
     this.appendDummyInput()
         .appendField('call')
         .appendField(createNonEditableField('isNotNull'));
-    this.appendValueInput('VALUE')
+    this.appendValueInput('VALUE') // all types allowed
         .appendField('value')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
@@ -78,4 +78,30 @@ Blockly.JavaScript['misc_isNotNull'] = function(block) {
       block, 'VALUE', Blockly.JavaScript.ORDER_NONE);
   var code = miscIdentifier + '.isNotNull(' + value + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Blocks['misc_atan2'] = {
+  init: function() {
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField('atan2');
+    this.appendValueInput('Y').setCheck('Number')
+        .appendField('y')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.appendValueInput('X').setCheck('Number')
+        .appendField('x')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(230);
+    this.setTooltip('Returns a numerical value between -180 and +180 degrees, representing ' +
+        'the counterclockwise angle between the positive X axis, and the point (x, y).');
+  }
+};
+
+Blockly.JavaScript['misc_atan2'] = function(block) {
+  var y = Blockly.JavaScript.valueToCode(
+      block, 'Y', Blockly.JavaScript.ORDER_COMMA);
+  var x = Blockly.JavaScript.valueToCode(
+      block, 'X', Blockly.JavaScript.ORDER_COMMA);
+  var code = 'Math.atan2(' + y + ', ' + x + ') / Math.PI * 180';
+  return [code, Blockly.JavaScript.ORDER_DIVISION];
 };

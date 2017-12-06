@@ -20,14 +20,13 @@ Blockly.Blocks['vuforiaLocalizerParameters_getProperty'] = {
         ['CameraMonitorFeedback', 'CameraMonitorFeedback'],
         ['FillCameraMonitorViewParent', 'FillCameraMonitorViewParent'],
     ];
-    this.setOutput(true, null);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
-    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS')
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
         .appendField('vuforiaLocalizerParameters')
-        .setCheck('VuforiaLocalizer.Parameters')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(getPropertyColor);
     // Assign 'this' to a variable for use in the tooltip closure below.
@@ -67,6 +66,152 @@ Blockly.JavaScript['vuforiaLocalizerParameters_getProperty'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.Blocks['vuforiaLocalizerParameters_getProperty_String'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['VuforiaLicenseKey', 'VuforiaLicenseKey'],
+    ];
+    this.setOutput(true, 'String');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
+        .appendField('vuforiaLocalizerParameters')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['VuforiaLicenseKey',
+            'Returns the Vuforia license key of the given VuforiaLocalizer.Parameters.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['vuforiaLocalizerParameters_getProperty_String'] =
+    Blockly.JavaScript['vuforiaLocalizerParameters_getProperty'];
+
+Blockly.Blocks['vuforiaLocalizerParameters_getProperty_CameraDirection'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['CameraDirection', 'CameraDirection'],
+    ];
+    this.setOutput(true, 'CameraDirection');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
+        .appendField('vuforiaLocalizerParameters')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['CameraDirection',
+            'Returns the CameraDirection of the given VuforiaLocalizer.Parameters.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['vuforiaLocalizerParameters_getProperty_CameraDirection'] =
+    Blockly.JavaScript['vuforiaLocalizerParameters_getProperty'];
+
+Blockly.Blocks['vuforiaLocalizerParameters_getProperty_Boolean'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['UseExtendedTracking', 'UseExtendedTracking'],
+        ['EnableCameraMonitoring', 'EnableCameraMonitoring'],
+        ['FillCameraMonitorViewParent', 'FillCameraMonitorViewParent'],
+    ];
+    this.setOutput(true, 'Boolean');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
+        .appendField('vuforiaLocalizerParameters')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['UseExtendedTracking',
+            'Returns true if Vuforia\'s extended tracking mode will be used. Extended tracking ' +
+            'allows tracking to continue even once an image tracker has gone out of view.'],
+        ['EnableCameraMonitoring', 'Returns true if live camera monitoring is enabled.'],
+        ['FillCameraMonitorViewParent',
+            'Returns  whether the camera monitor should entirely fill the camera monitor view ' +
+            'parent or not.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['vuforiaLocalizerParameters_getProperty_Boolean'] =
+    Blockly.JavaScript['vuforiaLocalizerParameters_getProperty'];
+
+Blockly.Blocks['vuforiaLocalizerParameters_getProperty_CameraMonitorFeedback'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['CameraMonitorFeedback', 'CameraMonitorFeedback'],
+    ];
+    this.setOutput(true, 'CameraMonitorFeedback');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
+        .appendField('vuforiaLocalizerParameters')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['CameraMonitorFeedback', 'Returns the style of camera monitoring feedback to use.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['vuforiaLocalizerParameters_getProperty_CameraMonitorFeedback'] =
+    Blockly.JavaScript['vuforiaLocalizerParameters_getProperty'];
+
 // Functions
 
 Blockly.Blocks['vuforiaLocalizerParameters_create'] = {
@@ -92,13 +237,11 @@ Blockly.Blocks['vuforiaLocalizerParameters_setVuforiaLicenseKey'] = {
         .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
         .appendField('.')
         .appendField(createNonEditableField('setVuforiaLicenseKey'));
-    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS')
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
         .appendField('vuforiaLocalizerParameters')
-        .setCheck('VuforiaLocalizer.Parameters')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('VUFORIA_LICENSE_KEY')
+    this.appendValueInput('VUFORIA_LICENSE_KEY').setCheck('String')
         .appendField('vuforiaLicenseKey')
-        .setCheck('String')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -109,9 +252,9 @@ Blockly.Blocks['vuforiaLocalizerParameters_setVuforiaLicenseKey'] = {
 
 Blockly.JavaScript['vuforiaLocalizerParameters_setVuforiaLicenseKey'] = function(block) {
   var vuforiaLocalizerParameters = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_COMMA);
   var vuforiaLicenseKey = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LICENSE_KEY', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LICENSE_KEY', Blockly.JavaScript.ORDER_COMMA);
   return vuforiaLocalizerParametersIdentifier + '.setVuforiaLicenseKey(' +
       vuforiaLocalizerParameters + ', ' + vuforiaLicenseKey + ');\n';
 };
@@ -123,13 +266,11 @@ Blockly.Blocks['vuforiaLocalizerParameters_setCameraDirection'] = {
         .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
         .appendField('.')
         .appendField(createNonEditableField('setCameraDirection'));
-    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS')
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
         .appendField('vuforiaLocalizerParameters')
-        .setCheck('VuforiaLocalizer.Parameters')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('CAMERA_DIRECTION')
+    this.appendValueInput('CAMERA_DIRECTION').setCheck('CameraDirection')
         .appendField('cameraDirection')
-        .setCheck('CameraDirection')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -140,9 +281,9 @@ Blockly.Blocks['vuforiaLocalizerParameters_setCameraDirection'] = {
 
 Blockly.JavaScript['vuforiaLocalizerParameters_setCameraDirection'] = function(block) {
   var vuforiaLocalizerParameters = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_COMMA);
   var cameraDirection = Blockly.JavaScript.valueToCode(
-      block, 'CAMERA_DIRECTION', Blockly.JavaScript.ORDER_NONE);
+      block, 'CAMERA_DIRECTION', Blockly.JavaScript.ORDER_COMMA);
   return vuforiaLocalizerParametersIdentifier + '.setCameraDirection(' +
       vuforiaLocalizerParameters + ', ' + cameraDirection + ');\n';
 };
@@ -154,13 +295,11 @@ Blockly.Blocks['vuforiaLocalizerParameters_setUseExtendedTracking'] = {
         .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
         .appendField('.')
         .appendField(createNonEditableField('setUseExtendedTracking'));
-    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS')
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
         .appendField('vuforiaLocalizerParameters')
-        .setCheck('VuforiaLocalizer.Parameters')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('USE_EXTENDED_TRACKING')
+    this.appendValueInput('USE_EXTENDED_TRACKING').setCheck('Boolean')
         .appendField('useExtendedTracking')
-        .setCheck('Boolean')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -172,9 +311,9 @@ Blockly.Blocks['vuforiaLocalizerParameters_setUseExtendedTracking'] = {
 
 Blockly.JavaScript['vuforiaLocalizerParameters_setUseExtendedTracking'] = function(block) {
   var vuforiaLocalizerParameters = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_COMMA);
   var useExtendedTracking = Blockly.JavaScript.valueToCode(
-      block, 'USE_EXTENDED_TRACKING', Blockly.JavaScript.ORDER_NONE);
+      block, 'USE_EXTENDED_TRACKING', Blockly.JavaScript.ORDER_COMMA);
   return vuforiaLocalizerParametersIdentifier + '.setUseExtendedTracking(' +
       vuforiaLocalizerParameters + ', ' + useExtendedTracking + ');\n';
 };
@@ -186,13 +325,11 @@ Blockly.Blocks['vuforiaLocalizerParameters_setEnableCameraMonitoring'] = {
         .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
         .appendField('.')
         .appendField(createNonEditableField('setEnableCameraMonitoring'));
-    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS')
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
         .appendField('vuforiaLocalizerParameters')
-        .setCheck('VuforiaLocalizer.Parameters')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ENABLE_CAMERA_MONITORING')
+    this.appendValueInput('ENABLE_CAMERA_MONITORING').setCheck('Boolean')
         .appendField('enableCameraMonitoring')
-        .setCheck('Boolean')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -203,9 +340,9 @@ Blockly.Blocks['vuforiaLocalizerParameters_setEnableCameraMonitoring'] = {
 
 Blockly.JavaScript['vuforiaLocalizerParameters_setEnableCameraMonitoring'] = function(block) {
   var vuforiaLocalizerParameters = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_COMMA);
   var enableCameraMonitoring = Blockly.JavaScript.valueToCode(
-      block, 'ENABLE_CAMERA_MONITORING', Blockly.JavaScript.ORDER_NONE);
+      block, 'ENABLE_CAMERA_MONITORING', Blockly.JavaScript.ORDER_COMMA);
   return vuforiaLocalizerParametersIdentifier + '.setEnableCameraMonitoring(' +
       vuforiaLocalizerParameters + ', ' + enableCameraMonitoring + ');\n';
 };
@@ -217,13 +354,11 @@ Blockly.Blocks['vuforiaLocalizerParameters_setCameraMonitorFeedback'] = {
         .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
         .appendField('.')
         .appendField(createNonEditableField('setCameraMonitorFeedback'));
-    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS')
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
         .appendField('vuforiaLocalizerParameters')
-        .setCheck('VuforiaLocalizer.Parameters')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('CAMERA_MONITOR_FEEDBACK')
+    this.appendValueInput('CAMERA_MONITOR_FEEDBACK').setCheck('CameraMonitorFeedback')
         .appendField('cameraMonitorFeedback')
-        .setCheck('CameraMonitorFeedback')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -237,9 +372,9 @@ Blockly.Blocks['vuforiaLocalizerParameters_setCameraMonitorFeedback'] = {
 
 Blockly.JavaScript['vuforiaLocalizerParameters_setCameraMonitorFeedback'] = function(block) {
   var vuforiaLocalizerParameters = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_COMMA);
   var cameraMonitorFeedback = Blockly.JavaScript.valueToCode(
-      block, 'CAMERA_MONITOR_FEEDBACK', Blockly.JavaScript.ORDER_NONE);
+      block, 'CAMERA_MONITOR_FEEDBACK', Blockly.JavaScript.ORDER_COMMA);
   return vuforiaLocalizerParametersIdentifier + '.setCameraMonitorFeedback(' +
       vuforiaLocalizerParameters + ', ' + cameraMonitorFeedback + ');\n';
 };
@@ -251,13 +386,11 @@ Blockly.Blocks['vuforiaLocalizerParameters_setFillCameraMonitorViewParent'] = {
         .appendField(createNonEditableField('VuforiaLocalizer.Parameters'))
         .appendField('.')
         .appendField(createNonEditableField('setFillCameraMonitorViewParent'));
-    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS')
+    this.appendValueInput('VUFORIA_LOCALIZER_PARAMETERS').setCheck('VuforiaLocalizer.Parameters')
         .appendField('vuforiaLocalizerParameters')
-        .setCheck('VuforiaLocalizer.Parameters')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('FILL_CAMERA_MONITOR_VIEW_PARENT')
+    this.appendValueInput('FILL_CAMERA_MONITOR_VIEW_PARENT').setCheck('Boolean')
         .appendField('fillCameraMonitorViewParent')
-        .setCheck('Boolean')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -271,9 +404,9 @@ Blockly.Blocks['vuforiaLocalizerParameters_setFillCameraMonitorViewParent'] = {
 
 Blockly.JavaScript['vuforiaLocalizerParameters_setFillCameraMonitorViewParent'] = function(block) {
   var vuforiaLocalizerParameters = Blockly.JavaScript.valueToCode(
-      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_NONE);
+      block, 'VUFORIA_LOCALIZER_PARAMETERS', Blockly.JavaScript.ORDER_COMMA);
   var fillCameraMonitorViewParent = Blockly.JavaScript.valueToCode(
-      block, 'FILL_CAMERA_MONITOR_VIEW_PARENT', Blockly.JavaScript.ORDER_NONE);
+      block, 'FILL_CAMERA_MONITOR_VIEW_PARENT', Blockly.JavaScript.ORDER_COMMA);
   return vuforiaLocalizerParametersIdentifier + '.setFillCameraMonitorViewParent(' +
       vuforiaLocalizerParameters + ', ' + fillCameraMonitorViewParent + ');\n';
 };

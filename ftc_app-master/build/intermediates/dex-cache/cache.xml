@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\0ef171f9fb422d153c3fa87abe4cb92cb57d1cf2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9dafed45e330aec14abcce05bdb7bbdb2a2d7092">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\classes_571bc66cf891ee5a17443f59848beefaa2218d96.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\output\jars\libs\gson-extras-0.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b30c2655badcc7ce97f84e49f777b7dd154bad57">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\gson-extras-0.2.1_c1fd5bd2459b343c23ecf5f49314d1f845910308.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\0cc1fe44f883e432d9f4d244544ed4e5b0cfb634\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9403be210676ed196cdcc64c7391b9ae2361c174">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\classes_c85dc9f2e80f29c9983d54a577a224414f59336c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\output\jars\libs\Vuforia.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="91b46366eb9f8203073ee2935087c097c888c0ed">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\Vuforia_b6d1d69242c963fe4a12d3f0f1c55c0009ea594b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\output\jars\libs\gson-2.8.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e118dd0900e4a18fb928ebb8df2d9fbda78f2b5d">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\gson-2.8.0_45262bfa67470e8eaf9864e4931337739a6dcd9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\output\jars\libs\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5a214d3b1b12e72f4fb0d5d5d8d0ec43c96de2b5">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_f8d6515fbbf228147535d5949a4bf8e9345202e4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\cbe6afea295f72940077c6194fe1100525508528\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7558c70f3b0b473ca494059b37f16ca880ac43fd">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\classes_a2010a22ab76e08e0eddba8cd6886b91be84b0ea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\output\jars\libs\javac.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c576121aac49e547b39aedfb1daa29782db4166c">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\javac_bf2ac905cedf2da1297ed0e822726d12efc1fa59.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\946ef406fc4a09ffbb2cb2f4e37958fcf03921e7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1ce86a6340781abf3d876eba190efa34ae92d2f9">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\classes_bbfcfc1f3f06863316b07750e0251ae557545bce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\instant-run_fa3eed28fdb175a421269ccbb202fd2c2b0710e4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a9863ecdb5c92fde6f53d441b8d026f9538e85d5">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\instant-run-bootstrap_6e4ed3eab264272ededdfb75bdeec722faacd74c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\c3e8bfa0d22372bf607e262b15a3c37cda34fdf0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e444b561b0feba789cac93c5db61f08ef8c25ee6">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\classes_a01a94a5ddf19db285dccd604bd2ffca4c1db606.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5d8f95b7b91c8a132c514f5dbe75340305e6883b">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\classes_55c33faf726e1958e7e4c10b0d24cbbb92eb7f77.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\.android\build-cache\fbfa30bbbea5444412461fb1a4e303dcbc421216\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6c6d1584a392ebfee01efd98e6caaf6a9e5ac51d">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2016-17\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\classes_45e3a9d0d0da972d5658a06fe49bb9e2d9395f23.jar" />
+    </item>
+
+</items>

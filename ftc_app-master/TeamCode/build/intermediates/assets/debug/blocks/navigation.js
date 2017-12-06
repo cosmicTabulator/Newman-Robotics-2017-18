@@ -4,10 +4,13 @@
  */
 
 // The following are defined in vars.js:
+// navigationIdentifier
 // getPropertyColor
+// functionColor
 
 // Enums
 
+// AngleUnit
 Blockly.Blocks['navigation_enum_angleUnit'] = {
   init: function() {
     var ANGLE_UNIT_CHOICES = [
@@ -16,7 +19,7 @@ Blockly.Blocks['navigation_enum_angleUnit'] = {
     ];
     this.setOutput(true, 'AngleUnit');
     this.appendDummyInput()
-        .appendField('AngleUnit')
+        .appendField(createNonEditableField('AngleUnit'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(ANGLE_UNIT_CHOICES), 'ANGLE_UNIT');
     this.setColour(getPropertyColor);
@@ -43,6 +46,95 @@ Blockly.JavaScript['navigation_enum_angleUnit'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['navigation_typedEnum_angleUnit'] =
+    Blockly.Blocks['navigation_enum_angleUnit'];
+
+Blockly.JavaScript['navigation_typedEnum_angleUnit'] =
+    Blockly.JavaScript['navigation_enum_angleUnit'];
+
+Blockly.Blocks['navigation_angleUnit_normalize'] = {
+  init: function() {
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField('call')
+        .appendField(createNonEditableField('AngleUnit'))
+        .appendField('.')
+        .appendField(createNonEditableField('normalize'));
+    this.appendValueInput('ANGLE').setCheck('Number')
+        .appendField('angle')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
+        .appendField('angleUnit')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(functionColor);
+    this.setTooltip('Normalizes the given angle to the range of [-180,+180) ' +
+        'degrees or [-\u03c0,+\u03c0) radians.');
+  }
+};
+
+Blockly.JavaScript['navigation_angleUnit_normalize'] = function(block) {
+  var angle = Blockly.JavaScript.valueToCode(
+      block, 'ANGLE', Blockly.JavaScript.ORDER_COMMA);
+  var angleUnit = Blockly.JavaScript.valueToCode(
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
+  var code = navigationIdentifier + '.angleUnit_normalize(' + angle + ', ' + angleUnit + ')';
+  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Blocks['navigation_angleUnit_convert'] = {
+  init: function() {
+    this.setOutput(true, 'Number');
+    var ANGLE_UNIT_TYPE_CHOICES = [
+        ['AngleUnit', 'angleUnit'],
+        ['UnnormalizedAngleUnit', 'unnormalizedAngleUnit'],
+    ];
+    this.appendDummyInput()
+        .appendField('call')
+        .appendField(new Blockly.FieldDropdown(ANGLE_UNIT_TYPE_CHOICES), 'ANGLE_UNIT_TYPE')
+        .appendField('.')
+        .appendField(createNonEditableField('convert'));
+    this.appendValueInput('ANGLE').setCheck('Number')
+        .appendField('angle')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.appendValueInput('FROM_ANGLE_UNIT').setCheck('AngleUnit')
+        .appendField('from')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.appendValueInput('TO_ANGLE_UNIT').setCheck('AngleUnit')
+        .appendField('to')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(functionColor);
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['angleUnit', 'Converts the given angle and normalizes it to the range of [-180,+180) ' +
+            'degrees or [-\u03c0,+\u03c0) radians.'],
+        ['unnormalizedAngleUnit', 'Converts the given angle, without normalizing it.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('ANGLE_UNIT_TYPE');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['navigation_angleUnit_convert'] = function(block) {
+  var angleUnitType = block.getFieldValue('ANGLE_UNIT_TYPE');
+  var angle = Blockly.JavaScript.valueToCode(
+      block, 'ANGLE', Blockly.JavaScript.ORDER_COMMA);
+  var fromAngleUnit = Blockly.JavaScript.valueToCode(
+      block, 'FROM_ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
+  var toAngleUnit = Blockly.JavaScript.valueToCode(
+      block, 'TO_ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
+  var code = navigationIdentifier + '.' + angleUnitType + '_convert(' +
+      angle + ', ' + fromAngleUnit + ', ' + toAngleUnit + ')';
+  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
+
+// AxesOrder
 Blockly.Blocks['navigation_enum_axesOrder'] = {
   init: function() {
     var AXES_ORDER_CHOICES = [
@@ -61,7 +153,7 @@ Blockly.Blocks['navigation_enum_axesOrder'] = {
     ];
     this.setOutput(true, 'AxesOrder');
     this.appendDummyInput()
-        .appendField('AxesOrder')
+        .appendField(createNonEditableField('AxesOrder'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(AXES_ORDER_CHOICES), 'AXES_ORDER');
     this.setColour(getPropertyColor);
@@ -98,6 +190,13 @@ Blockly.JavaScript['navigation_enum_axesOrder'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['navigation_typedEnum_axesOrder'] =
+    Blockly.Blocks['navigation_enum_axesOrder'];
+
+Blockly.JavaScript['navigation_typedEnum_axesOrder'] =
+    Blockly.JavaScript['navigation_enum_axesOrder'];
+
+// AxesReference
 Blockly.Blocks['navigation_enum_axesReference'] = {
   init: function() {
     var AXES_REFERENCE_CHOICES = [
@@ -106,7 +205,7 @@ Blockly.Blocks['navigation_enum_axesReference'] = {
     ];
     this.setOutput(true, 'AxesReference');
     this.appendDummyInput()
-        .appendField('AxesReference')
+        .appendField(createNonEditableField('AxesReference'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(AXES_REFERENCE_CHOICES), 'AXES_REFERENCE');
     this.setColour(getPropertyColor);
@@ -133,6 +232,13 @@ Blockly.JavaScript['navigation_enum_axesReference'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['navigation_typedEnum_axesReference'] =
+    Blockly.Blocks['navigation_enum_axesReference'];
+
+Blockly.JavaScript['navigation_typedEnum_axesReference'] =
+    Blockly.JavaScript['navigation_enum_axesReference'];
+
+// CameraDirection
 Blockly.Blocks['navigation_enum_cameraDirection'] = {
   init: function() {
     var CAMERA_DIRECTION_CHOICES = [
@@ -141,7 +247,7 @@ Blockly.Blocks['navigation_enum_cameraDirection'] = {
     ];
     this.setOutput(true, 'CameraDirection');
     this.appendDummyInput()
-        .appendField('CameraDirection')
+        .appendField(createNonEditableField('CameraDirection'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(CAMERA_DIRECTION_CHOICES), 'CAMERA_DIRECTION');
     this.setColour(getPropertyColor);
@@ -168,6 +274,13 @@ Blockly.JavaScript['navigation_enum_cameraDirection'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['navigation_typedEnum_cameraDirection'] =
+    Blockly.Blocks['navigation_enum_cameraDirection'];
+
+Blockly.JavaScript['navigation_typedEnum_cameraDirection'] =
+    Blockly.JavaScript['navigation_enum_cameraDirection'];
+
+// CameraMonitorFeedback
 Blockly.Blocks['navigation_enum_cameraMonitorFeedback'] = {
   init: function() {
     var CAMERA_MONITOR_FEEDBACK_CHOICES = [
@@ -179,7 +292,7 @@ Blockly.Blocks['navigation_enum_cameraMonitorFeedback'] = {
     ];
     this.setOutput(true, 'CameraMonitorFeedback');
     this.appendDummyInput()
-        .appendField('CameraMonitorFeedback')
+        .appendField(createNonEditableField('CameraMonitorFeedback'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(CAMERA_MONITOR_FEEDBACK_CHOICES), 'CAMERA_MONITOR_FEEDBACK');
     this.setColour(getPropertyColor);
@@ -209,6 +322,13 @@ Blockly.JavaScript['navigation_enum_cameraMonitorFeedback'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['navigation_typedEnum_cameraMonitorFeedback'] =
+    Blockly.Blocks['navigation_enum_cameraMonitorFeedback'];
+
+Blockly.JavaScript['navigation_typedEnum_cameraMonitorFeedback'] =
+    Blockly.JavaScript['navigation_enum_cameraMonitorFeedback'];
+
+// DistanceUnit
 Blockly.Blocks['navigation_enum_distanceUnit'] = {
   init: function() {
     var DISTANCE_UNIT_CHOICES = [
@@ -219,7 +339,7 @@ Blockly.Blocks['navigation_enum_distanceUnit'] = {
     ];
     this.setOutput(true, 'DistanceUnit');
     this.appendDummyInput()
-        .appendField('DistanceUnit')
+        .appendField(createNonEditableField('DistanceUnit'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(DISTANCE_UNIT_CHOICES), 'DISTANCE_UNIT');
     this.setColour(getPropertyColor);
@@ -248,6 +368,13 @@ Blockly.JavaScript['navigation_enum_distanceUnit'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['navigation_typedEnum_distanceUnit'] =
+    Blockly.Blocks['navigation_enum_distanceUnit'];
+
+Blockly.JavaScript['navigation_typedEnum_distanceUnit'] =
+    Blockly.JavaScript['navigation_enum_distanceUnit'];
+
+// TempUnit
 Blockly.Blocks['navigation_enum_tempUnit'] = {
   init: function() {
     var TEMP_UNIT_CHOICES = [
@@ -257,7 +384,7 @@ Blockly.Blocks['navigation_enum_tempUnit'] = {
     ];
     this.setOutput(true, 'TempUnit');
     this.appendDummyInput()
-        .appendField('TempUnit')
+        .appendField(createNonEditableField('TempUnit'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(TEMP_UNIT_CHOICES), 'TEMP_UNIT');
     this.setColour(getPropertyColor);
@@ -285,3 +412,46 @@ Blockly.JavaScript['navigation_enum_tempUnit'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+Blockly.Blocks['navigation_typedEnum_tempUnit'] =
+    Blockly.Blocks['navigation_enum_tempUnit'];
+
+Blockly.JavaScript['navigation_typedEnum_tempUnit'] =
+    Blockly.JavaScript['navigation_enum_tempUnit'];
+
+// Axis
+Blockly.Blocks['navigation_typedEnum_axis'] = {
+  init: function() {
+    var AXIS_CHOICES = [
+        ['X', 'X'],
+        ['Y', 'Y'],
+        ['Z', 'Z'],
+    ];
+    this.setOutput(true, 'Axis');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('Axis'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(AXIS_CHOICES), 'AXIS');
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['X', 'The Axis value X.'],
+        ['Y', 'The Axis value Y.'],
+        ['Z', 'The Axis value Z.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('AXIS');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['navigation_typedEnum_axis'] = function(block) {
+  var code = '"' + block.getFieldValue('AXIS') + '"';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};

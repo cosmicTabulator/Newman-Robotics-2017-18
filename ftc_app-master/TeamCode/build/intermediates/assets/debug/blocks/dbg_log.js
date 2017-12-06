@@ -17,8 +17,7 @@ Blockly.Blocks['dbgLog_msg'] = {
         .appendField(createNonEditableField('DbgLog'))
         .appendField('.')
         .appendField(createNonEditableField('msg'));
-    this.appendValueInput('MESSAGE')
-        .setCheck('String')
+    this.appendValueInput('MESSAGE').setCheck('String')
         .appendField('message')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
@@ -41,8 +40,7 @@ Blockly.Blocks['dbgLog_error'] = {
         .appendField(createNonEditableField('DbgLog'))
         .appendField('.')
         .appendField(createNonEditableField('error'));
-    this.appendValueInput('MESSAGE')
-        .setCheck('String')
+    this.appendValueInput('MESSAGE').setCheck('String')
         .appendField('message')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);

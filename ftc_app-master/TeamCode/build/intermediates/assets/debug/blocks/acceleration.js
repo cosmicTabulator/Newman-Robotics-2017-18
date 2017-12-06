@@ -21,14 +21,13 @@ Blockly.Blocks['acceleration_getProperty'] = {
         ['ZAccel', 'ZAccel'],
         ['AcquisitionTime', 'AcquisitionTime'],
     ];
-    this.setOutput(true, null);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField(createNonEditableField('Acceleration'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
-    this.appendValueInput('ACCELERATION')
+    this.appendValueInput('ACCELERATION').setCheck('Acceleration')
         .appendField('acceleration')
-        .setCheck('Acceleration')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(getPropertyColor);
     // Assign 'this' to a variable for use in the tooltip closure below.
@@ -60,6 +59,80 @@ Blockly.JavaScript['acceleration_getProperty'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.Blocks['acceleration_getProperty_DistanceUnit'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['DistanceUnit', 'DistanceUnit'],
+    ];
+    this.setOutput(true, 'DistanceUnit');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('Acceleration'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('ACCELERATION').setCheck('Acceleration')
+        .appendField('acceleration')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['DistanceUnit', 'The DistanceUnit of the given Acceleration object.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['acceleration_getProperty_DistanceUnit'] =
+    Blockly.JavaScript['acceleration_getProperty'];
+
+Blockly.Blocks['acceleration_getProperty_Number'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['XAccel', 'XAccel'],
+        ['YAccel', 'YAccel'],
+        ['ZAccel', 'ZAccel'],
+        ['AcquisitionTime', 'AcquisitionTime'],
+    ];
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('Acceleration'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('ACCELERATION').setCheck('Acceleration')
+        .appendField('acceleration')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['XAccel', 'The XAccel of the given Acceleration object.'],
+        ['YAccel', 'The YAccel of the given Acceleration object.'],
+        ['ZAccel', 'The ZAccel of the given Acceleration object.'],
+        ['AcquisitionTime', 'The AcquisitionTime of the given Acceleration object.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['acceleration_getProperty_Number'] =
+    Blockly.JavaScript['acceleration_getProperty'];
+
 // Functions
 
 Blockly.Blocks['acceleration_create'] = {
@@ -84,25 +157,20 @@ Blockly.Blocks['acceleration_create_withArgs'] = {
     this.appendDummyInput()
         .appendField('new')
         .appendField(createNonEditableField('Acceleration'));
-    this.appendValueInput('DISTANCE_UNIT')
+    this.appendValueInput('DISTANCE_UNIT').setCheck('DistanceUnit')
         .appendField('distanceUnit')
-        .setCheck('DistanceUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('X_ACCEL')
+    this.appendValueInput('X_ACCEL').setCheck('Number')
         .appendField('xAccel')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('Y_ACCEL')
+    this.appendValueInput('Y_ACCEL').setCheck('Number')
         .appendField('yAccel')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('Z_ACCEL')
+    this.appendValueInput('Z_ACCEL').setCheck('Number')
         .appendField('zAccel')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ACQUISITION_TIME')
+    this.appendValueInput('ACQUISITION_TIME').setCheck('Number')
         .appendField('acquisitionTime')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new Acceleration object.');
@@ -111,15 +179,15 @@ Blockly.Blocks['acceleration_create_withArgs'] = {
 
 Blockly.JavaScript['acceleration_create_withArgs'] = function(block) {
   var distanceUnit = Blockly.JavaScript.valueToCode(
-      block, 'DISTANCE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'DISTANCE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var xAccel = Blockly.JavaScript.valueToCode(
-      block, 'X_ACCEL', Blockly.JavaScript.ORDER_NONE);
+      block, 'X_ACCEL', Blockly.JavaScript.ORDER_COMMA);
   var yAccel = Blockly.JavaScript.valueToCode(
-      block, 'Y_ACCEL', Blockly.JavaScript.ORDER_NONE);
+      block, 'Y_ACCEL', Blockly.JavaScript.ORDER_COMMA);
   var zAccel = Blockly.JavaScript.valueToCode(
-      block, 'Z_ACCEL', Blockly.JavaScript.ORDER_NONE);
+      block, 'Z_ACCEL', Blockly.JavaScript.ORDER_COMMA);
   var acquisitionTime = Blockly.JavaScript.valueToCode(
-      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_NONE);
+      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_COMMA);
   var code = accelerationIdentifier + '.create_withArgs(' + distanceUnit + ', ' + xAccel + ', ' +
       yAccel + ', ' + zAccel + ', ' + acquisitionTime + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
@@ -133,21 +201,17 @@ Blockly.Blocks['acceleration_fromGravity'] = {
         .appendField(createNonEditableField('Acceleration'))
         .appendField('.')
         .appendField(createNonEditableField('fromGravity'));
-    this.appendValueInput('GX')
+    this.appendValueInput('GX').setCheck('Number')
         .appendField('gx')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('GY')
+    this.appendValueInput('GY').setCheck('Number')
         .appendField('gy')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('GZ')
+    this.appendValueInput('GZ').setCheck('Number')
         .appendField('gz')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ACQUISITION_TIME')
+    this.appendValueInput('ACQUISITION_TIME').setCheck('Number')
         .appendField('acquisitionTime')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a new Acceleration object constructed from measures in units of ' +
@@ -157,13 +221,13 @@ Blockly.Blocks['acceleration_fromGravity'] = {
 
 Blockly.JavaScript['acceleration_fromGravity'] = function(block) {
   var gx = Blockly.JavaScript.valueToCode(
-      block, 'GX', Blockly.JavaScript.ORDER_NONE);
+      block, 'GX', Blockly.JavaScript.ORDER_COMMA);
   var gy = Blockly.JavaScript.valueToCode(
-      block, 'GY', Blockly.JavaScript.ORDER_NONE);
+      block, 'GY', Blockly.JavaScript.ORDER_COMMA);
   var gz = Blockly.JavaScript.valueToCode(
-      block, 'GZ', Blockly.JavaScript.ORDER_NONE);
+      block, 'GZ', Blockly.JavaScript.ORDER_COMMA);
   var acquisitionTime = Blockly.JavaScript.valueToCode(
-      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_NONE);
+      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_COMMA);
   var code = accelerationIdentifier + '.fromGravity(' + gx + ', ' + gy + ', ' + gz + ', ' +
       acquisitionTime + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
@@ -177,13 +241,11 @@ Blockly.Blocks['acceleration_toDistanceUnit'] = {
         .appendField(createNonEditableField('Acceleration'))
         .appendField('.')
         .appendField(createNonEditableField('toDistanceUnit'));
-    this.appendValueInput('ACCELERATION')
+    this.appendValueInput('ACCELERATION').setCheck('Acceleration')
         .appendField('acceleration')
-        .setCheck('Acceleration')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('DISTANCE_UNIT')
+    this.appendValueInput('DISTANCE_UNIT').setCheck('DistanceUnit')
         .appendField('distanceUnit')
-        .setCheck('DistanceUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a new Acceleration object created from the given Acceleration ' +
@@ -193,9 +255,9 @@ Blockly.Blocks['acceleration_toDistanceUnit'] = {
 
 Blockly.JavaScript['acceleration_toDistanceUnit'] = function(block) {
   var acceleration = Blockly.JavaScript.valueToCode(
-      block, 'ACCELERATION', Blockly.JavaScript.ORDER_NONE);
+      block, 'ACCELERATION', Blockly.JavaScript.ORDER_COMMA);
   var distanceUnit = Blockly.JavaScript.valueToCode(
-      block, 'DISTANCE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'DISTANCE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var code = accelerationIdentifier + '.toDistanceUnit(' + acceleration + ', ' + distanceUnit + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -208,9 +270,8 @@ Blockly.Blocks['acceleration_toText'] = {
         .appendField(createNonEditableField('Acceleration'))
         .appendField('.')
         .appendField(createNonEditableField('toText'));
-    this.appendValueInput('ACCELERATION')
+    this.appendValueInput('ACCELERATION').setCheck('Acceleration')
         .appendField('acceleration')
-        .setCheck('Acceleration')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a text representation of the given Acceleration object.');

@@ -21,14 +21,13 @@ Blockly.Blocks['orientation_getProperty'] = {
         ['ThirdAngle', 'ThirdAngle'],
         ['AcquisitionTime', 'AcquisitionTime'],
     ];
-    this.setOutput(true, null);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField(createNonEditableField('Orientation'))
         .appendField('.')
         .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
-    this.appendValueInput('ORIENTATION')
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
         .appendField('orientation')
-        .setCheck('Orientation')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(getPropertyColor);
     // Assign 'this' to a variable for use in the tooltip closure below.
@@ -62,6 +61,148 @@ Blockly.JavaScript['orientation_getProperty'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
+Blockly.Blocks['orientation_getProperty_Number'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['FirstAngle', 'FirstAngle'],
+        ['SecondAngle', 'SecondAngle'],
+        ['ThirdAngle', 'ThirdAngle'],
+        ['AcquisitionTime', 'AcquisitionTime'],
+    ];
+    this.setOutput(true, 'Number');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('Orientation'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
+        .appendField('orientation')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['FirstAngle', 'The FirstAngle of the given Orientation object.'],
+        ['SecondAngle', 'The SecondAngle of the given Orientation object.'],
+        ['ThirdAngle', 'The ThirdAngle of the given Orientation object.'],
+        ['AcquisitionTime', 'The AcquisitionTime of the given Orientation object.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['orientation_getProperty_Number'] =
+    Blockly.JavaScript['orientation_getProperty'];
+
+Blockly.Blocks['orientation_getProperty_AxesReference'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['AxesReference', 'AxesReference'],
+    ];
+    this.setOutput(true, 'AxesReference');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('Orientation'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
+        .appendField('orientation')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['AxesReference', 'The AxesReference of the given Orientation object.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['orientation_getProperty_AxesReference'] =
+    Blockly.JavaScript['orientation_getProperty'];
+
+Blockly.Blocks['orientation_getProperty_AxesOrder'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['AxesOrder', 'AxesOrder'],
+    ];
+    this.setOutput(true, 'AxesOrder');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('Orientation'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
+        .appendField('orientation')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['AxesOrder', 'The AxesOrder of the given Orientation object.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['orientation_getProperty_AxesOrder'] =
+    Blockly.JavaScript['orientation_getProperty'];
+
+Blockly.Blocks['orientation_getProperty_AngleUnit'] = {
+  init: function() {
+    var PROPERTY_CHOICES = [
+        ['AngleUnit', 'AngleUnit'],
+    ];
+    this.setOutput(true, 'AngleUnit');
+    this.appendDummyInput()
+        .appendField(createNonEditableField('Orientation'))
+        .appendField('.')
+        .appendField(new Blockly.FieldDropdown(PROPERTY_CHOICES), 'PROP');
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
+        .appendField('orientation')
+        .setAlign(Blockly.ALIGN_RIGHT);
+    this.setColour(getPropertyColor);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    var TOOLTIPS = [
+        ['AngleUnit', 'The AngleUnit of the given Orientation object.'],
+    ];
+    this.setTooltip(function() {
+      var key = thisBlock.getFieldValue('PROP');
+      for (var i = 0; i < TOOLTIPS.length; i++) {
+        if (TOOLTIPS[i][0] == key) {
+          return TOOLTIPS[i][1];
+        }
+      }
+      return '';
+    });
+  }
+};
+
+Blockly.JavaScript['orientation_getProperty_AngleUnit'] =
+    Blockly.JavaScript['orientation_getProperty'];
+
 // Functions
 
 Blockly.Blocks['orientation_create'] = {
@@ -86,33 +227,26 @@ Blockly.Blocks['orientation_create_withArgs'] = {
     this.appendDummyInput()
         .appendField('new')
         .appendField(createNonEditableField('Orientation'));
-    this.appendValueInput('AXES_REFERENCE')
+    this.appendValueInput('AXES_REFERENCE').setCheck('AxesReference')
         .appendField('axesReference')
-        .setCheck('AxesReference')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_ORDER')
+    this.appendValueInput('AXES_ORDER').setCheck('AxesOrder')
         .appendField('axesOrder')
-        .setCheck('AxesOrder')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('FIRST_ANGLE')
+    this.appendValueInput('FIRST_ANGLE').setCheck('Number')
         .appendField('FirstAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SECOND_ANGLE')
+    this.appendValueInput('SECOND_ANGLE').setCheck('Number')
         .appendField('SecondAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('THIRD_ANGLE')
+    this.appendValueInput('THIRD_ANGLE').setCheck('Number')
         .appendField('ThirdAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ACQUISITION_TIME')
+    this.appendValueInput('ACQUISITION_TIME').setCheck('Number')
         .appendField('acquisitionTime')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Create a new Orientation object.');
@@ -121,19 +255,19 @@ Blockly.Blocks['orientation_create_withArgs'] = {
 
 Blockly.JavaScript['orientation_create_withArgs'] = function(block) {
   var axesReference = Blockly.JavaScript.valueToCode(
-      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_COMMA);
   var axesOrder = Blockly.JavaScript.valueToCode(
-      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var firstAngle = Blockly.JavaScript.valueToCode(
-      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var secondAngle = Blockly.JavaScript.valueToCode(
-      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var thirdAngle = Blockly.JavaScript.valueToCode(
-      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var acquisitionTime = Blockly.JavaScript.valueToCode(
-      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_NONE);
+      block, 'ACQUISITION_TIME', Blockly.JavaScript.ORDER_COMMA);
   var code = orientationIdentifier + '.create_withArgs(' + axesReference + ', ' +
       axesOrder + ', ' + angleUnit + ', ' + firstAngle + ', ' + secondAngle + ', ' +
       thirdAngle + ', ' + acquisitionTime + ')';
@@ -148,13 +282,11 @@ Blockly.Blocks['orientation_toAngleUnit'] = {
         .appendField(createNonEditableField('Orientation'))
         .appendField('.')
         .appendField(createNonEditableField('toAngleUnit'));
-    this.appendValueInput('ORIENTATION')
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
         .appendField('orientation')
-        .setCheck('Orientation')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a new Orientation object created from the given Orientation ' +
@@ -164,9 +296,9 @@ Blockly.Blocks['orientation_toAngleUnit'] = {
 
 Blockly.JavaScript['orientation_toAngleUnit'] = function(block) {
   var orientation = Blockly.JavaScript.valueToCode(
-      block, 'ORIENTATION', Blockly.JavaScript.ORDER_NONE);
+      block, 'ORIENTATION', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var code = orientationIdentifier + '.toAngleUnit(' + orientation + ', ' + angleUnit + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -179,13 +311,11 @@ Blockly.Blocks['orientation_toAxesReference'] = {
         .appendField(createNonEditableField('Orientation'))
         .appendField('.')
         .appendField(createNonEditableField('toAxesReference'));
-    this.appendValueInput('ORIENTATION')
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
         .appendField('orientation')
-        .setCheck('Orientation')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_REFERENCE')
+    this.appendValueInput('AXES_REFERENCE').setCheck('AxesReference')
         .appendField('axesReference')
-        .setCheck('AxesReference')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a new Orientation object created from the given Orientation ' +
@@ -195,9 +325,9 @@ Blockly.Blocks['orientation_toAxesReference'] = {
 
 Blockly.JavaScript['orientation_toAxesReference'] = function(block) {
   var orientation = Blockly.JavaScript.valueToCode(
-      block, 'ORIENTATION', Blockly.JavaScript.ORDER_NONE);
+      block, 'ORIENTATION', Blockly.JavaScript.ORDER_COMMA);
   var axesReference = Blockly.JavaScript.valueToCode(
-      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_COMMA);
   var code = orientationIdentifier + '.toAxesReference(' + orientation + ', ' + axesReference + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -210,13 +340,11 @@ Blockly.Blocks['orientation_toAxesOrder'] = {
         .appendField(createNonEditableField('Orientation'))
         .appendField('.')
         .appendField(createNonEditableField('toAxesOrder'));
-    this.appendValueInput('ORIENTATION')
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
         .appendField('orientation')
-        .setCheck('Orientation')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_ORDER')
+    this.appendValueInput('AXES_ORDER').setCheck('AxesOrder')
         .appendField('axesOrder')
-        .setCheck('AxesOrder')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a new Orientation object created from the given Orientation ' +
@@ -226,9 +354,9 @@ Blockly.Blocks['orientation_toAxesOrder'] = {
 
 Blockly.JavaScript['orientation_toAxesOrder'] = function(block) {
   var orientation = Blockly.JavaScript.valueToCode(
-      block, 'ORIENTATION', Blockly.JavaScript.ORDER_NONE);
+      block, 'ORIENTATION', Blockly.JavaScript.ORDER_COMMA);
   var axesOrder = Blockly.JavaScript.valueToCode(
-      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_COMMA);
   var code = orientationIdentifier + '.toAxesOrder(' + orientation + ', ' + axesOrder + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
@@ -241,9 +369,8 @@ Blockly.Blocks['orientation_toText'] = {
         .appendField(createNonEditableField('Orientation'))
         .appendField('.')
         .appendField(createNonEditableField('toText'));
-    this.appendValueInput('ORIENTATION')
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
         .appendField('orientation')
-        .setCheck('Orientation')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns a text representation of the given Orientation.');
@@ -265,9 +392,8 @@ Blockly.Blocks['orientation_getRotationMatrix'] = {
         .appendField(createNonEditableField('Orientation'))
         .appendField('.')
         .appendField(createNonEditableField('getRotationMatrix'));
-    this.appendValueInput('ORIENTATION')
+    this.appendValueInput('ORIENTATION').setCheck('Orientation')
         .appendField('orientation')
-        .setCheck('Orientation')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the rotation Matrix associated with the given Orientation object.');
@@ -289,29 +415,23 @@ Blockly.Blocks['orientation_getRotationMatrix_withArgs'] = {
         .appendField(createNonEditableField('Orientation'))
         .appendField('.')
         .appendField(createNonEditableField('getRotationMatrix'));
-    this.appendValueInput('AXES_REFERENCE')
+    this.appendValueInput('AXES_REFERENCE').setCheck('AxesReference')
         .appendField('axesReference')
-        .setCheck('AxesReference')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_ORDER')
+    this.appendValueInput('AXES_ORDER').setCheck('AxesOrder')
         .appendField('axesOrder')
-        .setCheck('AxesOrder')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('FIRST_ANGLE')
+    this.appendValueInput('FIRST_ANGLE').setCheck('Number')
         .appendField('FirstAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('SECOND_ANGLE')
+    this.appendValueInput('SECOND_ANGLE').setCheck('Number')
         .appendField('SecondAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('THIRD_ANGLE')
+    this.appendValueInput('THIRD_ANGLE').setCheck('Number')
         .appendField('ThirdAngle')
-        .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Returns the rotation matrix associated with a particular set of three ' +
@@ -321,17 +441,17 @@ Blockly.Blocks['orientation_getRotationMatrix_withArgs'] = {
 
 Blockly.JavaScript['orientation_getRotationMatrix_withArgs'] = function(block) {
   var axesReference = Blockly.JavaScript.valueToCode(
-      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_COMMA);
   var axesOrder = Blockly.JavaScript.valueToCode(
-      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var firstAngle = Blockly.JavaScript.valueToCode(
-      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'FIRST_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var secondAngle = Blockly.JavaScript.valueToCode(
-      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'SECOND_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var thirdAngle = Blockly.JavaScript.valueToCode(
-      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_NONE);
+      block, 'THIRD_ANGLE', Blockly.JavaScript.ORDER_COMMA);
   var code = orientationIdentifier + '.getRotationMatrix_withArgs(' + axesReference + ', ' +
       axesOrder + ', ' + angleUnit + ', ' + firstAngle + ', ' + secondAngle + ', ' +
       thirdAngle + ')';
@@ -346,21 +466,17 @@ Blockly.Blocks['orientation_getOrientation'] = {
         .appendField(createNonEditableField('Orientation'))
         .appendField('.')
         .appendField(createNonEditableField('getOrientation'));
-    this.appendValueInput('MATRIX')
+    this.appendValueInput('MATRIX').setCheck(['MatrixF', 'OpenGLMatrix'])
         .appendField('matrix')
-        .setCheck(['MatrixF', 'OpenGLMatrix'])
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_REFERENCE')
+    this.appendValueInput('AXES_REFERENCE').setCheck('AxesReference')
         .appendField('axesReference')
-        .setCheck('AxesReference')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('AXES_ORDER')
+    this.appendValueInput('AXES_ORDER').setCheck('AxesOrder')
         .appendField('axesOrder')
-        .setCheck('AxesOrder')
         .setAlign(Blockly.ALIGN_RIGHT);
-    this.appendValueInput('ANGLE_UNIT')
+    this.appendValueInput('ANGLE_UNIT').setCheck('AngleUnit')
         .appendField('angleUnit')
-        .setCheck('AngleUnit')
         .setAlign(Blockly.ALIGN_RIGHT);
     this.setColour(functionColor);
     this.setTooltip('Given a rotation matrix, and an AxesReference and AxesOrder, returns an ' +
@@ -370,13 +486,13 @@ Blockly.Blocks['orientation_getOrientation'] = {
 
 Blockly.JavaScript['orientation_getOrientation'] = function(block) {
   var matrix = Blockly.JavaScript.valueToCode(
-      block, 'MATRIX', Blockly.JavaScript.ORDER_NONE);
+      block, 'MATRIX', Blockly.JavaScript.ORDER_COMMA);
   var axesReference = Blockly.JavaScript.valueToCode(
-      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_REFERENCE', Blockly.JavaScript.ORDER_COMMA);
   var axesOrder = Blockly.JavaScript.valueToCode(
-      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_NONE);
+      block, 'AXES_ORDER', Blockly.JavaScript.ORDER_COMMA);
   var angleUnit = Blockly.JavaScript.valueToCode(
-      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_NONE);
+      block, 'ANGLE_UNIT', Blockly.JavaScript.ORDER_COMMA);
   var code = orientationIdentifier + '.getOrientation(' + matrix + ', ' + axesReference + ', ' +
       axesOrder + ', ' + angleUnit + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];

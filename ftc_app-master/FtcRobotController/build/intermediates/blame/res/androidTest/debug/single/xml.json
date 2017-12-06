@@ -1,86 +1,42 @@
 [
     {
-        "merged": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\k9legacybot.xml",
-        "source": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\k9legacybot.xml"
-    },
-    {
         "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\device_filter.xml",
         "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\xml\\device_filter.xml"
     },
     {
+        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\rev_scoot.xml",
+        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\xml\\rev_scoot.xml"
+    },
+    {
+        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\maxmodules.xml",
+        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\xml\\maxmodules.xml"
+    },
+    {
         "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\k9legacybot.xml",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\k9legacybot.xml"
+        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\xml\\k9legacybot.xml"
     },
     {
         "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\pushbot.xml",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\pushbot.xml"
+        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\xml\\pushbot.xml"
     },
     {
-        "merged": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\k9legacybot.xml",
-        "source": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\k9legacybot.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\preferences.xml",
-        "source": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\xml\\preferences.xml"
+        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\app_settings.xml",
+        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\xml\\app_settings.xml"
     },
     {
         "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\pushbotsens.xml",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\pushbotsens.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\device_filter.xml",
-        "source": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\xml\\device_filter.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\pushbot.xml",
-        "source": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\pushbot.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\preferences.xml",
-        "source": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\xml\\preferences.xml"
+        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\xml\\pushbotsens.xml"
     },
     {
         "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\squarebot.xml",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\squarebot.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\pushbotsens.xml",
-        "source": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\pushbotsens.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\device_filter.xml",
-        "source": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\xml\\device_filter.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\pushbotsens.xml",
-        "source": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\pushbotsens.xml"
-    },
-    {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\preferences.xml",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\xml\\preferences.xml"
+        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\xml\\squarebot.xml"
     },
     {
         "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\k9usbbot.xml",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\k9usbbot.xml"
+        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\xml\\k9usbbot.xml"
     },
     {
-        "merged": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\pushbot.xml",
-        "source": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\pushbot.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\squarebot.xml",
-        "source": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\squarebot.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\k9usbbot.xml",
-        "source": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\k9usbbot.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\k9usbbot.xml",
-        "source": "C:\\Users\\A2\\Documents\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\k9usbbot.xml"
-    },
-    {
-        "merged": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\squarebot.xml",
-        "source": "C:\\Users\\A2\\Documents\\Coding\\GitHub\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\exploded-aar\\FtcCommon-release\\res\\xml\\squarebot.xml"
+        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\xml\\advanced_rc_settings.xml",
+        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\xml\\advanced_rc_settings.xml"
     }
 ]

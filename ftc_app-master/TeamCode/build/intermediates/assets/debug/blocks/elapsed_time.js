@@ -14,7 +14,7 @@ var elapsedTimeDefaultVarName = 'timer';
 
 Blockly.Blocks['elapsedTime_create'] = {
   init: function() {
-    this.setOutput(true);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField('new')
         .appendField(createNonEditableField('ElapsedTime'));
@@ -38,7 +38,7 @@ Blockly.Blocks['elapsedTime_getProperty'] = {
         ['Milliseconds', 'Milliseconds'],
         ['AsText', 'AsText'],
     ];
-    this.setOutput(true);
+    this.setOutput(true); // no type, for compatibility
     this.appendDummyInput()
         .appendField(new Blockly.FieldVariable(elapsedTimeDefaultVarName), 'VAR')
         .appendField('.')

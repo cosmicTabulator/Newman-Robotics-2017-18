@@ -8,14 +8,11 @@
  */
 function fetchToolbox(callback) {
   if (typeof blocksIO !== 'undefined') {
-    // FtcBlocks.html is within the WebView component within the Android app.
+    // html/js is within the WebView component within the Android app.
     fetchToolboxViaBlocksIO(callback);
   } else if (window.location.protocol === 'http:') {
-    // FtcBlocks.html is in a browser, loaded as an http:// URL.
+    // html/js is in a browser, loaded as an http:// URL.
     fetchToolboxViaHttp(callback);
-  } else if (window.location.protocol === 'file:') {
-    // FtcBlocks.html is in a browser, loaded as a file:// URL.
-    fetchToolboxViaFile(callback);
   }
 }
 
@@ -28,13 +25,16 @@ function addToolboxIconsForChildren(children) {
     if (child.getChildCount() > 0) {
       addToolboxIconsForChildren(child.getChildren());
     } else {
-      child.setIconClass('toolbox-node-icon ' + child.getText() + '-icon');
+      var iconClass = getIconClass(child.getText());
+      if (iconClass) {
+        child.setIconClass('toolbox-node-icon ' + iconClass);
+      }
     }
   }
 }
 
 //..........................................................................
-// Code used when FtcBlocks.html is within the WebView component within the
+// Code used when html/js is within the WebView component within the
 // Android app.
 
 function fetchToolboxViaBlocksIO(callback) {
@@ -47,11 +47,14 @@ function fetchToolboxViaBlocksIO(callback) {
 }
 
 //..........................................................................
-// Code used when FtcBlocks.html is in a browser, loaded as a http:// URL.
+// Code used when html/js is in a browser, loaded as an http:// URL.
+
+// The following are generated dynamically in ProgrammingModeServer.fetchJavaScriptForServer():
+// URI_TOOLBOX
 
 function fetchToolboxViaHttp(callback) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', '/toolbox', true);
+  xhr.open('GET', URI_TOOLBOX, true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -65,30 +68,4 @@ function fetchToolboxViaHttp(callback) {
     }
   };
   xhr.send();
-}
-
-//..........................................................................
-// Code used when FtcBlocks.html is in a browser, loaded as a file:// URL.
-
-function fetchToolboxViaFile(callback) {
-  var xmlToolbox =
-      '<xml id="toolbox" style="display: none">' +
-      '<category name="LinearOpMode">' +
-      '<block type="linearOpMode_waitForStart"></block>' +
-      '<block type="linearOpMode_idle"></block>' +
-      '<block type="linearOpMode_sleep">' +
-      '  <value name="MILLISECONDS"><shadow type="math_number"><field name="NUM">1000</field></shadow></value>' +
-      '</block>' +
-      '<block type="linearOpMode_opModeIsActive"></block>' +
-      '<block type="linearOpMode_isStarted"></block>' +
-      '<block type="linearOpMode_isStopRequested"></block>' +
-      '<block type="linearOpMode_getRuntime"></block>' +
-      '</category>' +
-      '<category name="Miscellaneous" colour="200">' +
-      '<block type="comment">' +
-      '<field name="COMMENT">Enter your comment here!</field>' +
-      '</block>' +
-      '</category>' +
-      '</xml>';
-  callback(xmlToolbox, '');
 }

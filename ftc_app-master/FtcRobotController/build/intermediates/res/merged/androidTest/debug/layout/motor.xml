@@ -14,14 +14,17 @@
         android:textSize="22sp"
         android:textStyle="bold"/>
 
-    <CheckBox
-        android:id="@+id/checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <Spinner
+            android:id="@+id/choiceMotorSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:prompt="@string/choice_prompt_motor"
+            android:spinnerMode="dropdown"/>
 
         <EditText
             android:id="@+id/editTextResult"
@@ -29,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
+            android:layout_below="@id/choiceMotorSpinner"
             android:hint="@string/motor_name"
             android:inputType="text"
             android:maxLength="200">
