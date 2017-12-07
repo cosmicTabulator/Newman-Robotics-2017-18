@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\TeamCode\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\default\\res\\drawable-mdpi-v4\\ic_launcher.png"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\TeamCode\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\default\\res\\drawable-mdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/res/merged/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/ftc_app-master/FtcRobotController/unspecified/res/drawable-mdpi-v4/ic_launcher.png"
     }
 ]

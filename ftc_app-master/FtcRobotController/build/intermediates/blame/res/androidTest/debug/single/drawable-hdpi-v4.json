@@ -1,10 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\button_shape.xml",
-        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\drawable-hdpi-v4\\button_shape.xml"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\button_shape.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\drawable-hdpi-v4\\button_shape.xml"
     },
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ic_launcher.png",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/button_shape.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/exploded-aar/FtcCommon-release/res/drawable-hdpi-v4/button_shape.xml"
     }
 ]

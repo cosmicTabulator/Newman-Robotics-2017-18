@@ -1,14 +1,26 @@
 [
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\menu\\ftc_robot_controller.xml",
-        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\src\\main\\res\\menu\\ftc_robot_controller.xml"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/debug/menu/main_menu.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/exploded-aar/Inspection-release/res/menu/main_menu.xml"
     },
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\menu\\main_menu.xml",
-        "source": "C:\\Users\\graha\\.android\\build-cache\\c3e8bfa0d22372bf607e262b15a3c37cda34fdf0\\output\\res\\menu\\main_menu.xml"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/debug/menu/menu_server.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/exploded-aar/Blocks-release/res/menu/menu_server.xml"
     },
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\menu\\menu_server.xml",
-        "source": "C:\\Users\\graha\\.android\\build-cache\\946ef406fc4a09ffbb2cb2f4e37958fcf03921e7\\output\\res\\menu\\menu_server.xml"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\menu\\ftc_robot_controller.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\src\\main\\res\\menu\\ftc_robot_controller.xml"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\menu\\main_menu.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\.android\\build-cache\\c3e8bfa0d22372bf607e262b15a3c37cda34fdf0\\output\\res\\menu\\main_menu.xml"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/debug/menu/ftc_robot_controller.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/src/main/res/menu/ftc_robot_controller.xml"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\menu\\menu_server.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\.android\\build-cache\\946ef406fc4a09ffbb2cb2f4e37958fcf03921e7\\output\\res\\menu\\menu_server.xml"
     }
 ]

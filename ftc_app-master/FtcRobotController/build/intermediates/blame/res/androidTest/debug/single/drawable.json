@@ -1,22 +1,42 @@
 [
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\icon_robotcontroller.png",
-        "source": "C:\\Users\\graha\\.android\\build-cache\\c3e8bfa0d22372bf607e262b15a3c37cda34fdf0\\output\\res\\drawable\\icon_robotcontroller.png"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\icon_robotcontroller.png",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\.android\\build-cache\\c3e8bfa0d22372bf607e262b15a3c37cda34fdf0\\output\\res\\drawable\\icon_robotcontroller.png"
     },
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\black_border.xml",
-        "source": "C:\\Users\\graha\\.android\\build-cache\\946ef406fc4a09ffbb2cb2f4e37958fcf03921e7\\output\\res\\drawable\\black_border.xml"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\black_border.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\.android\\build-cache\\946ef406fc4a09ffbb2cb2f4e37958fcf03921e7\\output\\res\\drawable\\black_border.xml"
     },
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\button_shape.xml",
-        "source": "C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\drawable\\button_shape.xml"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\button_shape.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\.android\\build-cache\\cbe6afea295f72940077c6194fe1100525508528\\output\\res\\drawable\\button_shape.xml"
     },
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\icon_menu.png",
-        "source": "C:\\Users\\graha\\.android\\build-cache\\c3e8bfa0d22372bf607e262b15a3c37cda34fdf0\\output\\res\\drawable\\icon_menu.png"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable/icon_menu.png",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/exploded-aar/Inspection-release/res/drawable/icon_menu.png"
     },
     {
-        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\feedback_shape_orange.xml",
-        "source": "C:\\Users\\graha\\.android\\build-cache\\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\\output\\res\\drawable\\feedback_shape_orange.xml"
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable/button_shape.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/exploded-aar/FtcCommon-release/res/drawable/button_shape.xml"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable/icon_robotcontroller.png",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/exploded-aar/Inspection-release/res/drawable/icon_robotcontroller.png"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\icon_menu.png",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\.android\\build-cache\\c3e8bfa0d22372bf607e262b15a3c37cda34fdf0\\output\\res\\drawable\\icon_menu.png"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable/feedback_shape_orange.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/exploded-aar/RobotCore-release/res/drawable/feedback_shape_orange.xml"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\feedback_shape_orange.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\.android\\build-cache\\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\\output\\res\\drawable\\feedback_shape_orange.xml"
+    },
+    {
+        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/androidTest/debug/drawable/black_border.xml",
+        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/exploded-aar/Blocks-release/res/drawable/black_border.xml"
     }
 ]
