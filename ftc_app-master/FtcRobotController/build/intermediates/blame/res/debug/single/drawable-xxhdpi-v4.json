@@ -1,10 +1,14 @@
 [
     {
-        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/build/intermediates/res/merged/debug/drawable-xxhdpi-v4/ic_launcher.png",
-        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/FtcRobotController/src/main/res/drawable-xxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
-        "source": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\FtcRobotController\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\FtcRobotController\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\FtcRobotController\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
     }
 ]
