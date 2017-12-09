@@ -9,8 +9,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 import java.lang.Math;
 
-
-
     /**
      * Created by brendanmatulis on 11/15/17.
      */
@@ -30,7 +28,7 @@ import java.lang.Math;
 
         final double wheelDiameter = 4 * inchToCM;
         final double wheelCircumference = Math.PI * wheelDiameter;
-        double encoderValue, numRotations, totalDistance, change_in_numRotations, initial_NumRotations;
+        double encoderValue, numRotations, totalDistance, change_in_numRotations, initial_NumRotations, encoder_zero;
 
         //inchToCm conversion factor convers inches to CM
         //Robot width used to calculate rotations needed for a turn
@@ -41,7 +39,7 @@ import java.lang.Math;
         //Used to calculate number of rotations for turning 90 degrees
         double angleTurnDistance, angleTurnRotations, fractionOfCircumference;
 
-        TankHardware robot = new TankHardware();
+        SlideBotHardware robot = new SlideBotHardware();
 
         public void rotate_clockwise(double degrees) {
 
@@ -72,7 +70,7 @@ import java.lang.Math;
             initial_NumRotations = numRotations;
             change_in_numRotations = 0;
             while (change_in_numRotations < angleTurnRotations) {
-            //    encoderValue = robot.right.getCurrentPosition();
+                encoderValue = robot.right.getCurrentPosition();
                 numRotations = encoderValue / 1440;
 
                 double change_in_numRotations = numRotations - initial_NumRotations;
@@ -131,8 +129,10 @@ import java.lang.Math;
 
             waitForStart();
 
+            encoder_zero = robot.right.getCurrentPosition();
+
             while (opModeIsActive()) {
-                encoderValue = robot.right.getCurrentPosition();
+                encoderValue = robot.right.getCurrentPosition() - encoder_zero;
                 numRotations =  encoderValue / 1440;
                 totalDistance = wheelCircumference * numRotations;
 
@@ -140,7 +140,7 @@ import java.lang.Math;
                 robot.right.setPower(rightMotor);
 
                 top_left_red_check1();
-                
+
                 robot.waitForTick(10);
                 idle();
             }

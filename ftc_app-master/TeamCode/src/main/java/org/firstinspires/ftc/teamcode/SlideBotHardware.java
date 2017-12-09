@@ -48,8 +48,8 @@ public class SlideBotHardware {
         left.setPower(0);
         slide.setPower(0);
 
-        latchUp.setPosition(0.5);
-        latchDown.setPosition(0.5);
+        latchUp.setPosition(0);
+        latchDown.setPosition(1);
 
         arm.setPosition(0.6);
 
