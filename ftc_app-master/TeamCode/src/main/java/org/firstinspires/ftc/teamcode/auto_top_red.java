@@ -59,6 +59,7 @@ public class auto_top_red extends LinearOpMode {
         }
         rightMotor = 0.0;
         leftMotor = 0.0;
+        encoder_zero = robot.right.getCurrentPosition();
     }
 
     public void rotate_anticlockwise(double degrees) {
@@ -80,6 +81,7 @@ public class auto_top_red extends LinearOpMode {
         }
         rightMotor = 0.0;
         leftMotor = 0.0;
+        encoder_zero = robot.right.getCurrentPosition();
     }
 
     public void top_left_red_check1() {
@@ -92,6 +94,7 @@ public class auto_top_red extends LinearOpMode {
             //Stops robot once robot has traveled 36" or more
             leftMotor = 0;
             rightMotor = 0;
+            encoder_zero = robot.right.getCurrentPosition();
         }
         // turns towards goal
         rotate_anticlockwise(90);
@@ -102,6 +105,7 @@ public class auto_top_red extends LinearOpMode {
             //Stops robot once robot has traveled 36" or more
             leftMotor = 0;
             rightMotor = 0;
+            encoder_zero = robot.right.getCurrentPosition();
         }
 
         //turns towards goal
