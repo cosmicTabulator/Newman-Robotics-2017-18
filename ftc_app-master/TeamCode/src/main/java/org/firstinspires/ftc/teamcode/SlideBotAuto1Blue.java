@@ -18,6 +18,8 @@ public class SlideBotAuto1Blue extends LinearOpMode {
     ModernRoboticsI2cColorSensor color;
     ModernRoboticsI2cGyro gyro;
 
+    double rightMotor, leftMotor;
+
     @Override
     public void runOpMode()throws InterruptedException{
 

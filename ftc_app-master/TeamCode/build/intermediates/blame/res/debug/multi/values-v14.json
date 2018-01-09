@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\TeamCode\\build\\intermediates\\exploded-aar\\RobotCore-release\\res\\values-v14\\values-v14.xml",
+                    "file": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\TeamCode\\build\\intermediates\\exploded-aar\\RobotCore-release\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -26,7 +26,7 @@
         ]
     },
     {
-        "outputFile": "C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
@@ -38,7 +38,7 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\TeamCode\\build\\intermediates\\exploded-aar\\RobotCore-release\\res\\values-v14\\values-v14.xml",
+                    "file": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\C:\\Users\\graha\\.android\\build-cache\\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\\output\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -52,7 +52,7 @@
         ]
     },
     {
-        "outputFile": "C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\C:\\Users\\graha\\Desktop\\Newman-Robotics-2016-17\\ftc_app-master\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml",
         "map": [
             {
                 "to": {
@@ -64,7 +64,33 @@
                     "endOffset": 201
                 },
                 "from": {
-                    "file": "C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\C:\\Users\\graha\\.android\\build-cache\\870402ab13fd0f99e16c44c7d89782ef1f6bcd8a\\output\\res\\values-v14\\values-v14.xml",
+                    "file": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/RobotCore-release/res/values-v14/values-v14.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 4,
+                        "endColumn": 12,
+                        "endOffset": 201
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 4,
+                    "endColumn": 12,
+                    "endOffset": 201
+                },
+                "from": {
+                    "file": "/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/C:\\Users\\brendanmatulis\\Documents\\Robotics\\Newman-Robotics-2017-18\\ftc_app-master\\TeamCode\\build\\intermediates\\exploded-aar\\RobotCore-release\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

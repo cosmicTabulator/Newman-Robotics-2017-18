@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
 /**
  * Created by Graham Cooke on 9/28/2016.
  */
@@ -19,7 +18,7 @@ public class SlideBotTeleop extends LinearOpMode {
         float lPower = 0;
         float rPower = 0;
 
-        float c = -1f;
+        float c = -0.7f;
 
         float drive;
         float turn;
@@ -36,35 +35,43 @@ public class SlideBotTeleop extends LinearOpMode {
 
         while(opModeIsActive()){
 
-            slide = gamepad1.right_trigger;
-
             lPower = c*gamepad1.left_stick_y;
             rPower = c*gamepad1.right_stick_y;
 
             robot.left.setPower(lPower);
             robot.right.setPower(rPower);
 
-            if(gamepad1.right_bumper) {
-                robot.slide.setPower(-slide);
-            } else {
-                robot.slide.setPower(slide);
-            }
+            slide = gamepad2.left_stick_y;
 
-            if(gamepad1.dpad_up){
+            robot.slide.setPower(slide);
+
+            if(gamepad2.dpad_up){
                 position = 0.65;
             }
 
-            if(gamepad1.x){
+            if(gamepad2.x){
                 armPos = 0.6;
             }
 
-            if(gamepad1.b){
+            if(gamepad2.b){
                 armPos = 0.1;
             }
 
-            if(gamepad1.dpad_down){
+            if(gamepad2.dpad_down){
                 position = 0;
             }
+
+//            if (gamepad2.dpad_left) {
+//                if (c > -1) {    //for increasing sensitivity
+//                    c += -0.005;
+//                }
+//            }
+//
+//            if (gamepad2.dpad_right) {
+//                if (c < 0) {    //for decreasing sensitivity
+//                    c += 0.005;
+//                }
+//            }
 
             robot.latchUp.setPosition(position);
             robot.latchDown.setPosition(1-position);
