@@ -84,6 +84,5 @@ public class SlideBotTeleop extends LinearOpMode {
             robot.waitForTick(10);
             idle();
         }
-
     }
 }
