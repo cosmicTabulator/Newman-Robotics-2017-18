@@ -3,120 +3,120 @@
 
     <item
         is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/FtcCommon-release/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="7558c70f3b0b473ca494059b37f16ca880ac43fd">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/intermediates-exploded-aar-FtcCommon-release_97fe0917d1eff67e7468c0c11f7cb112671acb09.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/Analytics-release/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="9dafed45e330aec14abcce05bdb7bbdb2a2d7092">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/intermediates-exploded-aar-Analytics-release_0fd3adbe9bcc2adf9ce22b2f35b7ff1062245193.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/RobotCore-release/jars/libs/javac.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="c576121aac49e547b39aedfb1daa29782db4166c">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/javac_1c9ead4665c1d72342a5e49f2b38e938f610b8cb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/Hardware-release/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="6c6d1584a392ebfee01efd98e6caaf6a9e5ac51d">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/intermediates-exploded-aar-Hardware-release_ee91218bfb13501fcdfa2f634ed8374fd1252b7e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/WirelessP2p-release/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="9403be210676ed196cdcc64c7391b9ae2361c174">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/intermediates-exploded-aar-WirelessP2p-release_b03555cbf486b3017211966737ea11d24c71b6f3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/RobotCore-release/jars/classes.jar"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\RobotCore-release\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="5d8f95b7b91c8a132c514f5dbe75340305e6883b">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/intermediates-exploded-aar-RobotCore-release_b327424fe46307c7b59754069e55a91d9220fec1.jar" />
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-RobotCore-release_8849c7c8b7554d65176c8618dda5e9a5cc906bca.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/Blocks-release/jars/classes.jar"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\FtcCommon-release\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7558c70f3b0b473ca494059b37f16ca880ac43fd">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-FtcCommon-release_657fc58eed11b52f7c2cadcebff24579ec56785d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\Blocks-release\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="1ce86a6340781abf3d876eba190efa34ae92d2f9">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/intermediates-exploded-aar-Blocks-release_418db169a0d92ea0bc46d173c544f68fe6c22a1f.jar" />
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Blocks-release_c16a3773243b6bcd527b81866ed979e4e4d83952.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/RobotCore-release/jars/libs/gson-2.8.0.jar"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\Analytics-release\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="e118dd0900e4a18fb928ebb8df2d9fbda78f2b5d">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/gson-2.8.0_6eb974fc03ec9f3c2be50bf39a0c3a1d2d51e081.jar" />
+        sha1="9dafed45e330aec14abcce05bdb7bbdb2a2d7092">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Analytics-release_ab8a85c330e4c54963afcc03d802da8c235d59f3.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/RobotCore-release/jars/libs/gson-extras-0.2.1.jar"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\Hardware-release\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="b30c2655badcc7ce97f84e49f777b7dd154bad57">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/gson-extras-0.2.1_4db32c1b596c6c547c4453f5f0d8bb9d4c057155.jar" />
+        sha1="6c6d1584a392ebfee01efd98e6caaf6a9e5ac51d">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Hardware-release_13c7b4749692c2587e5446e93de29eeecece0e9f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/RobotCore-release/jars/libs/Vuforia.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="91b46366eb9f8203073ee2935087c097c888c0ed">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/Vuforia_f4d3f40a730693e9218cb32aff9ac96f4e588e2c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/ftc_app-master/FtcRobotController/unspecified/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d0c919e219a954111faa31c905d63e0e30c88b6b">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/ftc_app-master-FtcRobotController-unspecified_7b62ca9434ba77d67ab3b8112bde02a95e7cbe05.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/Inspection-release/jars/classes.jar"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\Inspection-release\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="e444b561b0feba789cac93c5db61f08ef8c25ee6">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/intermediates-exploded-aar-Inspection-release_13bfc51005f899775e3f82cb7aa3d043a1682d75.jar" />
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-Inspection-release_7bd58ef1f7d55d440c189246b81226cd3d50d568.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/exploded-aar/RobotCore-release/jars/libs/support-annotations-23.4.0.jar"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\RobotCore-release\jars\libs\support-annotations-23.4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="5a214d3b1b12e72f4fb0d5d5d8d0ec43c96de2b5">
-        <dex dex="/Users/brendanmatulis/Documents/Robotics/Newman-Robotics-2017-18/ftc_app-master/TeamCode/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_b9e302ca7e58ad394e03e04a546ec7d8852b4fd1.jar" />
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_cb453e292873ef1fcf960c3576271cfdc3630e3f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\WirelessP2p-release\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9403be210676ed196cdcc64c7391b9ae2361c174">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\intermediates-exploded-aar-WirelessP2p-release_b4188b11ffed9d85dffb09de0febcc989196c3f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\ftc_app-master\FtcRobotController\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d0c919e219a954111faa31c905d63e0e30c88b6b">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\ftc_app-master-FtcRobotController-unspecified_723d444c58ccf43d37d627ee3e3e6dfa675217dd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\RobotCore-release\jars\libs\gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e118dd0900e4a18fb928ebb8df2d9fbda78f2b5d">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\gson-2.8.0_e957c1f8d8fc5c1b1bb97563c45e28a769d4728d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\RobotCore-release\jars\libs\Vuforia.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="91b46366eb9f8203073ee2935087c097c888c0ed">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\Vuforia_b2fc78861d611ddba181691f2a8d5a2f7be2b874.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\RobotCore-release\jars\libs\javac.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c576121aac49e547b39aedfb1daa29782db4166c">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\javac_3c70a4ad765dbb49f5b5bb245f3fd38f83c707dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\exploded-aar\RobotCore-release\jars\libs\gson-extras-0.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b30c2655badcc7ce97f84e49f777b7dd154bad57">
+        <dex dex="C:\Users\graha\Desktop\Newman-Robotics-2017-18\ftc_app-master\TeamCode\build\intermediates\pre-dexed\debug\gson-extras-0.2.1_99ceb0b2bc21e860242d0128f833c01ef6121264.jar" />
     </item>
 
 </items>

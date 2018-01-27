@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+
 /**
  * Created by Graham Cooke on 9/28/2016.
  */
@@ -31,9 +33,19 @@ public class SlideBotTeleop extends LinearOpMode {
 
         robot.init(hardwareMap);
 
+        robot.right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        robot.left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        robot.slide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         waitForStart();
 
         while(opModeIsActive()){
+
+            if(gamepad1.right_bumper){
+                c = -0.25f;
+            } else{
+                c = -0.7f;
+            }
 
             lPower = c*gamepad1.left_stick_y;
             rPower = c*gamepad1.right_stick_y;

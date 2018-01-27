@@ -109,5 +109,6 @@
     <orderEntry type="library" exported="" name="FtcCommon-release:@aar" level="project" />
     <orderEntry type="library" exported="" name="Blocks-release:@aar" level="project" />
     <orderEntry type="library" exported="" name="Inspection-release:@aar" level="project" />
+    <orderEntry type="library" exported="" name="android-android-23" level="project" />
   </component>
 </module>
