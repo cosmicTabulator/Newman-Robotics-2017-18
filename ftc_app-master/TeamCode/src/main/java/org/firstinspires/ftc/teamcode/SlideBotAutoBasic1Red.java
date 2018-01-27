@@ -17,7 +17,7 @@ public class SlideBotAutoBasic1Red extends LinearOpMode{
 
     ModernRoboticsI2cColorSensor color;
     ModernRoboticsI2cGyro gyro;
-
+    int count = 0;
     @Override
     public void runOpMode()throws InterruptedException{
 
@@ -41,8 +41,7 @@ public class SlideBotAutoBasic1Red extends LinearOpMode{
             turn(-90);
 
         }
-        else{
-
+        else {
             turn(90);
         }
 
@@ -75,5 +74,6 @@ public class SlideBotAutoBasic1Red extends LinearOpMode{
         robot.right.setPower(0);
         robot.left.setPower(0);
 
+        stop();
     }
 }

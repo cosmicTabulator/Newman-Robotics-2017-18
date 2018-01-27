@@ -72,6 +72,8 @@ public class SlideBotAuto1Blue extends LinearOpMode {
                 robot.right.setPower(0.5);
                 robot.left.setPower(-0.5);
             }
+
+            stop();
         }
 
         robot.right.setPower(0);
